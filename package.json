@@ -1,0 +1,22 @@
+{
+  "name": "financial-calculator-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for a financial calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wanderindev/financial-calculator-frontend.git"
+  },
+  "author": "Javier Feliu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wanderindev/financial-calculator-frontend/issues"
+  },
+  "homepage": "https://github.com/wanderindev/financial-calculator-frontend#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
