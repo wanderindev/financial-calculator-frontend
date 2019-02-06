@@ -74,3 +74,11 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# Webstorm
+.idea/
+
+# Project
+dist
+.gitignore
+.gitattributes
