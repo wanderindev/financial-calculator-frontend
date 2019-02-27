@@ -1,0 +1,22 @@
+.section {
+  padding-top: 1rem;
+}
+
+.menu-list a {
+  padding: 0;
+  color: #3273dc;
+  text-decoration: underline;
+}
+
+.menu-label {
+  font-weight: 600;
+}
+
+.menu-label:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+.menu-label:not(:first-child) {
+  margin-top: 1.25rem;
+}
+
