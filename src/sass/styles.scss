@@ -2,8 +2,12 @@
   padding-top: 1rem;
 }
 
+.menu {
+  min-width: 288px;
+}
+
 .menu-list a {
-  padding: 0;
+  padding: .15rem 0;
   color: #3273dc;
   text-decoration: underline;
 }
@@ -18,4 +22,17 @@
 
 .menu-label:not(:first-child) {
   margin-top: 1.25rem;
+}
+
+.menu .cf-menu-item {
+  font-size: 0.85rem;
+}
+
+.cf-field-label {
+  width: 110px;
+  text-align: left;
+}
+
+.field:not(:last-child) {
+  margin-bottom: 0.375rem;
 }

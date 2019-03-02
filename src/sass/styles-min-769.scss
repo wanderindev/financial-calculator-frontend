@@ -1,0 +1,16 @@
+@media screen and (min-width: 769px) {
+  .field-label.is-small, .radio-text {
+    font-size: 0.85rem;
+    padding-top: 0.325rem;
+  }
+
+  .cf-field-label {
+    font-weight: 500;
+  }
+
+  .cf-field-label.cf-rb {
+    width: 100%;
+    margin-top: .375rem;
+    margin-bottom: .375rem;
+  }
+}

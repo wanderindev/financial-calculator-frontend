@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container">
+    <!-- Navbar start -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://anafeliu.com" title="Inicio">
@@ -55,38 +56,232 @@
             </div>
         </div>
     </nav>
+    <!-- Navbar ends -->
 </div>
-<section class="section cf-section is-hidden-touch">
+<section class="section cf-section">
+
+    <!-- Container start -->
     <div class="container">
-        <aside class="menu">
-            <p class="menu-label">Ahorros</p>
-            <ul class="menu-list">
-                <li><a class="cf-menu-item" href="#">Calculadora de Ahorros</a></li>
-                <li><a class="cf-menu-item" href="#">Ahorros para Lograr Meta</a></li>
-                <li><a class="cf-menu-item" href="#">Tiempo para Lograr Meta</a></li>
-                <li><a class="cf-menu-item" href="#">Tasa de Interés Requerida</a></li>
-                <li><a class="cf-menu-item" href="#">Valor Actual</a></li>
-            </ul>
-            <p class="menu-label">Préstamos</p>
-            <ul class="menu-list">
-                <li><a class="cf-menu-item" href="#">Calculadora de Préstamo</a></li>
-                <li><a class="cf-menu-item" href="#">Tasa de Interés Real</a></li>
-                <li><a class="cf-menu-item" href="#">Tiempo para Cancelar Préstamo</a></li>
-            </ul>
-            <p class="menu-label">Retiros</p>
-            <ul class="menu-list">
-                <li><a class="cf-menu-item" href="#">Fondo para Retiros</a></li>
-                <li><a class="cf-menu-item" href="#">Retiros para Agotar Fondo</a></li>
-                <li><a class="cf-menu-item" href="#">Duración de Fondo</a></li>
-            </ul>
-            <p class="menu-label">Tarjetas de Crédito</p>
-            <ul class="menu-list">
-                <li><a class="cf-menu-item" href="#">Pago Mínimo</a></li>
-                <li><a class="cf-menu-item" href="#">Pago Fijo</a></li>
-                <li><a class="cf-menu-item" href="#">Tasa de Interés Real</a></li>
-            </ul>
-        </aside>
+
+        <!-- Content start -->
+        <div class="columns is-multiline">
+
+            <!-- Side menu starts -->
+            <aside class="menu is-hidden-touch column is-narrow">
+                <p class="menu-label">Ahorros</p>
+                <ul class="menu-list">
+                    <li><a class="cf-menu-item" href="#">Calculadora de Ahorros</a></li>
+                    <li><a class="cf-menu-item" href="#">Ahorros para Lograr Meta</a></li>
+                    <li><a class="cf-menu-item" href="#">Tiempo para Lograr Meta</a></li>
+                    <li><a class="cf-menu-item" href="#">Tasa de Interés Requerida</a></li>
+                    <li><a class="cf-menu-item" href="#">Valor Actual</a></li>
+                </ul>
+                <p class="menu-label">Préstamos</p>
+                <ul class="menu-list">
+                    <li><a class="cf-menu-item" href="#">Calculadora de Préstamo</a></li>
+                    <li><a class="cf-menu-item" href="#">Tasa de Interés Real</a></li>
+                    <li><a class="cf-menu-item" href="#">Tiempo para Cancelar Préstamo</a></li>
+                </ul>
+                <p class="menu-label">Retiros</p>
+                <ul class="menu-list">
+                    <li><a class="cf-menu-item" href="#">Fondo para Retiros</a></li>
+                    <li><a class="cf-menu-item" href="#">Retiros para Agotar Fondo</a></li>
+                    <li><a class="cf-menu-item" href="#">Duración de Fondo</a></li>
+                </ul>
+                <p class="menu-label">Tarjetas de Crédito</p>
+                <ul class="menu-list">
+                    <li><a class="cf-menu-item" href="#">Pago Mínimo</a></li>
+                    <li><a class="cf-menu-item" href="#">Pago Fijo</a></li>
+                    <li><a class="cf-menu-item" href="#">Tasa de Interés Real</a></li>
+                </ul>
+            </aside>
+            <!-- Side menu ends -->
+
+            <!-- Form starts -->
+            <div class="column is-12-tablet is-3-desktop is-3-widescreen">
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Cantidad Inicial</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="ini-dep" class="input is-small" type="text" placeholder="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Aporte Regular</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="reg-dep" class="input is-small" type="text" placeholder="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Frecuencia</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <div class="select is-small is-fullwidth">
+                                    <!--suppress HtmlFormInputWithoutLabel -->
+                                    <select id="freq">
+                                        <option value="1">Anual</option>
+                                        <option value="2">Semi-anual</option>
+                                        <option value="3">Cuatrimestral</option>
+                                        <option value="6">Bimestral</option>
+                                        <option value="12">Mensual</option>
+                                        <option value="24">Quincenal</option>
+                                        <option value="26">Bi-semanal</option>
+                                        <option value="52">Semanal</option>
+                                        <option value="364">Diario</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Tiempo (en años)</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="number-of-years" class="input is-small" type="text" placeholder="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Interés (%)</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="rate" class="input is-small" type="text" placeholder="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label cf-rb">Todos los aportes se hacen:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <label class="radio">
+                                    <input type="radio" value="0" name="dep-when" checked>
+                                    <span class="radio-text">Al inicio del período</span>
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" value="1" name="dep-when">
+                                    <span class="radio-text">Al final del período</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label cf-rb">¿Aportes extraordinarios?</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <label class="radio">
+                                    <input type="radio" value="1" name="extra-d">
+                                    <span class="radio-text">Si</span>
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" value="0" name="extra-d" checked>
+                                    <span class="radio-text">No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Cantidad</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="extra-dep" class="input is-small" type="text" placeholder="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">En el Período</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input id="extra-dep-start" class="input is-small" type="text" placeholder="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label cf-field-label">Frecuencia</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <div class="select is-small is-fullwidth">
+                                    <!--suppress HtmlFormInputWithoutLabel -->
+                                    <select id="extra-dep-f">
+                                        <option value="0">Solo una vez</option>
+                                        <option value="1">Anual</option>
+                                        <option value="12">Mensual</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Form ends -->
+
+            <!-- Results starts -->
+            <div class="column is-12-tablet is-4-desktop is-6-widescreen">
+
+            </div>
+            <!-- Results ends -->
+
+            <!-- Table starts -->
+            <div class="column is-12-tablet">
+
+            </div>
+            <!-- Table ends -->
+
+        </div>
+        <!-- Content ends -->
+
     </div>
+    <!-- Container ends -->
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- inject:js -->
