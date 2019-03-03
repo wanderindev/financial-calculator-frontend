@@ -83,14 +83,16 @@ let flatmap = require('gulp-flatmap');
 let lazypipe = require('lazypipe');
 let rename = require('gulp-rename');
 let header = require('gulp-header');
+let cache = require('gulp-cache');
 let _package = require('./package.json');
 
 // Scripts
 let jshint = require('gulp-jshint');
 let stylish = require('jshint-stylish');
 let concat = require('gulp-concat');
-let uglify = require('gulp-uglify');
+//let uglify = require('gulp-uglify');
 let optimizejs = require('gulp-optimize-js');
+//let babel = require('gulp-babel');
 
 // Styles
 let sass = require('gulp-sass');
@@ -99,7 +101,6 @@ let minify = require('gulp-cssnano');
 
 // Imgs
 let imagemin = require('gulp-imagemin');
-let cache = require('gulp-cache');
 
 // SVGs
 let svgmin = require('gulp-svgmin');
@@ -140,7 +141,7 @@ let jsTasks = lazypipe()
     .pipe(optimizejs)
     .pipe(dest, paths.scripts.output)
     .pipe(rename, {suffix: '.min'})
-    .pipe(uglify)
+    //.pipe(uglify)
     .pipe(optimizejs)
     .pipe(header, banner.min, {package: _package})
     .pipe(dest, paths.scripts.output);
@@ -185,7 +186,7 @@ let buildScripts = function (done) {
             }
 
             // Otherwise, process the file
-            return stream.pipe(jsTasks());
+            return stream .pipe(jsTasks());
 
         }));
 

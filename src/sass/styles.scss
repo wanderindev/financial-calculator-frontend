@@ -6,10 +6,15 @@
   min-width: 288px;
 }
 
-.menu-list a {
+.menu-list a, .menu-list a.is-active {
   padding: .15rem 0;
   color: #3273dc;
   text-decoration: underline;
+  background-color: #fff;
+}
+
+.menu-list a.is-active:hover {
+  cursor: default;
 }
 
 .menu-label {
