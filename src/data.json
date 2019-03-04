@@ -1,0 +1,81 @@
+{
+  "pageTitle": "index",
+  "menu": [
+    {
+      "title": "Ahorros",
+      "calculators": [
+        {
+          "url": "/calculadora-de-ahorros.html",
+          "name": "Calculadora de Ahorros"
+        },
+        {
+          "url": "/ahorros-para-lograr-meta.html",
+          "name": "Ahorros para Lograr Meta"
+        },
+        {
+          "url": "/tiempo-para-lograr-meta.html",
+          "name": "Tiempo para Lograr Meta"
+        },
+        {
+          "url": "/tasa-de-interes-requerida.html",
+          "name": "Tasa de Interés Requerida"
+        },
+        {
+          "url": "/valor-actual.html",
+          "name": "Valor Actual"
+        }
+      ]
+    },
+    {
+      "title": "Préstamos",
+      "calculators": [
+        {
+          "url": "/calculadora-de-prestamo.html",
+          "name": "Calculadora de Préstamo"
+        },
+        {
+          "url": "/tasa-de-interes-real.html",
+          "name": "Tasa de Interés Real"
+        },
+        {
+          "url": "/tiempo-para-cancelar-prestamo.html",
+          "name": "Tiempo para Cancelar Préstamo"
+        }
+      ]
+    },
+    {
+      "title": "Retiros",
+      "calculators": [
+        {
+          "url": "/fondo-para-retiros.html",
+          "name": "Fondo para Retiros"
+        },
+        {
+          "url": "/retiros-para-agotar-fondo.html",
+          "name": "Retiros para Agotar Fondo"
+        },
+        {
+          "url": "/duracion-de-fondo.html",
+          "name": "Duración de Fondo"
+        }
+      ]
+    },
+    {
+      "title": "Tarjetas de Crédito",
+      "calculators": [
+        {
+          "url": "/tarjetas-pago-minimo.html",
+          "name": "Pago Mínimo"
+        },
+        {
+          "url": "/tarjetas-pago-fijo.html",
+          "name": "Pago Fijo"
+        },
+        {
+          "url": "/tarjetas-tasa-de-interes-real.html",
+          "name": "Tasa de Interés Real"
+        }
+      ]
+    }
+  ]
+}

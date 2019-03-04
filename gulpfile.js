@@ -1,5 +1,6 @@
 let settings = {
     clean: true,
+    render: true,
     scripts: true,
     polyfills: true,
     styles: true,
@@ -7,7 +8,7 @@ let settings = {
     svgs: true,
     inject: true,
     copy: true,
-    reload: true
+    reload: true,
 };
 
 
@@ -18,34 +19,39 @@ let settings = {
 let paths = {
     input: 'src/',
     output: 'dist/',
+    render: {
+        input: 'src/pages/*.njk',
+        output: 'src/',
+        templates: 'src/templates/',
+    },
     scripts: {
         input: 'src/js/*',
         polyfills: '.polyfill.js',
-        output: 'dist/js/'
+        output: 'dist/js/',
     },
     styles: {
         input: 'src/sass/*.{scss,sass}',
-        output: 'dist/css/'
+        output: 'dist/css/',
     },
     imgs: {
         input: 'src/img/*.{gif,jpg,png}',
-        output: 'dist/img/'
+        output: 'dist/img/',
     },
     svgs: {
         input: 'src/svg/*.svg',
-        output: 'dist/svg/'
+        output: 'dist/svg/',
     },
     inject: {
         target: 'src/*.html',
         devsrc: ['dist/js/*.js', 'dist/css/*.css', '!dist/js/*.min.js', '!dist/css/*.min.css'],
         prodsrc: ['dist/js/*.min.js', 'dist/css/*.min.css'],
-        output: 'dist/'
+        output: 'dist/',
     },
     copy: {
         input: 'src/copy/**/*',
-        output: 'dist/'
+        output: 'dist/',
     },
-    reload: './dist/'
+    reload: './dist/',
 };
 
 
@@ -85,6 +91,10 @@ let rename = require('gulp-rename');
 let header = require('gulp-header');
 let cache = require('gulp-cache');
 let _package = require('./package.json');
+
+// Render
+let nunjucks = require('gulp-nunjucks-render');
+let data = require('gulp-data');
 
 // Scripts
 let jshint = require('gulp-jshint');
@@ -132,6 +142,26 @@ let cleanDist = function (done) {
     // Signal completion
     return done();
 
+};
+
+// Render templates
+let render = function(done) {
+
+    // Make sure this feature is activated before running
+    if (!settings.render) return done();
+
+    // Render the templates
+    src(paths.render.input)
+        .pipe(data(function() {
+            return require('./src/data.json')
+        }))
+        .pipe(nunjucks({
+            path: [paths.render.templates]
+        }))
+        .pipe(dest(paths.render.output));
+
+    // Signal completion
+    done();
 };
 
 // Repeated JavaScript tasks
@@ -389,6 +419,11 @@ exports.default = series(
 // gulp clear
 exports.clean = series(
     cleanDist
+);
+
+// Render the templates
+exports.render = series(
+    render
 );
 
 // Inject css and js references

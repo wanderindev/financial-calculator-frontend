@@ -1,16 +1,16 @@
 {
-  "name": "",
+  "name": "financial-calculator-frontend",
   "version": "0.0.1",
-  "description": "",
+  "description": "Website for Financial Calculator",
   "main": "./dist/app.js",
   "author": {
-    "name": "",
-    "url": ""
+    "name": "Javier Feliu",
+    "url": "https://wanderin.dev"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/wanderindev/financial-calculator-frontend"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -23,11 +23,13 @@
     "gulp-cache": "1.1.1",
     "gulp-concat": "2.6.1",
     "gulp-cssnano": "2.1.3",
+    "gulp-data": "^1.3.1",
     "gulp-flatmap": "1.0.2",
     "gulp-header": "2.0.5",
     "gulp-imagemin": "5.0.3",
     "gulp-inject": "^5.0.2",
     "gulp-jshint": "2.1.0",
+    "gulp-nunjucks-render": "^2.2.2",
     "gulp-optimize-js": "1.1.0",
     "gulp-rename": "1.4.0",
     "gulp-sass": "4.0.2",
@@ -37,6 +39,6 @@
     "jshint": "2.9.6",
     "jshint-stylish": "2.2.1",
     "lazypipe": "1.0.1",
-    "mustache": "^3.0.1"
+    "nunjucks": "^3.1.7"
   }
 }

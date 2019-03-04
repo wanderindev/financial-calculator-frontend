@@ -13,6 +13,11 @@
   background-color: #fff;
 }
 
+.menu-list a:hover {
+  background-color: #fff;
+  color: #3273dc;
+}
+
 .menu-list a.is-active:hover {
   cursor: default;
 }

@@ -1,0 +1,8 @@
+                    {% for item in menu %}
+                    <p class="menu-label">{{ item.title }}</p>
+                    <ul class="menu-list">
+                        {% for calculator in item.calculators %}
+                        <li><a class="cf-menu-item {% if page === calculator.name %}is-active{% endif %}" href="{{ calculator.url }}" >{{ calculator.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}

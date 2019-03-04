@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ pageTitle}}</title>
+    <!-- inject:css -->
+    <!-- endinject -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- Navbar start -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://anafeliu.com" title="Inicio">
+                <h1 class="header-logo"></h1>
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="mobile-menu" class="navbar-menu is-hidden-desktop">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    {% include '_menu.njk' %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar ends -->
+</div>
+<section class="section cf-section">
+
+    <!-- Container start -->
+    <div class="container">
+
+        <!-- Content start -->
+        <div class="columns is-multiline">
+
+            <!-- Side menu starts -->
+            <aside class="menu is-hidden-touch column is-narrow">
+                {% include '_menu.njk' %}
+            </aside>
+            <!-- Side menu ends -->
+
+            <!-- Form starts -->
+            <div class="column is-12-tablet is-3-desktop is-3-widescreen">
+
+            </div>
+            <!-- Form ends -->
+
+            <!-- Results starts -->
+            <div class="column is-12-tablet is-4-desktop is-6-widescreen">
+
+            </div>
+            <!-- Results ends -->
+
+            <!-- Table starts -->
+            <div class="column is-12-tablet">
+
+            </div>
+            <!-- Table ends -->
+
+        </div>
+        <!-- Content ends -->
+
+    </div>
+    <!-- Container ends -->
+</section>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Mustache JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
+
+<!-- inject:js -->
+<!-- endinject -->
+</body>
+</html>
