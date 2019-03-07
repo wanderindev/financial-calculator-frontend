@@ -1,0 +1,19 @@
+{% set page = 'Calculadora de Ahorros' %}
+{% extends "_base.njk" %}
+
+{% block form %}
+    {% for field in forms['Calculadora de Ahorros'] %}
+        {% if field.type == 'textField' %}
+        {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+        {% elif field.type == 'freqSelect' %}
+        {{ formFields['freqSelect']() }}
+        {% elif field.type == 'extraDepFreqSelect' %}
+        {{ formFields['extraDepFreqSelect']() }}
+        {% elif field.type == 'extraDepRadio' %}
+        {{ formFields['extraDepRadio']() }}
+        {% elif field.type == 'depWhenRadio' %}
+        {{ formFields['depWhenRadio']() }}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+

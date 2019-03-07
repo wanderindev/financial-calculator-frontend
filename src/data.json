@@ -77,5 +77,54 @@
         }
       ]
     }
-  ]
+  ],
+  "forms": {
+    "Calculadora de Ahorros": [
+      {
+        "type": "textField",
+        "id": "ini-dep",
+        "label": "Cantidad Inicial",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "reg-dep",
+        "label": "Aporte Regular",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "freqSelect"
+      },{
+        "type": "textField",
+        "id": "number-of-years",
+        "label": "Tiempo (en años)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "depWhenRadio"
+      },{
+        "type": "extraDepRadio"
+      },{
+        "type": "textField",
+        "id": "extra-dep",
+        "label": "Cantidad",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "extra-dep-start",
+        "label": "En el Período",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "extraDepFreqSelect"
+      }
+    ]
+  }
 }

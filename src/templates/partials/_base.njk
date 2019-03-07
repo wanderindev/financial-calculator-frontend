@@ -1,3 +1,4 @@
+{% import "_form-fields.njk" as formFields %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,19 +50,25 @@
 
             <!-- Form starts -->
             <div class="column is-12-tablet is-3-desktop is-3-widescreen">
+                {% block form %}
 
+                {% endblock %}
             </div>
             <!-- Form ends -->
 
             <!-- Results starts -->
             <div class="column is-12-tablet is-4-desktop is-6-widescreen">
+                {% block results %}
 
+                {% endblock %}
             </div>
             <!-- Results ends -->
 
             <!-- Table starts -->
             <div class="column is-12-tablet">
+                {% block table %}
 
+                {% endblock %}
             </div>
             <!-- Table ends -->
 

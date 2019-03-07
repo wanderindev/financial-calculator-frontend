@@ -20,9 +20,9 @@ let paths = {
     input: 'src/',
     output: 'dist/',
     render: {
-        input: 'src/pages/*.njk',
+        input: 'src/templates/*.njk',
         output: 'src/',
-        templates: 'src/templates/',
+        partials: 'src/templates/partials',
     },
     scripts: {
         input: 'src/js/*',
@@ -156,7 +156,7 @@ let render = function(done) {
             return require('./src/data.json')
         }))
         .pipe(nunjucks({
-            path: [paths.render.templates]
+            path: [paths.render.partials]
         }))
         .pipe(dest(paths.render.output));
 
