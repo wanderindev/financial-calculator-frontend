@@ -125,6 +125,124 @@
       },{
         "type": "extraDepFreqSelect"
       }
+    ],
+    "Ahorros para Lograr Meta": [
+      {
+        "type": "textField",
+        "id": "fin-bal",
+        "label": "Cantidad Meta",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "ini-dep",
+        "label": "Cantidad Inicial",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "freqSelect"
+      },{
+        "type": "textField",
+        "id": "number-of-years",
+        "label": "Tiempo (en años)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "depWhenRadio"
+      }
+    ],
+    "Tiempo para Lograr Meta": [
+      {
+        "type": "textField",
+        "id": "fin-bal",
+        "label": "Cantidad Meta",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "ini-dep",
+        "label": "Cantidad Inicial",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "reg-dep",
+        "label": "Aporte Regular",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "freqSelect"
+      },{
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "depWhenRadio"
+      }
+    ],
+    "Tasa de Interés Requerida": [
+      {
+        "type": "textField",
+        "id": "ini-dep",
+        "label": "Cantidad Inicial",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "reg-dep",
+        "label": "Aporte Regular",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "freqSelect"
+      },{
+        "type": "textField",
+        "id": "number-of-years",
+        "label": "Tiempo (en años)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "fin-bal",
+        "label": "Cantidad Meta",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "depWhenRadio"
+      }
+    ],
+    "Valor Actual": [
+      {
+        "type": "textField",
+        "id": "fin-bal",
+        "label": "Cantidad Meta",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "freqSelect"
+      },{
+        "type": "textField",
+        "id": "number-of-years",
+        "label": "Tiempo (en años)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },{
+        "type": "depWhenRadio"
+      }
     ]
   }
 }

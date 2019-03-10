@@ -50,9 +50,19 @@
 
             <!-- Form starts -->
             <div class="column is-12-tablet is-3-desktop is-3-widescreen">
-                {% block form %}
-
-                {% endblock %}
+                {% for field in forms[page] %}
+                    {% if field.type == 'textField' %}
+                        {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                        {% elif field.type == 'freqSelect' %}
+                        {{ formFields['freqSelect']() }}
+                        {% elif field.type == 'extraDepFreqSelect' %}
+                        {{ formFields['extraDepFreqSelect']() }}
+                        {% elif field.type == 'extraDepRadio' %}
+                        {{ formFields['extraDepRadio']() }}
+                        {% elif field.type == 'depWhenRadio' %}
+                        {{ formFields['depWhenRadio']() }}
+                    {% endif %}
+                {% endfor %}
             </div>
             <!-- Form ends -->
 
