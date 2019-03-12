@@ -146,133 +146,148 @@
             </aside>
             <!-- Side menu ends -->
 
-            <!-- Form starts -->
-            <div class="column is-12-tablet is-3-desktop is-3-widescreen">
-                
+            <!-- Title starts -->
+            <div class="column is-12-tablet is-7-desktop is-9-widescreen">
+
+                <!-- Title starts -->
+                <div class="column is-12-tablet page-title">
+                    <h1 class="title is-4">Valor Actual</h1>
+                </div>
+                <!-- Title ends -->
+
+                <!-- Form starts -->
+                <div class="column is-12-tablet is-half-desktop is-one-third-widescreen">
+                    <div class="calculator-form">
                     
                         
-                        <div class="field is-horizontal">
-                            <div class="field-label is-small">
-                                <label class="label cf-field-label">Cantidad Meta</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input id="fin-bal" class="input is-small" type="text" placeholder="">
-                                    </p>
+                            
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Cantidad Meta</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="fin_bal" class="input is-small" type="text" placeholder="">
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        
-                
+                            
                     
                         
-                        <div class="field is-horizontal">
+                            
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Frecuencia</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <div class="control">
+                                            <div class="select is-small is-fullwidth">
+                                                <!--suppress HtmlFormInputWithoutLabel -->
+                                                <select id="freq">
+                                                    <option value="1">Anual</option>
+                                                    <option value="2">Semi-anual</option>
+                                                    <option value="3">Cuatrimestral</option>
+                                                    <option value="6">Bimestral</option>
+                                                    <option value="12" selected>Mensual</option>
+                                                    <option value="24">Quincenal</option>
+                                                    <option value="26">Bi-semanal</option>
+                                                    <option value="52">Semanal</option>
+                                                    <option value="364">Diario</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                    
+                        
+                            
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Tiempo (en años)</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="num_of_years" class="input is-small" type="text" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                    
+                        
+                            
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Interés (%)</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="rate" class="input is-small" type="text" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                    
+                        
+                            
+                        <div class="field">
                             <div class="field-label is-small">
-                                <label class="label cf-field-label">Frecuencia</label>
+                                <label class="label cf-field-label cf-rb">Todos los aportes se hacen:</label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <div class="select is-small is-fullwidth">
-                                            <!--suppress HtmlFormInputWithoutLabel -->
-                                            <select id="freq">
-                                                <option value="1">Anual</option>
-                                                <option value="2">Semi-anual</option>
-                                                <option value="3">Cuatrimestral</option>
-                                                <option value="6">Bimestral</option>
-                                                <option value="12">Mensual</option>
-                                                <option value="24">Quincenal</option>
-                                                <option value="26">Bi-semanal</option>
-                                                <option value="52">Semanal</option>
-                                                <option value="364">Diario</option>
-                                            </select>
-                                        </div>
+                                        <label class="radio">
+                                            <input type="radio" value="0" name="dep_when" checked>
+                                            <span class="radio-text">Al inicio del período</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" value="1" name="dep_when">
+                                            <span class="radio-text">Al final del período</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         
-                
                     
-                        
-                        <div class="field is-horizontal">
-                            <div class="field-label is-small">
-                                <label class="label cf-field-label">Tiempo (en años)</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input id="number-of-years" class="input is-small" type="text" placeholder="">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                
-                    
-                        
-                        <div class="field is-horizontal">
-                            <div class="field-label is-small">
-                                <label class="label cf-field-label">Interés (%)</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input id="rate" class="input is-small" type="text" placeholder="">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                
-                    
-                        
-                    <div class="field">
-                        <div class="field-label is-small">
-                            <label class="label cf-field-label cf-rb">Todos los aportes se hacen:</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <label class="radio">
-                                        <input type="radio" value="0" name="dep-when" checked>
-                                        <span class="radio-text">Al inicio del período</span>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" value="1" name="dep-when">
-                                        <span class="radio-text">Al final del período</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    
+                        <a class="button is-primary" onclick="app.calculate('Valor Actual')">Calcular</a>
+
+                </div>
+                <!-- Form ends -->
+
+                <!-- Results starts -->
+                <div class="column is-12-tablet is-half-desktop is-two-third-widescreen">
+                    
 
                     
-                
+                </div>
+                <!-- Results ends -->
+
+                <!-- Table starts -->
+                <div class="column is-12-tablet">
+                    
+
+                    
+                </div>
+                <!-- Table ends -->
+
             </div>
-            <!-- Form ends -->
-
-            <!-- Results starts -->
-            <div class="column is-12-tablet is-4-desktop is-6-widescreen">
-                
-
-                
-            </div>
-            <!-- Results ends -->
-
-            <!-- Table starts -->
-            <div class="column is-12-tablet">
-                
-
-                
-            </div>
-            <!-- Table ends -->
-
         </div>
         <!-- Content ends -->
 
