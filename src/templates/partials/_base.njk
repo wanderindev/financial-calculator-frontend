@@ -48,40 +48,53 @@
             </aside>
             <!-- Side menu ends -->
 
-            <!-- Form starts -->
-            <div class="column is-12-tablet is-3-desktop is-3-widescreen">
-                {% for field in forms[page] %}
-                    {% if field.type == 'textField' %}
-                        {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
-                        {% elif field.type == 'freqSelect' %}
-                        {{ formFields['freqSelect']() }}
-                        {% elif field.type == 'extraDepFreqSelect' %}
-                        {{ formFields['extraDepFreqSelect']() }}
-                        {% elif field.type == 'extraDepRadio' %}
-                        {{ formFields['extraDepRadio']() }}
-                        {% elif field.type == 'depWhenRadio' %}
-                        {{ formFields['depWhenRadio']() }}
-                    {% endif %}
-                {% endfor %}
+            <!-- Title starts -->
+            <div class="column is-12-tablet is-7-desktop is-9-widescreen">
+
+                <!-- Title starts -->
+                <div class="column is-12-tablet page-title">
+                    <h1 class="title is-4">{{page}}</h1>
+                </div>
+                <!-- Title ends -->
+
+                <!-- Form starts -->
+                <div class="column is-12-tablet is-half-desktop is-one-third-widescreen">
+                    <div class="calculator-form">
+                    {% for field in forms[page] %}
+                        {% if field.type == 'textField' %}
+                            {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                            {% elif field.type == 'freqSelect' %}
+                            {{ formFields['freqSelect']() }}
+                            {% elif field.type == 'extraDepFreqSelect' %}
+                            {{ formFields['extraDepFreqSelect']() }}
+                            {% elif field.type == 'extraDepRadio' %}
+                            {{ formFields['extraDepRadio']() }}
+                            {% elif field.type == 'depWhenRadio' %}
+                            {{ formFields['depWhenRadio']() }}
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    {{ formFields['calculateButton'](page) }}
+                </div>
+                <!-- Form ends -->
+
+                <!-- Results starts -->
+                <div class="column is-12-tablet is-half-desktop is-two-third-widescreen">
+                    {% block results %}
+
+                    {% endblock %}
+                </div>
+                <!-- Results ends -->
+
+                <!-- Table starts -->
+                <div class="column is-12-tablet">
+                    {% block table %}
+
+                    {% endblock %}
+                </div>
+                <!-- Table ends -->
+
             </div>
-            <!-- Form ends -->
-
-            <!-- Results starts -->
-            <div class="column is-12-tablet is-4-desktop is-6-widescreen">
-                {% block results %}
-
-                {% endblock %}
-            </div>
-            <!-- Results ends -->
-
-            <!-- Table starts -->
-            <div class="column is-12-tablet">
-                {% block table %}
-
-                {% endblock %}
-            </div>
-            <!-- Table ends -->
-
         </div>
         <!-- Content ends -->
 

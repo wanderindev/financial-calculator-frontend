@@ -1,108 +1,112 @@
 {% macro textField( id, label, value = '', placeholder = '' ) %}
-                        <div class="field is-horizontal">
-                            <div class="field-label is-small">
-                                <label class="label cf-field-label">{{label}}</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <p class="control">
-                                        <input id="{{id}}" class="input is-small" type="text" placeholder="{{placeholder}}">
-                                    </p>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">{{label}}</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="{{id}}" class="input is-small" type="text" placeholder="{{placeholder}}">
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 {% endmacro %}
 
 {% macro freqSelect() %}
-                        <div class="field is-horizontal">
-                            <div class="field-label is-small">
-                                <label class="label cf-field-label">Frecuencia</label>
-                            </div>
-                            <div class="field-body">
-                                <div class="field">
-                                    <div class="control">
-                                        <div class="select is-small is-fullwidth">
-                                            <!--suppress HtmlFormInputWithoutLabel -->
-                                            <select id="freq">
-                                                <option value="1">Anual</option>
-                                                <option value="2">Semi-anual</option>
-                                                <option value="3">Cuatrimestral</option>
-                                                <option value="6">Bimestral</option>
-                                                <option value="12">Mensual</option>
-                                                <option value="24">Quincenal</option>
-                                                <option value="26">Bi-semanal</option>
-                                                <option value="52">Semanal</option>
-                                                <option value="364">Diario</option>
-                                            </select>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Frecuencia</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <div class="control">
+                                            <div class="select is-small is-fullwidth">
+                                                <!--suppress HtmlFormInputWithoutLabel -->
+                                                <select id="freq">
+                                                    <option value="1">Anual</option>
+                                                    <option value="2">Semi-anual</option>
+                                                    <option value="3">Cuatrimestral</option>
+                                                    <option value="6">Bimestral</option>
+                                                    <option value="12" selected>Mensual</option>
+                                                    <option value="24">Quincenal</option>
+                                                    <option value="26">Bi-semanal</option>
+                                                    <option value="52">Semanal</option>
+                                                    <option value="364">Diario</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 {% endmacro %}
 
 {% macro extraDepFreqSelect() %}
-                        <div class="field is-horizontal">
+                            <div class="field is-horizontal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Frecuencia</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <div class="control">
+                                            <div class="select is-small is-fullwidth">
+                                                <!--suppress HtmlFormInputWithoutLabel -->
+                                                <select id="extra_dep_f">
+                                                    <option value="0" selected>Solo una vez</option>
+                                                    <option value="1">Anual</option>
+                                                    <option value="12">Mensual</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+{% endmacro %}
+
+{% macro extraDepRadio() %}
+                        <div class="field">
                             <div class="field-label is-small">
-                                <label class="label cf-field-label">Frecuencia</label>
+                                <label class="label cf-field-label cf-rb">¿Aportes extraordinarios?</label>
                             </div>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <div class="select is-small is-fullwidth">
-                                            <!--suppress HtmlFormInputWithoutLabel -->
-                                            <select id="extra-dep-f">
-                                                <option value="0">Solo una vez</option>
-                                                <option value="1">Anual</option>
-                                                <option value="12">Mensual</option>
-                                            </select>
-                                        </div>
+                                        <label class="radio">
+                                            <input type="radio" value="1" name="extra_dep_r">
+                                            <span class="radio-text">Si</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" value="0" name="extra_dep_r" checked>
+                                            <span class="radio-text">No</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
 {% endmacro %}
 
-{% macro extraDepRadio() %}
-                    <div class="field">
-                        <div class="field-label is-small">
-                            <label class="label cf-field-label cf-rb">¿Aportes extraordinarios?</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <label class="radio">
-                                        <input type="radio" value="1" name="extra-d">
-                                        <span class="radio-text">Si</span>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" value="0" name="extra-d" checked>
-                                        <span class="radio-text">No</span>
-                                    </label>
+{% macro depWhenRadio() %}
+                        <div class="field">
+                            <div class="field-label is-small">
+                                <label class="label cf-field-label cf-rb">Todos los aportes se hacen:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" value="0" name="dep_when" checked>
+                                            <span class="radio-text">Al inicio del período</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" value="1" name="dep_when">
+                                            <span class="radio-text">Al final del período</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>>
 {% endmacro %}
 
-{% macro depWhenRadio() %}
-                    <div class="field">
-                        <div class="field-label is-small">
-                            <label class="label cf-field-label cf-rb">Todos los aportes se hacen:</label>
-                        </div>
-                        <div class="field-body">
-                            <div class="field">
-                                <div class="control">
-                                    <label class="radio">
-                                        <input type="radio" value="0" name="dep-when" checked>
-                                        <span class="radio-text">Al inicio del período</span>
-                                    </label>
-                                    <label class="radio">
-                                        <input type="radio" value="1" name="dep-when">
-                                        <span class="radio-text">Al final del período</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{% macro calculateButton(calculator) %}
+                        <a class="button is-primary" onclick="app.calculate('{{calculator}}')">Calcular</a>
 {% endmacro %}

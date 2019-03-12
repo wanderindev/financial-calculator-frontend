@@ -82,21 +82,22 @@
     "Calculadora de Ahorros": [
       {
         "type": "textField",
-        "id": "ini-dep",
+        "id": "ini_dep",
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "reg-dep",
+        "id": "reg_dep",
         "label": "Aporte Regular",
         "placeholder": "",
         "value": ""
       },{
-        "type": "freqSelect"
+        "type": "freqSelect",
+        "id": "freq"
       },{
         "type": "textField",
-        "id": "number-of-years",
+        "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
@@ -107,43 +108,47 @@
         "placeholder": "",
         "value": ""
       },{
-        "type": "depWhenRadio"
+        "type": "depWhenRadio",
+        "id": "dep_when"
       },{
-        "type": "extraDepRadio"
+        "type": "extraDepRadio",
+        "id": "extra_dep_r"
       },{
         "type": "textField",
-        "id": "extra-dep",
+        "id": "extra_dep",
         "label": "Cantidad",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "extra-dep-start",
+        "id": "extra_dep_start",
         "label": "En el Período",
         "placeholder": "",
         "value": ""
       },{
-        "type": "extraDepFreqSelect"
+        "type": "extraDepFreqSelect",
+        "id": "extra_dep_f"
       }
     ],
     "Ahorros para Lograr Meta": [
       {
         "type": "textField",
-        "id": "fin-bal",
+        "id": "fin_bal",
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "ini-dep",
+        "id": "ini_dep",
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
       },{
-        "type": "freqSelect"
+        "type": "freqSelect",
+        "id": "freq"
       },{
         "type": "textField",
-        "id": "number-of-years",
+        "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
@@ -154,30 +159,32 @@
         "placeholder": "",
         "value": ""
       },{
-        "type": "depWhenRadio"
+        "type": "depWhenRadio",
+        "id": "dep_when"
       }
     ],
     "Tiempo para Lograr Meta": [
       {
         "type": "textField",
-        "id": "fin-bal",
+        "id": "fin_bal",
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "ini-dep",
+        "id": "ini_dep",
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "reg-dep",
+        "id": "reg_dep",
         "label": "Aporte Regular",
         "placeholder": "",
         "value": ""
       },{
-        "type": "freqSelect"
+        "type": "freqSelect",
+        "id": "freq"
       },{
         "type": "textField",
         "id": "rate",
@@ -185,52 +192,56 @@
         "placeholder": "",
         "value": ""
       },{
-        "type": "depWhenRadio"
+        "type": "depWhenRadio",
+        "id": "dep_when"
       }
     ],
     "Tasa de Interés Requerida": [
       {
         "type": "textField",
-        "id": "ini-dep",
+        "id": "ini_dep",
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "reg-dep",
+        "id": "reg_dep",
         "label": "Aporte Regular",
         "placeholder": "",
         "value": ""
       },{
-        "type": "freqSelect"
+        "type": "freqSelect",
+        "id": "freq"
       },{
         "type": "textField",
-        "id": "number-of-years",
+        "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
       },{
         "type": "textField",
-        "id": "fin-bal",
+        "id": "fin_bal",
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
       },{
-        "type": "depWhenRadio"
+        "type": "depWhenRadio",
+        "id": "dep_when"
       }
     ],
     "Valor Actual": [
       {
         "type": "textField",
-        "id": "fin-bal",
+        "id": "fin_bal",
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
       },{
-        "type": "freqSelect"
+        "type": "freqSelect",
+        "id": "freq"
       },{
         "type": "textField",
-        "id": "number-of-years",
+        "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
@@ -241,7 +252,8 @@
         "placeholder": "",
         "value": ""
       },{
-        "type": "depWhenRadio"
+        "type": "depWhenRadio",
+        "id": "dep_when"
       }
     ]
   }

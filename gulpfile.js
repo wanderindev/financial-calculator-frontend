@@ -153,7 +153,7 @@ let render = function(done) {
     // Render the templates
     src(paths.render.input)
         .pipe(data(function() {
-            return require('./src/data.json')
+            return require('./src/copy/data.json')
         }))
         .pipe(nunjucks({
             path: [paths.render.partials]
