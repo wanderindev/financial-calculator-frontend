@@ -89,7 +89,7 @@
     <div class="container">
 
         <!-- Content start -->
-        <div class="columns is-multiline">
+        <div class="columns">
 
             <!-- Side menu starts -->
             <aside class="menu is-hidden-touch column is-narrow">
@@ -146,22 +146,24 @@
             </aside>
             <!-- Side menu ends -->
 
-            <!-- Title starts -->
-            <div class="column is-12-tablet is-7-desktop is-9-widescreen">
+            <!-- Calculator starts -->
+            <div class="column">
 
-                <!-- Title starts -->
-                <div class="column is-12-tablet page-title">
-                    <h1 class="title is-4">Calculadora de Ahorros</h1>
-                </div>
-                <!-- Title ends -->
+                <div class="columns is-multiline">
 
-                <!-- Form starts -->
-                <div class="column is-12-tablet is-half-desktop is-one-third-widescreen">
-                    <div class="calculator-form">
-                    
+                    <!-- Title starts -->
+                    <div class="column is-full-tablet page-title">
+                        <h1 class="title is-4">Calculadora de Ahorros</h1>
+                    </div>
+                    <!-- Title ends -->
+
+                    <!-- Form starts -->
+                    <div class="column is-full-tablet is-half-desktop is-one-third-widescreen">
+                        <div class="calculator-form">
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal ini_dep">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Cantidad Inicial</label>
                                 </div>
@@ -174,11 +176,11 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal reg_dep">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Aporte Regular</label>
                                 </div>
@@ -191,10 +193,10 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
+                                
                             <div class="field is-horizontal">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Frecuencia</label>
@@ -221,11 +223,11 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal num_of_years">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Tiempo (en años)</label>
                                 </div>
@@ -238,11 +240,11 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal rate">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Interés (%)</label>
                                 </div>
@@ -255,10 +257,10 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
+                                
                         <div class="field">
                             <div class="field-label is-small">
                                 <label class="label cf-field-label cf-rb">Todos los aportes se hacen:</label>
@@ -279,10 +281,10 @@
                             </div>
                         </div>
 
-                        
-                    
+                            
                         
                             
+                                
                         <div class="field">
                             <div class="field-label is-small">
                                 <label class="label cf-field-label cf-rb">¿Aportes extraordinarios?</label>
@@ -290,11 +292,11 @@
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <label class="radio">
+                                        <label class="radio extra_dep_r">
                                             <input type="radio" value="1" name="extra_dep_r">
                                             <span class="radio-text">Si</span>
                                         </label>
-                                        <label class="radio">
+                                        <label class="radio extra_dep_r">
                                             <input type="radio" value="0" name="extra_dep_r" checked>
                                             <span class="radio-text">No</span>
                                         </label>
@@ -303,11 +305,11 @@
                             </div>
                         </div>
 
-                            
-                    
+                                
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal extra_dep">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Cantidad</label>
                                 </div>
@@ -320,11 +322,11 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal extra_dep_start">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">En el Período</label>
                                 </div>
@@ -337,11 +339,11 @@
                                 </div>
                             </div>
 
-                            
-                    
+                                
                         
                             
-                            <div class="field is-horizontal">
+                                
+                            <div class="field is-horizontal extra_dep_f">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Frecuencia</label>
                                 </div>
@@ -361,32 +363,92 @@
                                 </div>
                             </div>
 
-                            
-                    
-                    </div>
-                    
+                                
+                        
+                        </div>
+                        
                         <a class="button is-primary" onclick="app.calculate('Calculadora de Ahorros')">Calcular</a>
 
+                    </div>
+                    <!-- Form ends -->
+
+                    <!-- Results starts -->
+                    <div class="column is-full-tablet is-half-desktop is-two-thirds-widescreen">
+                        <div class="card results-card is-invisible">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Resultados
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="results">
+                                        
+                                            
+                            <div class="field is-horizontal fin_bal">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Cantidad Final</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="fin_bal" class="input is-small" type="text" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                                        
+                                            
+                            <div class="field is-horizontal total_dep">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Aportes Realizados</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="total_dep" class="input is-small" type="text" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                                        
+                                            
+                            <div class="field is-horizontal total_int">
+                                <div class="field-label is-small">
+                                    <label class="label cf-field-label">Intereses Ganados</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input id="total_int" class="input is-small" type="text" placeholder="">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Results ends -->
+
+                    <!-- Table starts -->
+                    <div class="column is-full-tablet">
+                        
+
+                        
+                    </div>
+                    <!-- Table ends -->
+
                 </div>
-                <!-- Form ends -->
-
-                <!-- Results starts -->
-                <div class="column is-12-tablet is-half-desktop is-two-third-widescreen">
-                    
-
-                    
-                </div>
-                <!-- Results ends -->
-
-                <!-- Table starts -->
-                <div class="column is-12-tablet">
-                    
-
-                    
-                </div>
-                <!-- Table ends -->
 
             </div>
+            <!-- Calculator ends -->
+
         </div>
         <!-- Content ends -->
 
@@ -395,8 +457,10 @@
 </section>
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Mustache JS -->
+<!-- Nunjucks JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
+<!-- Plotly JS -->
+<script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
 
 <!-- inject:js -->
 <!-- endinject -->

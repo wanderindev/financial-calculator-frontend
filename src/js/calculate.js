@@ -14,7 +14,14 @@
                 data[item.id] = $('#' + item.id).val();
             }
         });
-        return data
+        return data;
+    };
+
+    app.showResults = function(calculator, results) {
+        app.calcInfo.results[calculator].forEach(function(item) {
+            $('#' + item.id).val(results[item.id]);
+        });
+        $('.results-card').removeClass('is-invisible');
     };
 
     // Gets the results from the backend.
@@ -34,8 +41,8 @@
             contentType: 'application/json',
             url: baseUrl + endpoint,
             data: JSON.stringify(data),
-            success: function(response) {
-                console.log(response);
+            success: function(results) {
+                app.showResults(calculator, results);
             },
             dataType: 'json',
             error: function(e) {

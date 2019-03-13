@@ -40,7 +40,7 @@
     <div class="container">
 
         <!-- Content start -->
-        <div class="columns is-multiline">
+        <div class="columns">
 
             <!-- Side menu starts -->
             <aside class="menu is-hidden-touch column is-narrow">
@@ -48,53 +48,72 @@
             </aside>
             <!-- Side menu ends -->
 
-            <!-- Title starts -->
-            <div class="column is-12-tablet is-7-desktop is-9-widescreen">
+            <!-- Calculator starts -->
+            <div class="column">
 
-                <!-- Title starts -->
-                <div class="column is-12-tablet page-title">
-                    <h1 class="title is-4">{{page}}</h1>
-                </div>
-                <!-- Title ends -->
+                <div class="columns is-multiline">
 
-                <!-- Form starts -->
-                <div class="column is-12-tablet is-half-desktop is-one-third-widescreen">
-                    <div class="calculator-form">
-                    {% for field in forms[page] %}
-                        {% if field.type == 'textField' %}
-                            {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
-                            {% elif field.type == 'freqSelect' %}
-                            {{ formFields['freqSelect']() }}
-                            {% elif field.type == 'extraDepFreqSelect' %}
-                            {{ formFields['extraDepFreqSelect']() }}
-                            {% elif field.type == 'extraDepRadio' %}
-                            {{ formFields['extraDepRadio']() }}
-                            {% elif field.type == 'depWhenRadio' %}
-                            {{ formFields['depWhenRadio']() }}
-                        {% endif %}
-                    {% endfor %}
+                    <!-- Title starts -->
+                    <div class="column is-full-tablet page-title">
+                        <h1 class="title is-4">{{page}}</h1>
                     </div>
-                    {{ formFields['calculateButton'](page) }}
+                    <!-- Title ends -->
+
+                    <!-- Form starts -->
+                    <div class="column is-full-tablet is-half-desktop is-one-third-widescreen">
+                        <div class="calculator-form">
+                        {% for field in forms[page] %}
+                            {% if field.type == 'textField' %}
+                                {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                                {% elif field.type == 'freqSelect' %}
+                                {{ formFields['freqSelect']() }}
+                                {% elif field.type == 'extraDepFreqSelect' %}
+                                {{ formFields['extraDepFreqSelect']() }}
+                                {% elif field.type == 'extraDepRadio' %}
+                                {{ formFields['extraDepRadio']() }}
+                                {% elif field.type == 'depWhenRadio' %}
+                                {{ formFields['depWhenRadio']() }}
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        {{ formFields['calculateButton'](page) }}
+                    </div>
+                    <!-- Form ends -->
+
+                    <!-- Results starts -->
+                    <div class="column is-full-tablet is-half-desktop is-two-thirds-widescreen">
+                        <div class="card results-card is-invisible">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Resultados
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="results">
+                                        {% for field in results[page] %}
+                                            {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Results ends -->
+
+                    <!-- Table starts -->
+                    <div class="column is-full-tablet">
+                        {% block table %}
+
+                        {% endblock %}
+                    </div>
+                    <!-- Table ends -->
+
                 </div>
-                <!-- Form ends -->
-
-                <!-- Results starts -->
-                <div class="column is-12-tablet is-half-desktop is-two-third-widescreen">
-                    {% block results %}
-
-                    {% endblock %}
-                </div>
-                <!-- Results ends -->
-
-                <!-- Table starts -->
-                <div class="column is-12-tablet">
-                    {% block table %}
-
-                    {% endblock %}
-                </div>
-                <!-- Table ends -->
 
             </div>
+            <!-- Calculator ends -->
+
         </div>
         <!-- Content ends -->
 
@@ -103,8 +122,10 @@
 </section>
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Mustache JS -->
+<!-- Nunjucks JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
+<!-- Plotly JS -->
+<script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
 
 <!-- inject:js -->
 <!-- endinject -->

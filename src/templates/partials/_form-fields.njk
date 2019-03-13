@@ -1,5 +1,5 @@
 {% macro textField( id, label, value = '', placeholder = '' ) %}
-                            <div class="field is-horizontal">
+                            <div class="field is-horizontal {{id}}">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">{{label}}</label>
                                 </div>
@@ -42,7 +42,7 @@
 {% endmacro %}
 
 {% macro extraDepFreqSelect() %}
-                            <div class="field is-horizontal">
+                            <div class="field is-horizontal extra_dep_f">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">Frecuencia</label>
                                 </div>
@@ -71,11 +71,11 @@
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control">
-                                        <label class="radio">
+                                        <label class="radio extra_dep_r">
                                             <input type="radio" value="1" name="extra_dep_r">
                                             <span class="radio-text">Si</span>
                                         </label>
-                                        <label class="radio">
+                                        <label class="radio extra_dep_r">
                                             <input type="radio" value="0" name="extra_dep_r" checked>
                                             <span class="radio-text">No</span>
                                         </label>

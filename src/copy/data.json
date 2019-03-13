@@ -86,46 +86,55 @@
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "reg_dep",
         "label": "Aporte Regular",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "freqSelect",
         "id": "freq"
-      },{
+      },
+      {
         "type": "textField",
         "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "rate",
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "depWhenRadio",
         "id": "dep_when"
-      },{
+      },
+      {
         "type": "extraDepRadio",
         "id": "extra_dep_r"
-      },{
+      },
+      {
         "type": "textField",
         "id": "extra_dep",
         "label": "Cantidad",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "extra_dep_start",
         "label": "En el Período",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "extraDepFreqSelect",
         "id": "extra_dep_f"
       }
@@ -137,28 +146,33 @@
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "ini_dep",
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "freqSelect",
         "id": "freq"
-      },{
+      },
+      {
         "type": "textField",
         "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "rate",
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "depWhenRadio",
         "id": "dep_when"
       }
@@ -170,28 +184,33 @@
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "ini_dep",
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "reg_dep",
         "label": "Aporte Regular",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "freqSelect",
         "id": "freq"
-      },{
+      },
+      {
         "type": "textField",
         "id": "rate",
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "depWhenRadio",
         "id": "dep_when"
       }
@@ -203,28 +222,33 @@
         "label": "Cantidad Inicial",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "reg_dep",
         "label": "Aporte Regular",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "freqSelect",
         "id": "freq"
-      },{
+      },
+      {
         "type": "textField",
         "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "fin_bal",
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "depWhenRadio",
         "id": "dep_when"
       }
@@ -236,24 +260,88 @@
         "label": "Cantidad Meta",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "freqSelect",
         "id": "freq"
-      },{
+      },
+      {
         "type": "textField",
         "id": "num_of_years",
         "label": "Tiempo (en años)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "textField",
         "id": "rate",
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
-      },{
+      },
+      {
         "type": "depWhenRadio",
         "id": "dep_when"
+      }
+    ]
+  },
+  "results": {
+    "Calculadora de Ahorros": [
+      {
+        "type": "textField",
+        "id": "fin_bal",
+        "label": "Cantidad Final",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "total_dep",
+        "label": "Aportes Realizados",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Ganados",
+        "placeholder": "",
+        "value": ""
+      }
+    ]
+  },
+  "charts": {
+    "Calculadora de Ahorros": [
+      {
+        "type": "pie",
+        "labels": ["Aportes", "Intereses"],
+        "values": ["total_dep", "total_int"]
+      },
+      {
+        "type": "line",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "agg_deposits",
+            "name": "Aportes",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "agg_interests",
+            "name": "Intereses",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Balance",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
       }
     ]
   }
