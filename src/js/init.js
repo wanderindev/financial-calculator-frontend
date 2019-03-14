@@ -1,4 +1,4 @@
-(function(app, $) {
+(function(app, $, Plotly) {
     $(document).ready(function() {
         let headerLogo$ = $('.header-logo');
         let navbarMenu$ = $('.navbar-menu');
@@ -44,4 +44,4 @@
             app.calcInfo = data;
         });
     });
-})(window.app = window.app || {}, jQuery);
+})(window.app = window.app || {}, jQuery, Plotly);

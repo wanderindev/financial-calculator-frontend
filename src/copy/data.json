@@ -1,5 +1,44 @@
 {
-  "pageTitle": "index",
+  "settings": {
+    "plotly": {
+      "pie": {
+        "layout": {
+          "height": 210,
+          "width": 260,
+          "margin": {
+            "l": 60,
+            "r": 60,
+            "t": 60,
+            "b": 10
+          },
+          "titlefont": {
+            "family": "Roboto, san-serif",
+            "size": 16
+          }
+        },
+        "data": {
+          "type": "pie",
+          "hoverinfo": "label+percent",
+          "textinfo": "value",
+          "textfont": {
+            "family": "Roboto, san-serif",
+            "size": 10,
+            "color": "#000"
+          },
+          "showlegend": false,
+          "marker": {
+            "colors": [
+              "#209cee", "#ffdd57"
+            ],
+            "line": {
+              "color": "rgba(10, 10, 10, 0.31)",
+              "width": 1
+            }
+          }
+        }
+      }
+    }
+  },
   "menu": [
     {
       "title": "Ahorros",
@@ -314,6 +353,7 @@
     "Calculadora de Ahorros": [
       {
         "type": "pie",
+        "title": "Aportes vs Intereses",
         "labels": ["Aportes", "Intereses"],
         "values": ["total_dep", "total_int"]
       },

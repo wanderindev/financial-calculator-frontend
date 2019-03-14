@@ -1,4 +1,4 @@
-(function(app, $) {
+(function(app, $, Plotly) {
     // Builds the endpoint from the calculator's name.
     app.getEndpoint = function(calculator) {
         return calculator.replace(/ /g, '-').toLowerCase();
@@ -24,12 +24,31 @@
         $('.results-card').removeClass('is-invisible');
     };
 
+    app.showCharts = function(calculator, results) {
+        let getVal = function(val) {
+            return results[val];
+        };
+
+        // noinspection JSUnresolvedVariable
+        app.calcInfo.charts[calculator].forEach(function(item) {
+            if (item.type === 'pie') {
+                let data = app.calcInfo.settings.plotly.pie.data;
+                let layout = app.calcInfo.settings.plotly.pie.layout;
+
+                data.values = item.values.map(getVal);
+                data.labels = item.labels;
+                layout.title = item.title;
+
+                Plotly.newPlot('pie-chart', [data], layout, {displayModeBar: false});
+            }
+        });
+    };
+
     // Gets the results from the backend.
     app.calculate = function(calculator) {
         let baseUrl = 'http://localhost:5001/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
-        console.log(data);
 
         // noinspection JSUnusedGlobalSymbols
         $.ajax({
@@ -43,6 +62,7 @@
             data: JSON.stringify(data),
             success: function(results) {
                 app.showResults(calculator, results);
+                app.showCharts(calculator, results);
             },
             dataType: 'json',
             error: function(e) {
@@ -50,4 +70,4 @@
             }
         });
     };
-})(window.app = window.app || {}, jQuery);
+})(window.app = window.app || {}, jQuery, Plotly);

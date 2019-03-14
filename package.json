@@ -39,6 +39,7 @@
     "jshint": "2.9.6",
     "jshint-stylish": "2.2.1",
     "lazypipe": "1.0.1",
-    "nunjucks": "^3.1.7"
+    "nunjucks": "^3.1.7",
+    "plotly.js-dist": "^1.45.2"
   }
 }
