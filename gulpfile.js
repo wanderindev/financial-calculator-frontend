@@ -83,7 +83,7 @@ let banner = {
  */
 
 // General
-let {src, dest, watch, series, parallel} = require('gulp');
+let {src, dest, watch, series} = require('gulp');
 let del = require('del');
 let flatmap = require('gulp-flatmap');
 let lazypipe = require('lazypipe');
@@ -145,7 +145,7 @@ let cleanDist = function (done) {
 };
 
 // Render templates
-let render = function(done) {
+let renderTempls = function(done) {
 
     // Make sure this feature is activated before running
     if (!settings.render) return done();
@@ -404,15 +404,13 @@ let watchSource = function (done) {
 // Default task
 // gulp
 exports.default = series(
-    parallel(
-        buildScripts,
-        lintScripts,
-        buildStyles,
-        buildImgs,
-        buildSVGs,
-        copyFiles,
-		injectDev
-    )
+    buildScripts,
+    lintScripts,
+    buildStyles,
+    buildImgs,
+    buildSVGs,
+    copyFiles,
+    injectDev
 );
 
 // Clear the dist folder
@@ -423,7 +421,7 @@ exports.clean = series(
 
 // Render the templates
 exports.render = series(
-    render
+    renderTempls
 );
 
 // Inject css and js references
