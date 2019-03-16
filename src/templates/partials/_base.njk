@@ -89,14 +89,14 @@
                                 </p>
                             </header>
                             <div class="card-content">
-                                <div class="content">
-                                    <div class="results">
+                                <div class="content columns is-multiline">
+                                    <div class="results column is-full-tablet">
                                         {% for field in results[page] %}
                                             {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
                                         {% endfor %}
                                     </div>
-                                    <div id="pie-chart" class="pie-chart"></div>
-                                    <div id="line-chart" class="line-chart"></div>
+                                    <div id="pie-chart" class="pie-chart column is-half-tablet is-full-desktop is-half-widescreen"></div>
+                                    <div id="line-chart" class="line-chart column is-half-tablet is-full-desktop is-half-widescreen"></div>
                                 </div>
                             </div>
                         </div>

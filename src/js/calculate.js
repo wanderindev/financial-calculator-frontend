@@ -40,6 +40,24 @@
                 layout.title = item.title;
 
                 Plotly.newPlot('pie-chart', [data], layout, {displayModeBar: false});
+            } else if (item.type === 'line') {
+                let data = [];
+                let layout = app.calcInfo.settings.plotly.line.layout;
+
+                layout.title = item.title;
+
+                item.traces.forEach(function(trace) {
+                    data.push({
+                        type: item.type,
+                        x: results[trace.x],
+                        y: results[trace.y],
+                        name: trace.name,
+                        showlegend: trace.showlegend,
+                        hoverinfo: trace.hoverinfo
+                    });
+                });
+
+                Plotly.newPlot('line-chart', data, layout, {displayModeBar: false});
             }
         });
     };
