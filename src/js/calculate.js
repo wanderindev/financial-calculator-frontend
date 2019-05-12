@@ -17,20 +17,20 @@
         return data;
     };
 
-    app.showResults = function(calculator, results) {
-        app.calcInfo.results[calculator].forEach(function(item) {
-            $('#' + item.id).val(results[item.id]);
+    app.showResults = function() {
+        app.calcInfo.results[app.calculator].forEach(function(item) {
+            $('#' + item.id).val(app.results[item.id]);
         });
         $('.results-card').removeClass('is-invisible');
     };
 
-    app.showCharts = function(calculator, results) {
+    app.showCharts = function() {
         let getVal = function(val) {
-            return results[val];
+            return app.results[val];
         };
 
         // noinspection JSUnresolvedVariable
-        app.calcInfo.charts[calculator].forEach(function(item) {
+        app.calcInfo.charts[app.calculator].forEach(function(item) {
             if (item.type === 'pie') {
                 let data = app.calcInfo.settings.plotly.pie.data;
                 let layout = app.calcInfo.settings.plotly.pie.layout;
@@ -49,8 +49,8 @@
                 item.traces.forEach(function(trace) {
                     data.push({
                         type: item.type,
-                        x: results[trace.x],
-                        y: results[trace.y],
+                        x: app.results[trace.x],
+                        y: app.results[trace.y],
                         name: trace.name,
                         showlegend: trace.showlegend,
                         hoverinfo: trace.hoverinfo
@@ -60,6 +60,64 @@
                 Plotly.newPlot('line-chart', data, layout, {displayModeBar: false});
             }
         });
+    };
+
+    app.updateTableMenu = function() {
+        app.tableTimeScales.forEach(function(item, index) {
+            $('#tsr-' + index).removeClass('is-hidden');
+            $('#tsr-' + index + ' span.radio-text').html(item.label);
+        });
+
+        $('#tsr-0 input').prop('checked', true);
+    };
+
+    app.updateTablePagination = function() {
+        console.log(app.tablePage);
+    };
+
+    app.updateTable = function() {
+        // noinspection JSUnresolvedVariable
+        let columns = app.calcInfo.tables[app.calculator]['columns'];
+        // noinspection JSUnresolvedVariable
+        let values = app.calcInfo.tables[app.calculator]['values'];
+        let firstRow = (app.tablePage - 1) * app.tableRows;
+        let lastRow = app.tablePage * app.tableRows;
+        let rows = app.results[app.currentTable].slice(firstRow, lastRow);
+        let tableHead = '';
+        let tableBody = '';
+
+        columns[0] = app.currentTimeScale;
+
+        columns.forEach(function(column) {
+            tableHead += '<th>' + column + '</th>';
+        });
+
+        rows.forEach(function(row) {
+            tableBody += '<tr>';
+            values.forEach(function(value) {
+                tableBody += '<td>' + row[value] + '</td>';
+            });
+            tableBody += '</tr>';
+        });
+
+        $('.table thead tr').html(tableHead);
+        $('.table tbody').html(tableBody);
+    };
+
+    app.showTable = function() {
+        if (app.results.table){
+            app.tableTimeScales = app.calcInfo.settings['tables'][app.results['time_scale']].display;
+            app.currentTable = app.tableTimeScales[0]['table'];
+            app.currentTimeScale = "Año";
+            app.tableRows = app.tableTimeScales[0]['numOfRows'];
+            app.tablePage = 1;
+
+            app.updateTableMenu();
+            app.updateTablePagination();
+            app.updateTable();
+
+            $('.table-card').removeClass('is-invisible');
+        }
     };
 
     // Gets the results from the backend.
@@ -79,8 +137,11 @@
             url: baseUrl + endpoint,
             data: JSON.stringify(data),
             success: function(results) {
-                app.showResults(calculator, results);
-                app.showCharts(calculator, results);
+                app.results = results;
+                app.calculator = calculator;
+                app.showResults();
+                app.showCharts();
+                app.showTable();
             },
             dataType: 'json',
             error: function(e) {

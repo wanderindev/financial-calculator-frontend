@@ -68,6 +68,149 @@
           }
         }
       }
+    },
+    "tables": {
+      "Año": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          }
+        ]
+      },
+      "Semestre": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Semestre",
+            "table": "table",
+            "numOfRows": "10"
+          }
+        ]
+      },
+      "Cuatrimestre": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Cuatrimestre",
+            "table": "table",
+            "numOfRows": "6"
+          }
+        ]
+      },
+      "Bimestre": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Bimestre",
+            "table": "table",
+            "numOfRows": "6"
+          }
+        ]
+      },
+      "Mes": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Mes",
+            "table": "table_m",
+            "numOfRows": "12"
+          }
+        ]
+      },
+      "Quincena": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Mes",
+            "table": "table_m",
+            "numOfRows": "12"
+          },
+          {
+            "label": "Quincena",
+            "table": "table",
+            "numOfRows": "12"
+          }
+        ]
+      },
+      "Bi-semana": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Mes",
+            "table": "table_m",
+            "numOfRows": "12"
+          },
+          {
+            "label": "Bi-semana",
+            "table": "table",
+            "numOfRows": "13"
+          }
+        ]
+      },
+      "Semana": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Mes",
+            "table": "table_m",
+            "numOfRows": "12"
+          },
+          {
+            "label": "Semana",
+            "table": "table",
+            "numOfRows": "13"
+          }
+        ]
+      },
+      "Día": {
+        "display": [
+          {
+            "label": "Año",
+            "table": "table_a",
+            "numOfRows": "10"
+          },
+          {
+            "label": "Mes",
+            "table": "table_m",
+            "numOfRows": "12"
+          },
+          {
+            "label": "Día",
+            "table": "table",
+            "numOfRows": "15"
+          }
+        ]
+      }
     }
   },
   "menu": [
@@ -416,5 +559,11 @@
         ]
       }
     ]
+  },
+  "tables": {
+    "Calculadora de Ahorros": {
+      "columns": ["", "Aporte", "Interés", "Balance"],
+      "values": ["p", "d", "i", "b"]
+    }
   }
 }
