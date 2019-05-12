@@ -1,4 +1,4 @@
-(function(app, $, Plotly) {
+(function(app, $) {
     $(document).ready(function() {
         let headerLogo$ = $('.header-logo');
         let navbarMenu$ = $('.navbar-menu');
@@ -8,6 +8,7 @@
         let extraDepF$ = $('.extra_dep_f');
         let extraDepStart$ = $('.extra_dep_start');
         let extraDep$ = $('.extra_dep');
+        let timeScaleRadio$ = $('.time-scale-r');
 
         // Shows / hides the extra deposit fields.
         let toggleExtraDep = function(show) {
@@ -39,9 +40,22 @@
             headerLogo$.toggleClass('is-active');
         });
 
+        // Changes the time scale of the table.
+        timeScaleRadio$.change(function() {
+            let selectedTimeScale = $(this).children(':first').val();
+
+            app.currentTable = app.tableTimeScales[selectedTimeScale]['table'];
+            app.currentTimeScale = app.tableTimeScales[selectedTimeScale]['label'];
+            app.tableRows = app.tableTimeScales[selectedTimeScale]['numOfRows'];
+            app.tablePage = 1;
+
+            app.updateTablePagination();
+            app.updateTable();
+        });
+
         // Parses calculator data.
         $.getJSON('data.json', function(data) {
             app.calcInfo = data;
         });
     });
-})(window.app = window.app || {}, jQuery, Plotly);
+})(window.app = window.app || {}, jQuery);
