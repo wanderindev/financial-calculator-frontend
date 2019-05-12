@@ -93,12 +93,13 @@ let nunjucks = require('gulp-nunjucks-render');
 let data = require('gulp-data');
 let fs = require('fs');
 let inject = require('gulp-inject');
+let htmlmin = require('gulp-htmlmin');
 
 // Scripts
 let jshint = require('gulp-jshint');
 let stylish = require('jshint-stylish');
 let concat = require('gulp-concat');
-//let uglify = require('gulp-uglify');
+let uglify = require('gulp-uglify-es').default;
 let optimizejs = require('gulp-optimize-js');
 //let babel = require('gulp-babel');
 
@@ -114,7 +115,7 @@ let imagemin = require('gulp-imagemin');
 let svgmin = require('gulp-svgmin');
 
 // BrowserSync
-let browserSync = require('browser-sync');
+let browserSync = require('browser-sync').create();
 
 /**
  * Gulp Tasks
@@ -146,8 +147,8 @@ let renderTempls = function(done) {
     if (!settings.render) return done();
 
     // Define css and js sources to inject into html files.
-    let cssSources = src(paths.render.cssSrc).pipe(rename({dirname: 'css', extname: '.css'}));
-    let jsSources = src(paths.render.jsSrc, {read: false});
+    let cssSources = src(paths.render.cssSrc).pipe(rename({dirname: 'css', extname: '.min.css'}));
+    let jsSources = src(paths.render.jsSrc, {read: false}).pipe(rename({extname: '.min.js'}));
 
     // Render the templates
     src(paths.render.input)
@@ -161,6 +162,7 @@ let renderTempls = function(done) {
         .pipe(inject(cssSources, {relative: true, ignorePath: '../src/sass/'}))
         .pipe(dest(paths.render.output))
         .pipe(inject(jsSources, {relative: true, ignorePath: '../src/'}))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(dest(paths.render.output));
 
 
@@ -175,7 +177,7 @@ let jsTasks = lazypipe()
     .pipe(optimizejs)
     .pipe(dest, paths.scripts.output)
     .pipe(rename, {suffix: '.min'})
-    //.pipe(uglify)
+    .pipe(uglify)
     .pipe(optimizejs)
     .pipe(header, banner.min, {package: _package})
     .pipe(dest, paths.scripts.output);
