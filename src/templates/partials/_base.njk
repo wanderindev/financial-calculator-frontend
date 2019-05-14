@@ -7,7 +7,8 @@
     <title>{{page}}</title>
     <!-- inject:css -->
     <!-- endinject -->
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
+    <!--<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>-->
 </head>
 <body>
 <div class="container">
@@ -109,7 +110,7 @@
                         <div class="card table-card is-invisible">
                             <div class="card-content">
                                 <div class="content columns is-multiline">
-                                    <div class="results column is-full-tablet">
+                                    <div class="result-table-menu column is-full-tablet">
                                         <!-- Table menu -->
                                         <nav class="level is-mobile">
                                             <div class="level-left">
@@ -141,7 +142,7 @@
                                         </nav>
                                         <!-- Table menu ends -->
                                     </div>
-                                    <div class="results column is-full-tablet">
+                                    <div class="result-table column is-full-tablet">
                                         <!-- Table body -->
                                         <table class="table is-narrow is-hoverable is-fullwidth">
                                             <thead>
@@ -152,9 +153,45 @@
                                         </table>
                                         <!-- Table body ends -->
                                     </div>
-                                    <div class="results column is-full-tablet">
+                                    <div class="result-table-pagination column is-full-tablet">
                                         <!-- Table pagination -->
-
+                                        <nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
+                                            <a class="pagination-previous">
+                                                <span class="icon"><i class="fal fa-chevron-double-left"></i></span>
+                                            </a>
+                                            <a class="pagination-previous">
+                                                <span class="icon"><i class="fal fa-chevron-left"></i></span>
+                                            </a>
+                                            <a class="pagination-next">
+                                                <span class="icon"><i class="fal fa-chevron-right"></i></span>
+                                            </a>
+                                            <a class="pagination-next">
+                                                <span class="icon"><i class="fal fa-chevron-double-right"></i></span>
+                                            </a>
+                                            <ul class="pagination-list">
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 1">1</a>
+                                                </li>
+                                                <li>
+                                                    <span class="pagination-ellipsis">&hellip;</span>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 45">45</a>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 47">47</a>
+                                                </li>
+                                                <li>
+                                                    <span class="pagination-ellipsis">&hellip;</span>
+                                                </li>
+                                                <li>
+                                                    <a class="pagination-link" aria-label="Goto page 86">86</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
                                         <!-- Table pagination ends -->
                                     </div>
                                 </div>

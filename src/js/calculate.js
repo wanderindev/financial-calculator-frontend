@@ -72,7 +72,8 @@
     };
 
     app.updateTablePagination = function() {
-        console.log(app.tablePage);
+        app.totalRecords = app.currentTable.length;
+        app.totalPages = Math.ceil(app.totalRecords / app.tableRows);
     };
 
     app.updateTable = function() {
