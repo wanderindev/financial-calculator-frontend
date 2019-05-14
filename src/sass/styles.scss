@@ -70,3 +70,17 @@
 .results {
   margin-bottom: 1.25rem;
 }
+
+.result-table-menu,
+.result-table {
+  border-bottom: 1px solid #999;
+}
+
+.result-table-pagination {
+  padding-top: 1.25rem;
+}
+
+ul.pagination-list {
+  list-style: none;
+  margin-top: 0;
+}
