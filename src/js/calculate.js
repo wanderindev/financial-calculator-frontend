@@ -63,7 +63,9 @@
     };
 
     app.updateTableMenu = function() {
-        app.tableTimeScales.forEach(function(item, index) {
+        let timeScales = app.getTimeScales();
+
+        timeScales.forEach(function(item, index) {
             $('#tsr-' + index).removeClass('is-hidden');
             $('#tsr-' + index + ' span.radio-text').html(item.label);
         });
@@ -72,22 +74,18 @@
     };
 
     app.updateTablePagination = function() {
-        app.totalRecords = app.currentTable.length;
-        app.totalPages = Math.ceil(app.totalRecords / app.tableRows);
+        //app.totalRecords = app.currentTable.length;
+        //app.totalPages = Math.ceil(app.totalRecords / app.tableRows);
     };
 
-    app.updateTable = function() {
-        // noinspection JSUnresolvedVariable
-        let columns = app.calcInfo.tables[app.calculator]['columns'];
-        // noinspection JSUnresolvedVariable
-        let values = app.calcInfo.tables[app.calculator]['values'];
-        let firstRow = (app.tablePage - 1) * app.tableRows;
-        let lastRow = app.tablePage * app.tableRows;
-        let rows = app.results[app.currentTable].slice(firstRow, lastRow);
+
+    app.updateTable = function(label, table, numOfRows, page = 1) {
+        let columns, values, first, last, rows;
         let tableHead = '';
         let tableBody = '';
 
-        columns[0] = app.currentTimeScale;
+        [columns, values, first, last] = app.getTableStructure(label, numOfRows, page);
+        rows = app.getTableRows(table, first, last);
 
         columns.forEach(function(column) {
             tableHead += '<th>' + column + '</th>';
@@ -105,20 +103,46 @@
         $('.table tbody').html(tableBody);
     };
 
+    app.getTableRows = function(table, first, last) {
+        return app.results[table].slice(first, last);
+    };
+
+    app.getTimeScales = function() {
+        return app.calcInfo.settings['tables'][app.results['time_scale']].display;
+    };
+
+    app.getTableInfo = function(index = 0) {
+        let timeScale = app.getTimeScales()[index];
+        let label = timeScale.label;
+        let table = timeScale.table;
+        // noinspection JSUnresolvedVariable
+        let numOfRows = timeScale.numOfRows;
+
+        return [label, table, numOfRows];
+    };
+
+    app.getTableStructure = function(label, numOfRows, page) {
+        // noinspection JSUnresolvedVariable
+        let columns = app.calcInfo.tables[app.calculator]['columns'];
+        // noinspection JSUnresolvedVariable
+        let values = app.calcInfo.tables[app.calculator]['values'];
+        let first = (page - 1) * numOfRows;
+        let last = page * numOfRows;
+
+        columns[0] = label;
+
+        return [columns, values, first, last];
+    };
+
     app.showTable = function() {
-        if (app.results.table){
-            app.tableTimeScales = app.calcInfo.settings['tables'][app.results['time_scale']].display;
-            app.currentTable = app.tableTimeScales[0]['table'];
-            app.currentTimeScale = "Año";
-            app.tableRows = app.tableTimeScales[0]['numOfRows'];
-            app.tablePage = 1;
+        let label, table, numOfRows;
+        [label, table, numOfRows] = app.getTableInfo();
 
-            app.updateTableMenu();
-            app.updateTablePagination();
-            app.updateTable();
+        app.updateTableMenu();
+        //app.updateTablePagination();
+        app.updateTable(label, table, numOfRows);
 
-            $('.table-card').removeClass('is-invisible');
-        }
+        $('.table-card').removeClass('is-invisible');
     };
 
     // Gets the results from the backend.
@@ -141,8 +165,13 @@
                 app.results = results;
                 app.calculator = calculator;
                 app.showResults();
-                app.showCharts();
-                app.showTable();
+                // noinspection JSUnresolvedVariable
+                if (app.calcInfo.charts[app.calculator]) {
+                    app.showCharts();
+                }
+                if (app.results.table) {
+                    app.showTable();
+                }
             },
             dataType: 'json',
             error: function(e) {
