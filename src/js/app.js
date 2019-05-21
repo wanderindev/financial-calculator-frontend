@@ -17,6 +17,7 @@
         return data;
     };
 
+    // Builds and shows results.
     app.showResults = function() {
         app.calcInfo.results[app.calculator].forEach(function(item) {
             $('#' + item.id).val(app.results[item.id]);
@@ -24,6 +25,7 @@
         $('.results-card').removeClass('is-invisible');
     };
 
+    // Builds and shows result charts.
     app.showCharts = function() {
         let getVal = function(val) {
             return app.results[val];
@@ -62,6 +64,7 @@
         });
     };
 
+    // Updates html for table menu.
     app.updateTableMenu = function() {
         let timeScales = app.getTimeScales();
 
@@ -73,12 +76,113 @@
         $('#tsr-0 input').prop('checked', true);
     };
 
-    app.updateTablePagination = function() {
-        //app.totalRecords = app.currentTable.length;
-        //app.totalPages = Math.ceil(app.totalRecords / app.tableRows);
+    // Returns the number to table pages.
+    app.getNumOfPages = function(table, numOfRows) {
+        return Math.ceil((app.getTotalRows(table) - 1) / numOfRows);
     };
 
+    // Returns the total number of rows in the table.
+    app.getTotalRows = function(table) {
+        return app.results[table].length;
+    };
 
+    // Displays the first page of the table.
+    app.goToFirstPage = function() {
+        let first = 1;
+        let last = app.getNumOfPages() >= app.currentContext.pagination.numEle
+            ? app.currentContext.pagination.numEle
+            : app.getNumOfPages();
+
+        app.changePage(first, last, first);
+    };
+
+    // Returns the pages to be shown in the pagination.
+    app.getPageSelect = function(first, last, active) {
+        let pageSelect = [];
+
+        for (let i = first; i <= last; i++) {
+            pageSelect.push(
+                {
+                    isActive: active === i,
+                    page: i
+                }
+            );
+        }
+
+        return pageSelect;
+    };
+
+    // Returns the number of pagination elements to display.
+    app.getNumOfPageElements = function(table, numOfRows) {
+        if (app.getNumOfPages(table, numOfRows) >= 5) {
+            return 5
+        }
+
+        return app.getNumOfPages(table, numOfRows)
+    };
+
+    // Toggles pagination disabled state.
+    app.togglePaginationDisabled = function() {
+        let prev$ = $('.pagination-previous');
+        let next$ = $('.pagination-next');
+
+        // Toggle disabled attributes.
+        if (app.pagination.goBack) {
+            prev$.attr('disabled', false);
+        } else {
+            prev$.attr('disabled', true);
+        }
+
+        if (app.pagination.goForward) {
+            next$.attr('disabled', false);
+        } else {
+            next$.attr('disabled', true);
+        }
+    };
+
+    // Returns the html for the pagination.
+    app.getPaginationHtml = function() {
+        let html = '';
+        app.pagination.pageSelect.forEach(function(item) {
+            html += '<li><a class="pagination-link ';
+
+            if (item.isActive) {
+                html += 'is-current';
+            }
+
+            html += '">' + item.page + '</a></li>'
+        });
+
+        return html;
+    };
+
+    // Renders the updated pagination.
+    app.displayPagination = function() {
+        app.togglePaginationDisabled();
+        $('.pagination-list').html(app.getPaginationHtml());
+    };
+
+    // Resets the table pagination.
+    app.resetTablePagination = function(table, numOfRows, page = 1) {
+        let visible = app.getNumOfPageElements(table, numOfRows);
+        let first = 1;
+        let last = first + visible - 1;
+        let active = page;
+
+        // noinspection JSUnresolvedVariable
+        app.pagination = {
+            pageSelect: app.getPageSelect(first, last, active),
+            currentPage: active,
+            totalPages: app.getNumOfPages(table, numOfRows),
+            goBack: active > 1,
+            goForward:  active < app.getNumOfPages(table, numOfRows),
+            visible: visible
+        };
+
+        app.displayPagination();
+    };
+
+    // Updates the table upon menu or pagination events.
     app.updateTable = function(label, table, numOfRows, page = 1) {
         let columns, values, first, last, rows;
         let tableHead = '';
@@ -103,14 +207,18 @@
         $('.table tbody').html(tableBody);
     };
 
+    // Returns the table rows.
     app.getTableRows = function(table, first, last) {
         return app.results[table].slice(first, last);
     };
 
+    // Returns a list of tables to display depending on chosen time scale.
     app.getTimeScales = function() {
-        return app.calcInfo.settings['tables'][app.results['time_scale']].display;
+        // noinspection JSUnresolvedVariable
+        return app.calcInfo.settings.tables[app.results.time_scale].display;
     };
 
+    // Returns metadata about table to be displayed.
     app.getTableInfo = function(index = 0) {
         let timeScale = app.getTimeScales()[index];
         let label = timeScale.label;
@@ -121,11 +229,12 @@
         return [label, table, numOfRows];
     };
 
+    // Returns info about data to display in table.
     app.getTableStructure = function(label, numOfRows, page) {
         // noinspection JSUnresolvedVariable
-        let columns = app.calcInfo.tables[app.calculator]['columns'];
+        let columns = app.calcInfo.tables[app.calculator].columns;
         // noinspection JSUnresolvedVariable
-        let values = app.calcInfo.tables[app.calculator]['values'];
+        let values = app.calcInfo.tables[app.calculator].values;
         let first = (page - 1) * numOfRows;
         let last = page * numOfRows;
 
@@ -134,12 +243,13 @@
         return [columns, values, first, last];
     };
 
+    // Sets table components and displays it.
     app.showTable = function() {
         let label, table, numOfRows;
         [label, table, numOfRows] = app.getTableInfo();
 
         app.updateTableMenu();
-        //app.updateTablePagination();
+        app.resetTablePagination(table, numOfRows);
         app.updateTable(label, table, numOfRows);
 
         $('.table-card').removeClass('is-invisible');
@@ -151,7 +261,6 @@
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 
-        // noinspection JSUnusedGlobalSymbols
         $.ajax({
             method: 'POST',
             headers: {
