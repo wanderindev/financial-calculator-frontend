@@ -88,12 +88,12 @@
 
     // Displays the first page of the table.
     app.goToFirstPage = function() {
-        let first = 1;
-        let last = app.getNumOfPages() >= app.currentContext.pagination.numEle
-            ? app.currentContext.pagination.numEle
-            : app.getNumOfPages();
+        //let first = 1;
+        //let last = app.getNumOfPages() >= app.currentContext.pagination.numEle
+          //  ? app.currentContext.pagination.numEle
+          //  : app.getNumOfPages();
 
-        app.changePage(first, last, first);
+        //app.changePage(first, last, first);
     };
 
     // Returns the pages to be shown in the pagination.

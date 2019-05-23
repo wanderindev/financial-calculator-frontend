@@ -47,7 +47,7 @@
 
             [label, table, numOfRows] = app.getTableInfo(index);
 
-            //app.updateTablePagination();
+            app.resetTablePagination(table, numOfRows);
             app.updateTable(label, table, numOfRows);
         });
 
