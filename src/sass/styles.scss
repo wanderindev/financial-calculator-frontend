@@ -84,3 +84,11 @@ ul.pagination-list {
   list-style: none;
   margin-top: 0;
 }
+
+ul.pagination-list li {
+  margin-top: 0;
+}
+
+.pagination-link.is-current:hover {
+  cursor: default;
+}

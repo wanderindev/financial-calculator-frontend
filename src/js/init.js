@@ -47,8 +47,14 @@
 
             [label, table, numOfRows] = app.getTableInfo(index);
 
-            app.resetTablePagination(table, numOfRows);
-            app.updateTable(label, table, numOfRows);
+            app.table = {
+                label: label,
+                table: table,
+                numOfRows : numOfRows
+            };
+
+            app.resetTablePagination();
+            app.updateTable();
         });
 
         // Parses calculator data.

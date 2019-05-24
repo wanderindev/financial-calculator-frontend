@@ -77,13 +77,39 @@
     };
 
     // Returns the number to table pages.
-    app.getNumOfPages = function(table, numOfRows) {
-        return Math.ceil((app.getTotalRows(table) - 1) / numOfRows);
+    app.getNumOfPages = function() {
+        return Math.ceil((app.getTotalRows(app.table.table) - 1) / app.table.numOfRows);
     };
 
     // Returns the total number of rows in the table.
-    app.getTotalRows = function(table) {
-        return app.results[table].length;
+    app.getTotalRows = function() {
+        return app.results[app.table.table].length;
+    };
+
+    // Selects a table page.
+    app.changePage = function(page) {
+        console.log(page);
+        if (page !== app.pagination.currentPage) {
+            $('.page-' + app.pagination.currentPage).removeClass('is-current');
+            $('.page-' + page).addClass('is-current');
+
+            app.pagination.currentPage = page;
+            app.pagination.goBack = page > 1;
+            app.pagination.goForward =  page < app.pagination.totalPages;
+
+            app.togglePaginationDisabled();
+            app.updateTable(page);
+        }
+    };
+
+    // Moves back on page.
+    app.goBack = function() {
+        app.changePage(app.pagination.currentPage - 1);
+    };
+
+    // Moves forward on page.
+    app.goForward = function() {
+        app.changePage(app.pagination.currentPage + 1);
     };
 
     // Displays the first page of the table.
@@ -113,12 +139,12 @@
     };
 
     // Returns the number of pagination elements to display.
-    app.getNumOfPageElements = function(table, numOfRows) {
-        if (app.getNumOfPages(table, numOfRows) >= 5) {
+    app.getNumOfPageElements = function() {
+        if (app.getNumOfPages() >= 5) {
             return 5
         }
 
-        return app.getNumOfPages(table, numOfRows)
+        return app.getNumOfPages()
     };
 
     // Toggles pagination disabled state.
@@ -150,7 +176,7 @@
                 html += 'is-current';
             }
 
-            html += '">' + item.page + '</a></li>'
+            html += ' page-' + item.page + '" onclick="app.changePage(' + item.page + ')">' + item.page + '</a></li>'
         });
 
         return html;
@@ -159,37 +185,45 @@
     // Renders the updated pagination.
     app.displayPagination = function() {
         app.togglePaginationDisabled();
+
         $('.pagination-list').html(app.getPaginationHtml());
     };
 
+    // Updates the pagination on click.
+    app.updateTablePagination = function(page) {
+
+    };
+
     // Resets the table pagination.
-    app.resetTablePagination = function(table, numOfRows, page = 1) {
-        let visible = app.getNumOfPageElements(table, numOfRows);
+    app.resetTablePagination = function(page = 1) {
+        let elements = app.getNumOfPageElements();
         let first = 1;
-        let last = first + visible - 1;
+        let last = first + elements - 1;
         let active = page;
 
         // noinspection JSUnresolvedVariable
         app.pagination = {
+            firstPage: first,
+            lastPage: last,
             pageSelect: app.getPageSelect(first, last, active),
             currentPage: active,
-            totalPages: app.getNumOfPages(table, numOfRows),
+            totalPages: app.getNumOfPages(),
             goBack: active > 1,
-            goForward:  active < app.getNumOfPages(table, numOfRows),
-            visible: visible
+            goForward:  active < app.getNumOfPages(),
+            elements: elements
         };
 
         app.displayPagination();
     };
 
     // Updates the table upon menu or pagination events.
-    app.updateTable = function(label, table, numOfRows, page = 1) {
+    app.updateTable = function(page = 1) {
         let columns, values, first, last, rows;
         let tableHead = '';
         let tableBody = '';
 
-        [columns, values, first, last] = app.getTableStructure(label, numOfRows, page);
-        rows = app.getTableRows(table, first, last);
+        [columns, values, first, last] = app.getTableStructure(page);
+        rows = app.getTableRows(first, last);
 
         columns.forEach(function(column) {
             tableHead += '<th>' + column + '</th>';
@@ -208,8 +242,8 @@
     };
 
     // Returns the table rows.
-    app.getTableRows = function(table, first, last) {
-        return app.results[table].slice(first, last);
+    app.getTableRows = function(first, last) {
+        return app.results[app.table.table].slice(first, last);
     };
 
     // Returns a list of tables to display depending on chosen time scale.
@@ -230,15 +264,15 @@
     };
 
     // Returns info about data to display in table.
-    app.getTableStructure = function(label, numOfRows, page) {
+    app.getTableStructure = function(page) {
         // noinspection JSUnresolvedVariable
         let columns = app.calcInfo.tables[app.calculator].columns;
         // noinspection JSUnresolvedVariable
         let values = app.calcInfo.tables[app.calculator].values;
-        let first = (page - 1) * numOfRows;
-        let last = page * numOfRows;
+        let first = (page - 1) * app.table.numOfRows;
+        let last = page * app.table.numOfRows;
 
-        columns[0] = label;
+        columns[0] = app.table.label;
 
         return [columns, values, first, last];
     };
@@ -248,9 +282,15 @@
         let label, table, numOfRows;
         [label, table, numOfRows] = app.getTableInfo();
 
+        app.table = {
+            label: label,
+            table: table,
+            numOfRows : numOfRows
+        };
+
         app.updateTableMenu();
-        app.resetTablePagination(table, numOfRows);
-        app.updateTable(label, table, numOfRows);
+        app.resetTablePagination();
+        app.updateTable();
 
         $('.table-card').removeClass('is-invisible');
     };
