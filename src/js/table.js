@@ -6,12 +6,22 @@
 
     // Moves forward on page.
     app.goForward = function() {
-        app.selectPage(app.pagination.currentPage - 1);
+        app.selectPage(app.pagination.currentPage + 1);
+    };
+
+    // Moves to first page.
+    app.goFirst = function() {
+        app.selectPage(1);
+    };
+
+    // Moves to last page.
+    app.goLast = function() {
+        app.selectPage(app.pagination.totalPages);
     };
 
     // Selects a table page.
     app.selectPage = function(page) {
-        if (page !== app.pagination.currentPage) {
+        if (page !== app.pagination.currentPage && page > 0 && page <= app.pagination.totalPages) {
             app.setTableInfo(page, app.table.index);
             app.updateTablePagination(page);
             app.updateTable();
@@ -21,6 +31,13 @@
     // Returns the html for the pagination.
     app.getPaginationHtml = function() {
         let html = '';
+
+        if (app.pagination.firstPage === 1) {
+            html = '<li><span class="pagination-ellipsis ellipsis-left has-text-white">&hellip;</span></li>';
+        } else {
+            html = '<li><span class="pagination-ellipsis ellipsis-left">&hellip;</span></li>';
+        }
+
         app.pagination.pageSelect.forEach(function(item) {
             html += '<li><a class="pagination-link ';
 
@@ -30,6 +47,12 @@
 
             html += ' page-' + item.page + '" onclick="app.selectPage(' + item.page + ')">' + item.page + '</a></li>';
         });
+
+        if (app.pagination.lastPage === app.pagination.totalPages) {
+            html += '<li><span class="pagination-ellipsis ellipsis-right has-text-white">&hellip;</span></li>';
+        } else {
+            html += '<li><span class="pagination-ellipsis ellipsis-right">&hellip;</span></li>';
+        }
 
         return html;
     };
@@ -91,9 +114,18 @@
     // Sets table pagination metadata.
     app.setPaginationInfo = function(page) {
         let elements = app.getNumOfPageElements();
-        let firstPage = page <= elements ? 1 : page - elements + 1;
-        let lastPage = firstPage + elements - 1;
         let currentPage = page;
+        let firstPage, lastPage;
+
+        if (currentPage < 3) {
+            firstPage = 1;
+        } else if (currentPage > app.getNumOfPages() - 2) {
+            firstPage = app.getNumOfPages() - elements + 1;
+        } else {
+            firstPage = currentPage - 2;
+        }
+
+        lastPage = firstPage + elements - 1;
 
         // noinspection JSUnresolvedVariable
         app.pagination = {

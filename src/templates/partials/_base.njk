@@ -156,7 +156,7 @@
                                     <div class="result-table-pagination column is-full-tablet">
                                         <!-- Table pagination -->
                                         <nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
-                                            <a class="pagination-previous">
+                                            <a class="pagination-previous" onclick="app.goFirst()">
                                                 <span class="icon"><i class="fal fa-chevron-double-left"></i></span>
                                             </a>
                                             <a class="pagination-previous" onclick="app.goBack()">
@@ -165,7 +165,7 @@
                                             <a class="pagination-next" onclick="app.goForward()">
                                                 <span class="icon"><i class="fal fa-chevron-right"></i></span>
                                             </a>
-                                            <a class="pagination-next">
+                                            <a class="pagination-next" onclick="app.goLast()">
                                                 <span class="icon"><i class="fal fa-chevron-double-right"></i></span>
                                             </a>
                                             <ul class="pagination-list">
