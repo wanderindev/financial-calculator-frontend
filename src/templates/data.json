@@ -314,7 +314,7 @@
       {
         "type": "textField",
         "id": "num_of_years",
-        "label": "Tiempo (en años)",
+        "label": "Tiempo (años)",
         "placeholder": "",
         "value": ""
       },
@@ -374,7 +374,7 @@
       {
         "type": "textField",
         "id": "num_of_years",
-        "label": "Tiempo (en años)",
+        "label": "Tiempo (años)",
         "placeholder": "",
         "value": ""
       },
@@ -450,7 +450,7 @@
       {
         "type": "textField",
         "id": "num_of_years",
-        "label": "Tiempo (en años)",
+        "label": "Tiempo (años)",
         "placeholder": "",
         "value": ""
       },
@@ -481,7 +481,7 @@
       {
         "type": "textField",
         "id": "num_of_years",
-        "label": "Tiempo (en años)",
+        "label": "Tiempo (años)",
         "placeholder": "",
         "value": ""
       },

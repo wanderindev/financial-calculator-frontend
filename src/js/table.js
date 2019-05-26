@@ -202,13 +202,17 @@
         let tableBody = '';
 
         app.table.columns.forEach(function(column) {
-            tableHead += '<th>' + column + '</th>';
+            tableHead += '<th class="has-text-centered">' + column + '</th>';
         });
 
         rows.forEach(function(row) {
             tableBody += '<tr>';
             app.table.values.forEach(function(value) {
-                tableBody += '<td>' + row[value] + '</td>';
+                if (value === 'p') {
+                    tableBody += '<td class="has-text-centered">' + row[value] + '</td>';
+                } else {
+                    tableBody += '<td class="has-text-right">' + row[value] + '</td>';
+                }
             });
             tableBody += '</tr>';
         });
