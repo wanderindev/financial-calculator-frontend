@@ -3,7 +3,7 @@
 }
 
 .menu {
-  min-width: 288px;
+  min-width: 238px;
 }
 
 .menu-list a, .menu-list a.is-active {
@@ -38,8 +38,12 @@
   font-size: 0.85rem;
 }
 
+.field-label {
+  margin-right: 1.25rem;
+}
+
 .cf-field-label {
-  width: 110px;
+  width: 100px;
   text-align: left;
 }
 
@@ -74,6 +78,7 @@
 .result-table-menu,
 .result-table {
   border-bottom: 1px solid #999;
+  font-size: 0.85rem;
 }
 
 .result-table-pagination {
@@ -83,4 +88,12 @@
 ul.pagination-list {
   list-style: none;
   margin-top: 0;
+}
+
+ul.pagination-list li {
+  margin-top: 0;
+}
+
+.pagination-link.is-current:hover {
+  cursor: default;
 }

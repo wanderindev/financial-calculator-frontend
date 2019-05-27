@@ -61,7 +61,7 @@
                     <!-- Title ends -->
 
                     <!-- Form starts -->
-                    <div class="column is-full-tablet is-half-desktop is-one-third-widescreen">
+                    <div class="column is-one-third-tablet">
                         <div class="calculator-form">
                         {% for field in forms[page] %}
                             {% if field.type == 'textField' %}
@@ -81,8 +81,8 @@
                     </div>
                     <!-- Form ends -->
 
-                    <!-- Results starts -->
-                    <div class="column is-full-tablet is-half-desktop is-two-thirds-widescreen">
+                    <!-- Results card starts -->
+                    <div class="column is-two-thirds-tablet">
                         <div class="card results-card is-invisible">
                             <header class="card-header">
                                 <p class="card-header-title">
@@ -91,96 +91,100 @@
                             </header>
                             <div class="card-content">
                                 <div class="content columns is-multiline">
+                                    <!-- Results starts -->
                                     <div class="results column is-full-tablet">
                                         {% for field in results[page] %}
                                             {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
                                         {% endfor %}
                                     </div>
+                                    <!-- Results ends -->
+
+                                    <!-- Charts starts -->
                                     <div id="pie-chart" class="pie-chart column is-half-tablet is-full-desktop is-half-widescreen"></div>
                                     <div id="line-chart" class="line-chart column is-half-tablet is-full-desktop is-half-widescreen"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Results ends -->
+                                    <!-- Charts ends -->
 
-                    <!-- Table starts -->
-                    <div class="column is-full-tablet">
-                        {% block table %}
-                        <div class="card table-card is-invisible">
-                            <div class="card-content">
-                                <div class="content columns is-multiline">
-                                    <div class="result-table-menu column is-full-tablet">
-                                        <!-- Table menu -->
-                                        <nav class="level is-mobile">
-                                            <div class="level-left">
-                                                <div class="level-item">
-                                                    <h6 class="title is-6">Detalle</h6>
-                                                </div>
-                                            </div>
-                                            <div class="level-right">
-                                                <div class="level-item field-label is-small is-hidden-mobile">
-                                                    <label class="label cf-field-label cf-rb">Mostrar por:</label>
-                                                </div>
-                                                <div class="level-item">
-                                                    <div class="control">
-                                                        <label id="tsr-0" class="radio time-scale-r is-hidden">
-                                                            <input type="radio" name="timeScale" value="0" checked>
-                                                            <span class="radio-text">Año</span>
-                                                        </label>
-                                                        <label id="tsr-1" class="radio time-scale-r is-hidden">
-                                                            <input type="radio" name="timeScale" value="1">
-                                                            <span class="radio-text">Mes</span>
-                                                        </label>
-                                                        <label id="tsr-2" class="radio time-scale-r is-hidden">
-                                                            <input type="radio" name="timeScale" value="2">
-                                                            <span class="radio-text">Semana</span>
-                                                        </label>
+                                    <!-- Table starts -->
+                                    <div class="column is-full-tablet">
+                                        {% block table %}
+                                            <div class="card table-card is-invisible">
+                                                <div class="card-content">
+                                                    <div class="content columns is-multiline">
+                                                        <div class="result-table-menu column is-full-tablet">
+                                                            <!-- Table menu -->
+                                                            <nav class="level is-mobile">
+                                                                <div class="level-left">
+                                                                    <div class="level-item">
+                                                                        <h6 class="title is-6">Detalle</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="level-right">
+                                                                    <div class="level-item field-label is-small is-hidden-mobile">
+                                                                        <label class="label cf-field-label cf-rb">Mostrar por:</label>
+                                                                    </div>
+                                                                    <div class="level-item">
+                                                                        <div class="control">
+                                                                            <label id="tsr-0" class="radio time-scale-r is-hidden">
+                                                                                <input type="radio" name="timeScale" value="0" checked>
+                                                                                <span class="radio-text">Año</span>
+                                                                            </label>
+                                                                            <label id="tsr-1" class="radio time-scale-r is-hidden">
+                                                                                <input type="radio" name="timeScale" value="1">
+                                                                                <span class="radio-text">Mes</span>
+                                                                            </label>
+                                                                            <label id="tsr-2" class="radio time-scale-r is-hidden">
+                                                                                <input type="radio" name="timeScale" value="2">
+                                                                                <span class="radio-text">Semana</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </nav>
+                                                            <!-- Table menu ends -->
+                                                        </div>
+                                                        <div class="result-table column is-full-tablet">
+                                                            <!-- Table body -->
+                                                            <table class="table is-narrow is-hoverable is-bordered">
+                                                                <thead>
+                                                                <tr></tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                </tbody>
+                                                            </table>
+                                                            <!-- Table body ends -->
+                                                        </div>
+                                                        <div class="result-table-pagination column is-full-tablet">
+                                                            <!-- Table pagination -->
+                                                            <nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
+                                                                <a class="pagination-previous" onclick="app.goFirst()">
+                                                                    <span class="icon"><i class="fal fa-chevron-double-left"></i></span>
+                                                                </a>
+                                                                <a class="pagination-previous" onclick="app.goBack()">
+                                                                    <span class="icon"><i class="fal fa-chevron-left"></i></span>
+                                                                </a>
+                                                                <a class="pagination-next" onclick="app.goForward()">
+                                                                    <span class="icon"><i class="fal fa-chevron-right"></i></span>
+                                                                </a>
+                                                                <a class="pagination-next" onclick="app.goLast()">
+                                                                    <span class="icon"><i class="fal fa-chevron-double-right"></i></span>
+                                                                </a>
+                                                                <ul class="pagination-list">
+
+                                                                </ul>
+                                                            </nav>
+                                                            <!-- Table pagination ends -->
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </nav>
-                                        <!-- Table menu ends -->
+                                        {% endblock %}
                                     </div>
-                                    <div class="result-table column is-full-tablet">
-                                        <!-- Table body -->
-                                        <table class="table is-narrow is-hoverable is-fullwidth">
-                                            <thead>
-                                                <tr></tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                        <!-- Table body ends -->
-                                    </div>
-                                    <div class="result-table-pagination column is-full-tablet">
-                                        <!-- Table pagination -->
-                                        <nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
-                                            <a class="pagination-previous">
-                                                <span class="icon"><i class="fal fa-chevron-double-left"></i></span>
-                                            </a>
-                                            <a class="pagination-previous">
-                                                <span class="icon"><i class="fal fa-chevron-left"></i></span>
-                                            </a>
-                                            <a class="pagination-next">
-                                                <span class="icon"><i class="fal fa-chevron-right"></i></span>
-                                            </a>
-                                            <a class="pagination-next">
-                                                <span class="icon"><i class="fal fa-chevron-double-right"></i></span>
-                                            </a>
-                                            <ul class="pagination-list">
-
-                                            </ul>
-                                        </nav>
-                                        <!-- Table pagination ends -->
-                                    </div>
+                                    <!-- Table ends -->
                                 </div>
                             </div>
                         </div>
-                        {% endblock %}
                     </div>
-                    <!-- Table ends -->
-
+                    <!-- Results card ends -->
                 </div>
 
             </div>

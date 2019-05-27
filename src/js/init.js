@@ -43,12 +43,10 @@
         // Changes the time scale of the table.
         timeScaleRadio$.change(function() {
             let index = $(this).children(':first').val();
-            let label, table, numOfRows;
 
-            [label, table, numOfRows] = app.getTableInfo(index);
-
-            //app.updateTablePagination();
-            app.updateTable(label, table, numOfRows);
+            app.setTableInfo(1, index);
+            app.updateTablePagination();
+            app.updateTable();
         });
 
         // Parses calculator data.
