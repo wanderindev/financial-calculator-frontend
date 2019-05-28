@@ -32,12 +32,13 @@
     app.getPaginationHtml = function() {
         let html = '';
 
+        /**
         if (app.pagination.firstPage === 1) {
             html = '<li><span class="pagination-ellipsis ellipsis-left has-text-white">&hellip;</span></li>';
         } else {
             html = '<li><span class="pagination-ellipsis ellipsis-left">&hellip;</span></li>';
         }
-
+        **/
         app.pagination.pageSelect.forEach(function(item) {
             html += '<li><a class="pagination-link ';
 
@@ -47,13 +48,13 @@
 
             html += ' page-' + item.page + '" onclick="app.selectPage(' + item.page + ')">' + item.page + '</a></li>';
         });
-
+        /**
         if (app.pagination.lastPage === app.pagination.totalPages) {
             html += '<li><span class="pagination-ellipsis ellipsis-right has-text-white">&hellip;</span></li>';
         } else {
             html += '<li><span class="pagination-ellipsis ellipsis-right">&hellip;</span></li>';
         }
-
+        **/
         return html;
     };
 
@@ -104,8 +105,8 @@
 
     // Returns the number of pagination elements to display.
     app.getNumOfPageElements = function() {
-        if (app.getNumOfPages() >= 5) {
-            return 5;
+        if (app.getNumOfPages() >= 3) {
+            return 3;
         }
 
         return app.getNumOfPages();
@@ -117,12 +118,12 @@
         let currentPage = page;
         let firstPage, lastPage;
 
-        if (currentPage < 3) {
+        if (currentPage < 2) {
             firstPage = 1;
-        } else if (currentPage > app.getNumOfPages() - 2) {
+        } else if (currentPage > app.getNumOfPages() - 1) {
             firstPage = app.getNumOfPages() - elements + 1;
         } else {
-            firstPage = currentPage - 2;
+            firstPage = currentPage - 1;
         }
 
         lastPage = firstPage + elements - 1;
