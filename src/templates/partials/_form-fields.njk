@@ -1,4 +1,4 @@
-{% macro textField( id, label, value = '', placeholder = '' ) %}
+{% macro textField( id, label, value = '', placeholder = '', cleave='', attr = '' ) %}
                             <div class="field is-horizontal {{id}}">
                                 <div class="field-label is-small">
                                     <label class="label cf-field-label">{{label}}</label>
@@ -6,7 +6,7 @@
                                 <div class="field-body">
                                     <div class="field">
                                         <p class="control">
-                                            <input id="{{id}}" class="input is-small" type="text" placeholder="{{placeholder}}">
+                                            <input id="{{id}}" class="input is-small {{cleave}}" type="text" placeholder="{{placeholder}}" {{attr}}>
                                         </p>
                                     </div>
                                 </div>
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="field-body">
                                     <div class="field">
-                                        <div class="control">
+                                        <div class="control is-expanded">
                                             <div class="select is-small is-fullwidth">
                                                 <!--suppress HtmlFormInputWithoutLabel -->
                                                 <select id="freq">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="field-body">
                                     <div class="field">
-                                        <div class="control">
+                                        <div class="control is-expanded">
                                             <div class="select is-small is-fullwidth">
                                                 <!--suppress HtmlFormInputWithoutLabel -->
                                                 <select id="extra_dep_f">
@@ -108,5 +108,5 @@
 {% endmacro %}
 
 {% macro calculateButton(calculator) %}
-                        <a class="button is-primary" onclick="app.calculate('{{calculator}}')">Calcular</a>
+                        <a class="button is-primary calculate-btn" onclick="app.calculate('{{calculator}}')">Calcular</a>
 {% endmacro %}

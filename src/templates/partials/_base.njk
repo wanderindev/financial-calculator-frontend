@@ -15,7 +15,7 @@
     <!-- Navbar start -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://anafeliu.com" title="Inicio">
+            <a class="navbar-item" href="#" title="Inicio">
                 <h1 class="header-logo"></h1>
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -52,16 +52,17 @@
             <!-- Calculator starts -->
             <div class="column">
 
-                <div class="columns is-multiline">
-
+                <div class="columns">
                     <!-- Title starts -->
-                    <div class="column is-full-tablet page-title">
+                    <div class="column page-title">
                         <h1 class="title is-4">{{page}}</h1>
                     </div>
                     <!-- Title ends -->
+                </div>
 
+                <div class="columns is-multiline">
                     <!-- Form starts -->
-                    <div class="column is-one-third-tablet">
+                    <div class="column is-narrow">
                         <div class="calculator-form">
                         {% for field in forms[page] %}
                             {% if field.type == 'textField' %}
@@ -76,41 +77,48 @@
                                 {{ formFields['depWhenRadio']() }}
                             {% endif %}
                         {% endfor %}
-                        </div>
                         {{ formFields['calculateButton'](page) }}
+                        </div>
                     </div>
                     <!-- Form ends -->
 
                     <!-- Results card starts -->
-                    <div class="column is-two-thirds-tablet">
+                    <div class="column">
                         <div class="card results-card is-invisible">
                             <header class="card-header">
-                                <p class="card-header-title">
+                                <p class="card-header-title has-text-centered">
                                     Resultados
                                 </p>
                             </header>
                             <div class="card-content">
-                                <div class="content columns is-multiline">
-                                    <!-- Results starts -->
-                                    <div class="results column is-full-tablet">
+
+                                <!-- Results starts -->
+                                <div class="content columns is-centered">
+                                    <div class="results column is-narrow">
                                         {% for field in results[page] %}
-                                            {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                                            {{ formFields['textField'](field.id, field.label, field.value, field.placeholder, field.cleave, field.attr) }}
                                         {% endfor %}
                                     </div>
-                                    <!-- Results ends -->
+                                </div>
+                                <!-- Results ends -->
 
-                                    <!-- Charts starts -->
-                                    <div id="pie-chart" class="pie-chart column is-half-tablet is-full-desktop is-half-widescreen"></div>
-                                    <div id="line-chart" class="line-chart column is-half-tablet is-full-desktop is-half-widescreen"></div>
-                                    <!-- Charts ends -->
+                                <!-- Charts starts -->
+                                <div class="content columns is-centered">
+                                    <div id="pie-chart" class="pie-chart column is-narrow"></div>
+                                </div>
+                                <div class="content columns is-centered">
+                                    <div id="line-chart" class="line-chart column is-narrow"></div>
+                                </div>
+                                <!-- Charts ends -->
 
-                                    <!-- Table starts -->
-                                    <div class="column is-full-tablet">
+                                <!-- Table starts -->
+                                <div class="content columns is-centered">
+                                    <div class="column">
                                         {% block table %}
                                             <div class="card table-card is-invisible">
                                                 <div class="card-content">
-                                                    <div class="content columns is-multiline">
-                                                        <div class="result-table-menu column is-full-tablet">
+                                                    <div class="content columns">
+                                                        <div class="result-table-menu column">
                                                             <!-- Table menu -->
                                                             <nav class="level is-mobile">
                                                                 <div class="level-left">
@@ -142,7 +150,9 @@
                                                             </nav>
                                                             <!-- Table menu ends -->
                                                         </div>
-                                                        <div class="result-table column is-full-tablet">
+                                                    </div>
+                                                    <div class="content columns">
+                                                        <div class="result-table column">
                                                             <!-- Table body -->
                                                             <table class="table is-narrow is-hoverable is-bordered">
                                                                 <thead>
@@ -153,7 +163,9 @@
                                                             </table>
                                                             <!-- Table body ends -->
                                                         </div>
-                                                        <div class="result-table-pagination column is-full-tablet">
+                                                    </div>
+                                                    <div class="content columns">
+                                                        <div class="result-table-pagination column">
                                                             <!-- Table pagination -->
                                                             <nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
                                                                 <a class="pagination-previous" onclick="app.goFirst()">
@@ -168,6 +180,7 @@
                                                                 <a class="pagination-next" onclick="app.goLast()">
                                                                     <span class="icon"><i class="fal fa-chevron-double-right"></i></span>
                                                                 </a>
+
                                                                 <ul class="pagination-list">
 
                                                                 </ul>
@@ -179,8 +192,9 @@
                                             </div>
                                         {% endblock %}
                                     </div>
-                                    <!-- Table ends -->
                                 </div>
+                                <!-- Table ends -->
+
                             </div>
                         </div>
                     </div>
@@ -202,6 +216,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
 <!-- Plotly JS -->
 <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+<!-- Cleave JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.5.0/cleave.min.js"></script>
 
 <!-- inject:js -->
 <!-- endinject -->

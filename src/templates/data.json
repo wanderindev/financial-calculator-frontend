@@ -25,7 +25,7 @@
         "data": {
           "type": "pie",
           "hoverinfo": "label+percent",
-          "textinfo": "value",
+          "textinfo": "text",
           "showlegend": false,
           "marker": {
             "colors": [
@@ -43,8 +43,8 @@
           "height": 210,
           "width": 270,
           "margin": {
-            "l": 35,
-            "r": 25,
+            "l": 45,
+            "r": 15,
             "t": 40,
             "b": 30
           },
@@ -505,21 +505,27 @@
         "id": "fin_bal",
         "label": "Cantidad Final",
         "placeholder": "",
-        "value": ""
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
       },
       {
         "type": "textField",
         "id": "total_dep",
         "label": "Aportes Realizados",
         "placeholder": "",
-        "value": ""
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
       },
       {
         "type": "textField",
         "id": "total_int",
         "label": "Intereses Ganados",
         "placeholder": "",
-        "value": ""
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
       }
     ]
   },

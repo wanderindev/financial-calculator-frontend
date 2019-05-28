@@ -1,5 +1,14 @@
+body {
+  min-width: 360px;
+}
+
 .section {
   padding-top: 1rem;
+  min-width: 360px;
+}
+
+#mobile-menu {
+  margin-bottom: 1.5rem;
 }
 
 .menu {
@@ -47,12 +56,20 @@
   text-align: left;
 }
 
+.calculate-btn {
+  margin-top: 1rem;
+}
+
 .results .cf-field-label {
   width: 130px;
 }
 
 .results input[type=text] {
-  max-width: 130px;
+  /*max-width: 130px;*/
+}
+
+.money {
+  text-align: right;
 }
 
 .field:not(:last-child) {
@@ -75,23 +92,38 @@
   margin-bottom: 1.25rem;
 }
 
+.card-header-title {
+  display: block;
+}
+
 .result-table-menu,
 .result-table {
   border-bottom: 1px solid #999;
   font-size: 0.85rem;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .result-table-pagination {
   padding-top: 1.25rem;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 ul.pagination-list {
   list-style: none;
-  margin-top: 0;
+  margin: 0;
+  min-width: 105px;
+}
+
+.pagination-next,
+.pagination-previous {
+  max-width: 2.2em;
 }
 
 ul.pagination-list li {
   margin-top: 0;
+  min-width: 2.2em;
 }
 
 .pagination-link.is-current:hover {

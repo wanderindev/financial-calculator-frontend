@@ -5,6 +5,10 @@
             return app.results[val];
         };
 
+        let getText = function(val) {
+            return app.results[val].toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        };
+
         // noinspection JSUnresolvedVariable
         app.calcInfo.charts[app.calculator].forEach(function(item) {
             if (item.type === 'pie') {
@@ -12,6 +16,7 @@
                 let layout = app.calcInfo.settings.plotly.pie.layout;
 
                 data.values = item.values.map(getVal);
+                data.text = item.values.map(getText);
                 data.labels = item.labels;
                 layout.title = item.title;
 

@@ -1,4 +1,4 @@
-(function(app, $) {
+(function(app, $, Cleave) {
     // Builds the endpoint from the calculator's name.
     app.getEndpoint = function(calculator) {
         return calculator.replace(/ /g, '-').toLowerCase();
@@ -17,11 +17,24 @@
         return data;
     };
 
+    // Applies Cleave formatting to results.
+    app.formatResults = function() {
+        $('.money').toArray().forEach(function(el) {
+            new Cleave(el, {
+                numeral: true,
+                prefix: '$ ',
+                numeralDecimalScale: 2
+            });
+        });
+    };
+
     // Builds and shows results.
     app.showResults = function() {
         app.calcInfo.results[app.calculator].forEach(function(item) {
             $('#' + item.id).val(app.results[item.id]);
         });
+        app.formatResults();
+
         $('.results-card').removeClass('is-invisible');
     };
 
@@ -58,4 +71,4 @@
             }
         });
     };
-})(window.app = window.app || {}, jQuery);
+})(window.app = window.app || {}, jQuery, Cleave);
