@@ -384,10 +384,6 @@
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
-      },
-      {
-        "type": "depWhenRadio",
-        "id": "dep_when"
       }
     ],
     "Tiempo para Lograr Meta": [
@@ -527,6 +523,17 @@
         "attr": "readonly",
         "cleave": "money"
       }
+    ],
+    "Ahorros para Lograr Meta": [
+      {
+        "type": "textField",
+        "id": "reg_dep",
+        "label": "Aporte Regular",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
     ]
   },
   "charts": {
@@ -564,10 +571,49 @@
           }
         ]
       }
+    ],
+    "Ahorros para Lograr Meta": [
+      {
+        "type": "pie",
+        "title": "Aportes vs Intereses",
+        "labels": ["Aportes", "Intereses"],
+        "values": ["total_dep", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento de Ahorro",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "agg_deposits",
+            "name": "Aportes",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "agg_interests",
+            "name": "Intereses",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Balance",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
     ]
   },
   "tables": {
     "Calculadora de Ahorros": {
+      "columns": ["", "Aporte", "Interés", "Balance"],
+      "values": ["p", "d", "i", "b"]
+    },
+    "Ahorros para Lograr Meta": {
       "columns": ["", "Aporte", "Interés", "Balance"],
       "values": ["p", "d", "i", "b"]
     }
