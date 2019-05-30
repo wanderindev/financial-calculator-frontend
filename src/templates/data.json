@@ -384,6 +384,10 @@
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
+      },
+      {
+        "type": "depWhenRadio",
+        "id": "dep_when"
       }
     ],
     "Tiempo para Lograr Meta": [
