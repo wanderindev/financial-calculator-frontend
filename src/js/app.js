@@ -14,6 +14,7 @@
                 data[item.id] = $('#' + item.id).val();
             }
         });
+
         return data;
     };
 
