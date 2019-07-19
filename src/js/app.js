@@ -11,7 +11,10 @@
             if (item.type.endsWith('Radio')) {
                 data[item.id] = $('input:radio[name="' + item.id + '"]:checked').val();
             } else {
-                data[item.id] = $('#' + item.id).val();
+                let val = $('#' + item.id).val();
+                if (val){
+                    data[item.id] = val;
+                }
             }
         });
 
@@ -23,7 +26,7 @@
         $('.money').toArray().forEach(function(el) {
             new Cleave(el, {
                 numeral: true,
-                prefix: '$ ',
+                //prefix: '$ ',
                 numeralDecimalScale: 2
             });
         });

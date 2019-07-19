@@ -11,6 +11,10 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.navbar {
+  background-color: rgba(255, 255, 255, 0);
+}
+
 .menu {
   min-width: 238px;
 }
@@ -19,12 +23,12 @@ body {
   padding: .15rem 0;
   color: #3273dc;
   text-decoration: underline;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .menu-list a:hover {
-  background-color: #fff;
-  color: #3273dc;
+  background-color: rgba(255, 255, 255, 0);
+  color: #3292ff;
 }
 
 .menu-list a.is-active:hover {
@@ -56,8 +60,21 @@ body {
   text-align: left;
 }
 
+.calc-form-wrapper {
+  background-color: #eee;
+  padding: 20px 20px 10px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+}
+
 .calculate-btn {
   margin-top: 1rem;
+  background-color: #2ca02c;
+  color: #eee;
+}
+
+.calculate-btn:hover {
+  color: #fff;
 }
 
 .results .cf-field-label {
@@ -78,10 +95,11 @@ body {
 
 .page-title {
   padding-top: 0;
+  padding-bottom: 24px;
 }
 
 .calculator-form {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .hide {
@@ -90,6 +108,10 @@ body {
 
 .results {
   margin-bottom: 1.25rem;
+}
+
+.results-card {
+  background-color: rgba(240, 240, 240, 0.5);
 }
 
 .card-header-title {
