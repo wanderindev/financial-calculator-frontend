@@ -29,7 +29,7 @@
           "showlegend": false,
           "marker": {
             "colors": [
-              "#209cee", "#ffdd57"
+              "#7fc2de", "#ffc79d"
             ],
             "line": {
               "color": "rgba(10, 10, 10, 0.31)",
@@ -243,8 +243,8 @@
       "title": "Préstamos",
       "calculators": [
         {
-          "url": "/calculadora-de-prestamo.html",
-          "name": "Calculadora de Préstamo"
+          "url": "/calculadora-de-prestamos.html",
+          "name": "Calculadora de Préstamos"
         },
         {
           "url": "/tasa-de-interes-real.html",

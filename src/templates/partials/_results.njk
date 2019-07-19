@@ -1,0 +1,28 @@
+<div class="card results-card is-invisible">
+    <header class="card-header">
+        <p class="card-header-title has-text-centered">
+            Resultados
+        </p>
+    </header>
+    <div class="card-content">
+
+        <!-- Results starts -->
+        <div class="content columns is-centered">
+            <div class="results column is-narrow">
+                {% for field in results[page] %}
+                    {{ formFields['textField'](field.id, field.label, field.value, field.placeholder, field.cleave, field.attr) }}
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Results ends -->
+
+        <!-- Charts starts -->
+
+        <!-- Charts ends -->
+
+        <!-- Table starts -->
+
+        <!-- Table ends -->
+
+    </div>
+</div>
