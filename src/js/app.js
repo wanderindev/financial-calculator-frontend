@@ -38,13 +38,43 @@
             $('#' + item.id).val(app.results[item.id]);
         });
         app.formatResults();
+    };
 
-        $('.results-card').removeClass('is-invisible');
+    app.selectTab = function(tab) {
+        if (tab === 'results-tab') {
+            $('#charts-tab').removeClass('is-active');
+            $('#table-tab').removeClass('is-active');
+            $('#results-tab').addClass('is-active');
+
+            $('#charts').addClass('hide');
+            $('#table').addClass('hide');
+            $('#results').removeClass('hide');
+        }
+
+        if (tab === 'charts-tab') {
+            $('#results-tab').removeClass('is-active');
+            $('#table-tab').removeClass('is-active');
+            $('#charts-tab').addClass('is-active');
+
+            $('#results').addClass('hide');
+            $('#table').addClass('hide');
+            $('#charts').removeClass('hide');
+        }
+
+        if (tab === 'table-tab') {
+            $('#charts-tab').removeClass('is-active');
+            $('#results-tab').removeClass('is-active');
+            $('#table-tab').addClass('is-active');
+
+            $('#charts').addClass('hide');
+            $('#results').addClass('hide');
+            $('#table').removeClass('hide');
+        }
     };
 
     // Gets the results from the backend.
     app.calculate = function(calculator) {
-        let baseUrl = 'http://localhost:5001/';
+        let baseUrl = 'https://fc-backend.wanderin.dev/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 
@@ -60,12 +90,15 @@
             success: function(results) {
                 app.results = results;
                 app.calculator = calculator;
+                $('.results-wrapper').removeClass('is-invisible');
                 app.showResults();
                 // noinspection JSUnresolvedVariable
                 if (app.calcInfo.charts[app.calculator]) {
+                    $('#charts-tab').removeClass('is-invisible');
                     app.showCharts();
                 }
                 if (app.results.table) {
+                    $('#table-tab').removeClass('is-invisible');
                     app.showTable();
                 }
             },

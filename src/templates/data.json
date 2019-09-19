@@ -20,7 +20,8 @@
             "family": "Roboto, san-serif",
             "size": 10,
             "color": "#000"
-          }
+          },
+          "paper_bgcolor": "#edf2fc"
         },
         "data": {
           "type": "pie",
@@ -65,7 +66,9 @@
           "yaxis": {
             "title": "Cantidad ($)",
             "hoverformat": "$,.2f"
-          }
+          },
+          "paper_bgcolor": "#edf2fc",
+          "plot_bgcolor": "#F0F5FF"
         }
       }
     },
@@ -554,14 +557,14 @@
         "traces": [
           {
             "x": "periods",
-            "y": "agg_deposits",
+            "y": "a_deposits",
             "name": "Aportes",
             "showlegend": "false",
             "hoverinfo": "name+y"
           },
           {
             "x": "periods",
-            "y": "agg_interests",
+            "y": "a_interests",
             "name": "Intereses",
             "showlegend": "false",
             "hoverinfo": "name+y"

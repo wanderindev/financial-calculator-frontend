@@ -39,7 +39,7 @@
                         hoverinfo: trace.hoverinfo
                     });
                 });
-
+                console.log(data);
                 Plotly.newPlot('line-chart', data, layout, {displayModeBar: false});
             }
         });

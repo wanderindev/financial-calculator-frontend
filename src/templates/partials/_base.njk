@@ -62,40 +62,59 @@
 
                 <div class="columns is-multiline">
                     <!-- Form starts -->
-                    <div class="column is-narrow calc-form-wrapper">
-                        <div class="calculator-form">
-                        {% for field in forms[page] %}
-                            {% if field.type == 'textField' %}
-                                {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
-                                {% elif field.type == 'freqSelect' %}
-                                {{ formFields['freqSelect']() }}
-                                {% elif field.type == 'extraDepFreqSelect' %}
-                                {{ formFields['extraDepFreqSelect']() }}
-                                {% elif field.type == 'extraDepRadio' %}
-                                {{ formFields['extraDepRadio']() }}
-                                {% elif field.type == 'depWhenRadio' %}
-                                {{ formFields['depWhenRadio']() }}
-                            {% endif %}
-                        {% endfor %}
-                        {{ formFields['calculateButton'](page) }}
+                    <div class="column is-narrow">
+                        <div class=" calc-form-wrapper">
+                            <div class="calculator-form">
+                            {% for field in forms[page] %}
+                                {% if field.type == 'textField' %}
+                                    {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                                    {% elif field.type == 'freqSelect' %}
+                                    {{ formFields['freqSelect']() }}
+                                    {% elif field.type == 'extraDepFreqSelect' %}
+                                    {{ formFields['extraDepFreqSelect']() }}
+                                    {% elif field.type == 'extraDepRadio' %}
+                                    {{ formFields['extraDepRadio']() }}
+                                    {% elif field.type == 'depWhenRadio' %}
+                                    {{ formFields['depWhenRadio']() }}
+                                {% endif %}
+                            {% endfor %}
+                            {{ formFields['calculateButton'](page) }}
+                            </div>
                         </div>
                     </div>
                     <!-- Form ends -->
 
                     <!-- Results card starts -->
-                    <div class="column">
-                        <div class="tabs is-centered is-boxed">
+                    <div class="column results-wrapper is-invisible">
+                        <div class="tabs is-centered is-boxed results-tabs">
                             <ul>
-                                <li class="is-active">
-                                    <a href="">Resultados</a>
+                                <li id="results-tab" class="is-active">
+                                    <a onclick="app.selectTab('results-tab')">Resultados</a>
                                 </li>
-                                <li>
-                                    <a href="">Tabla</a>
+                                <li id="table-tab" class="is-invisible">
+                                    <a onclick="app.selectTab('table-tab')">Tabla</a>
                                 </li>
-                                <li>
-                                    <a href="">Gráficas</a>
+                                <li id="charts-tab" class="is-invisible">
+                                    <a onclick="app.selectTab('charts-tab')">Gráficas</a>
                                 </li>
                             </ul>
+                        </div>
+                        <div class="card results-card">
+                            <div class="card-content">
+
+                                <!-- Results starts -->
+                                {% include '_results.njk' %}
+                                <!-- Results ends -->
+
+                                <!-- Charts starts -->
+                                {% include '_charts.njk' %}
+                                <!-- Charts ends -->
+
+                                <!-- Table starts -->
+                                {% include '_table.njk' %}
+                                <!-- Table ends -->
+
+                            </div>
                         </div>
                     </div>
                     <!-- Results card ends -->
