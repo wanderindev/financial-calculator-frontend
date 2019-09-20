@@ -146,6 +146,18 @@ body {
   background-color: #edf2fc;
 }
 
+.table-card {
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: none;
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+  max-width: none;
+}
+
+#table {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
 .card-header-title {
   display: block;
 }
@@ -173,11 +185,22 @@ ul.pagination-list {
 .pagination-next,
 .pagination-previous {
   max-width: 2.2em;
+  background-color: #fff;
+  color: #222;
+}
+
+.pagination-next[disabled],
+.pagination-previous[disabled] {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 ul.pagination-list li {
   margin-top: 0;
   min-width: 2.2em;
+}
+
+a.pagination-link {
+  background-color: #fff;
 }
 
 .pagination-link.is-current:hover {
