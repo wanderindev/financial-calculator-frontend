@@ -1,7 +1,8 @@
 (function(app, $, Cleave) {
     // Builds the endpoint from the calculator's name.
     app.getEndpoint = function(calculator) {
-        return calculator.replace(/ /g, '-').toLowerCase();
+        return calculator.replace(/ /g, '-').normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "").toLowerCase();
     };
 
     // Gets the form data.
@@ -74,7 +75,7 @@
 
     // Gets the results from the backend.
     app.calculate = function(calculator) {
-        let baseUrl = 'https://fc-backend.wanderin.dev/';
+        let baseUrl = 'http://localhost:5001/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 

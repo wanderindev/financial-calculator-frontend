@@ -72,10 +72,16 @@
                                     {{ formFields['freqSelect']() }}
                                     {% elif field.type == 'extraDepFreqSelect' %}
                                     {{ formFields['extraDepFreqSelect']() }}
+                                    {% elif field.type == 'extraPmtFreqSelect' %}
+                                    {{ formFields['extraPmtFreqSelect']() }}
                                     {% elif field.type == 'extraDepRadio' %}
                                     {{ formFields['extraDepRadio']() }}
+                                    {% elif field.type == 'extraPmtRadio' %}
+                                    {{ formFields['extraPmtRadio']() }}
                                     {% elif field.type == 'depWhenRadio' %}
                                     {{ formFields['depWhenRadio']() }}
+                                    {% elif field.type == 'pmtWhenRadio' %}
+                                    {{ formFields['pmtWhenRadio']() }}
                                 {% endif %}
                             {% endfor %}
                             {{ formFields['calculateButton'](page) }}

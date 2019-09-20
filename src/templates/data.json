@@ -494,10 +494,59 @@
         "label": "Interés (%)",
         "placeholder": "",
         "value": ""
+      }
+    ],
+    "Calculadora de Préstamos": [
+      {
+        "type": "textField",
+        "id": "loan",
+        "label": "Préstamo",
+        "placeholder": "",
+        "value": ""
       },
       {
-        "type": "depWhenRadio",
-        "id": "dep_when"
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Tiempo (años)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "freqSelect",
+        "id": "freq"
+      },
+      {
+        "type": "pmtWhenRadio",
+        "id": "pmt_when"
+      },
+      {
+        "type": "extraPmtRadio",
+        "id": "extra_pmt_r"
+      },
+      {
+        "type": "textField",
+        "id": "extra_pmt",
+        "label": "Cantidad",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "extra_pmt_start",
+        "label": "En el Período",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "extraPmtFreqSelect",
+        "id": "extra_pmt_f"
       }
     ]
   },
@@ -536,6 +585,140 @@
         "type": "textField",
         "id": "reg_dep",
         "label": "Aporte Regular",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_dep",
+        "label": "Aportes Realizados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Ganados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "fin_bal_r",
+        "label": "Cantidad Final",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tiempo para Lograr Meta": [
+      {
+        "type": "textField",
+        "id": "nper",
+        "label": "Número de Aportes",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Tiempo (en años)",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_dep",
+        "label": "Aportes Realizados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Ganados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "fin_bal_r",
+        "label": "Cantidad Final",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tasa de Interés Requerida": [
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Valor Actual": [
+      {
+        "type": "textField",
+        "id": "pv",
+        "label": "Valor Actual",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Calculadora de Préstamos": [
+      {
+        "type": "textField",
+        "id": "reg_pmt",
+        "label": "Letra",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Pagados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_prin",
+        "label": "Capital Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_pmt",
+        "label": "Total Pagado",
         "placeholder": "",
         "value": "",
         "attr": "readonly",
@@ -592,14 +775,14 @@
         "traces": [
           {
             "x": "periods",
-            "y": "agg_deposits",
+            "y": "a_deposits",
             "name": "Aportes",
             "showlegend": "false",
             "hoverinfo": "name+y"
           },
           {
             "x": "periods",
-            "y": "agg_interests",
+            "y": "a_interests",
             "name": "Intereses",
             "showlegend": "false",
             "hoverinfo": "name+y"
@@ -608,6 +791,76 @@
             "x": "periods",
             "y": "balances",
             "name": "Balance",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Tiempo para Lograr Meta": [
+      {
+        "type": "pie",
+        "title": "Aportes vs Intereses",
+        "labels": ["Aportes", "Intereses"],
+        "values": ["total_dep", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento de Ahorro",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_deposits",
+            "name": "Aportes",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Balance",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Calculadora de Préstamos": [
+      {
+        "type": "pie",
+        "title": "Capital vs Intereses",
+        "labels": ["Capital", "Intereses"],
+        "values": ["total_prin", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento de Préstamo",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_payments",
+            "name": "Capital Pagado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Pagados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Saldo",
             "showlegend": "false",
             "hoverinfo": "name+y"
           }
@@ -623,6 +876,14 @@
     "Ahorros para Lograr Meta": {
       "columns": ["", "Aporte", "Interés", "Balance"],
       "values": ["p", "d", "i", "b"]
+    },
+    "Tiempo para Lograr Meta": {
+      "columns": ["", "Aporte", "Interés", "Balance"],
+      "values": ["p", "d", "i", "b"]
+    },
+    "Calculadora de Préstamos": {
+      "columns": ["", "P. Extra", "P. Regular", "Interés", "P. Capital","Saldo"],
+      "values": ["p", "pe", "pr","pi", "pc" ,"b"]
     }
   }
 }

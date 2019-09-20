@@ -63,6 +63,28 @@
                             </div>
 {% endmacro %}
 
+{% macro extraPmtFreqSelect() %}
+    <div class="field is-horizontal extra_dep_f">
+        <div class="field-label is-small">
+            <label class="label cf-field-label">Frecuencia</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control is-expanded">
+                    <div class="select is-small is-fullwidth">
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <select id="extra_pmt_f">
+                            <option value="0" selected>Solo una vez</option>
+                            <option value="1">Anual</option>
+                            <option value="12">Mensual</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro extraDepRadio() %}
                         <div class="field">
                             <div class="field-label is-small">
@@ -85,6 +107,28 @@
                         </div>
 {% endmacro %}
 
+{% macro extraPmtRadio() %}
+    <div class="field">
+        <div class="field-label is-small">
+            <label class="label cf-field-label cf-rb">¿Pagos extraordinarios?</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <label class="radio extra_pmt_r">
+                        <input type="radio" value="1" name="extra_pmt_r">
+                        <span class="radio-text">Si</span>
+                    </label>
+                    <label class="radio extra_pmt_r">
+                        <input type="radio" value="0" name="extra_pmt_r" checked>
+                        <span class="radio-text">No</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro depWhenRadio() %}
                         <div class="field">
                             <div class="field-label is-small">
@@ -105,6 +149,28 @@
                                 </div>
                             </div>
                         </div>
+{% endmacro %}
+
+{% macro pmtWhenRadio() %}
+    <div class="field">
+        <div class="field-label is-small">
+            <label class="label cf-field-label cf-rb">Todos los pagos se hacen:</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" value="1" name="pmt_when" checked>
+                        <span class="radio-text">Al inicio del período</span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" value="0" name="pmt_when">
+                        <span class="radio-text">Al final del período</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endmacro %}
 
 {% macro calculateButton(calculator) %}

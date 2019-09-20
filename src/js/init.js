@@ -4,10 +4,10 @@
         let navbarMenu$ = $('.navbar-menu');
         let navbarItem$ = $('.navbar-end a.navbar-item');
         let navbarBurger$ = $('.navbar-burger');
-        let extraDepRadio$ = $('.extra_dep_r');
-        let extraDepF$ = $('.extra_dep_f');
-        let extraDepStart$ = $('.extra_dep_start');
-        let extraDep$ = $('.extra_dep');
+        let extraDepRadio$ = $('.extra_dep_r, .extra_pmt_r');
+        let extraDepF$ = $('.extra_dep_f, .extra_pmt_f');
+        let extraDepStart$ = $('.extra_dep_start, .extra_pmt_start');
+        let extraDep$ = $('.extra_dep, .extra_pmt');
         let timeScaleRadio$ = $('.time-scale-r');
 
         // Shows / hides the extra deposit fields.
