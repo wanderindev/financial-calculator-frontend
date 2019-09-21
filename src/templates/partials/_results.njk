@@ -1,7 +1,15 @@
 <div id="results" class="content columns is-centered">
     <div class="results column is-narrow">
         {% for field in results[page] %}
-            {{ formFields['textField'](field.id, field.label, field.value, field.placeholder, field.cleave, field.attr) }}
+            {% if field.type == 'textField' %}
+                 {{ formFields['textField'](field.id, field.label, field.value, field.placeholder, field.cleave, field.attr) }}
+            {% elif field.type == 'label' %}
+                <div class="field-label">
+                    <label id="{{ field.id }}" class="label result-field-label">{{ field.text }}</label>
+                </div>
+            {% elif field.type == 'hr' %}
+
+            {% endif %}
         {% endfor %}
     </div>
 </div>

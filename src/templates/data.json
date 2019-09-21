@@ -250,7 +250,7 @@
           "name": "Calculadora de Préstamos"
         },
         {
-          "url": "/tasa-de-interes-real.html",
+          "url": "/tasa-de-interes-real-p.html",
           "name": "Tasa de Interés Real"
         },
         {
@@ -267,12 +267,12 @@
           "name": "Fondo para Retiros"
         },
         {
-          "url": "/retiros-para-agotar-fondo.html",
-          "name": "Retiros para Agotar Fondo"
+          "url": "/retiros-para-agotar-fondos.html",
+          "name": "Retiros para Agotar Fondos"
         },
         {
-          "url": "/duracion-de-fondo.html",
-          "name": "Duración de Fondo"
+          "url": "/duracion-de-fondos.html",
+          "name": "Duración de Fondos"
         }
       ]
     },
@@ -280,15 +280,15 @@
       "title": "Tarjetas de Crédito",
       "calculators": [
         {
-          "url": "/tarjetas-pago-minimo.html",
+          "url": "/tarjeta-pago-minimo.html",
           "name": "Pago Mínimo"
         },
         {
-          "url": "/tarjetas-pago-fijo.html",
+          "url": "/tarjeta-pago-fijo.html",
           "name": "Pago Fijo"
         },
         {
-          "url": "/tarjetas-tasa-de-interes-real.html",
+          "url": "/tasa-de-interes-real-tc.html",
           "name": "Tasa de Interés Real"
         }
       ]
@@ -548,6 +548,265 @@
         "type": "extraPmtFreqSelect",
         "id": "extra_pmt_f"
       }
+    ],
+    "Tasa de Interés Real de Préstamo": [
+      {
+        "type": "textField",
+        "id": "reg_pmt",
+        "label": "Letra",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "freqSelect",
+        "id": "freq"
+      },
+      {
+        "type": "textField",
+        "id": "loan",
+        "label": "Préstamo",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Tiempo (años)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "pmtWhenRadio",
+        "id": "pmt_when"
+      }
+    ],
+    "Tiempo para Cancelar Préstamo": [
+      {
+        "type": "textField",
+        "id": "loan",
+        "label": "Préstamo",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "reg_pmt",
+        "label": "Letra",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "freqSelect",
+        "id": "freq"
+      },
+      {
+        "type": "pmtWhenRadio",
+        "id": "pmt_when"
+      }
+    ],
+    "Fondo para Retiros": [
+      {
+        "type": "textField",
+        "id": "reg_wdr",
+        "label": "Retiro Periódico",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "freqSelect",
+        "id": "freq"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Duración (años)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "wdrWhenRadio",
+        "id": "wdr_when"
+      }
+    ],
+    "Retiros para Agotar Fondos": [
+      {
+        "type": "textField",
+        "id": "ret_fund",
+        "label": "Balance Inicial",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "freqSelect",
+        "id": "freq"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Duración (años)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "wdrWhenRadio",
+        "id": "wdr_when"
+      }
+    ],
+    "Duración de Fondos": [
+      {
+        "type": "textField",
+        "id": "ret_fund",
+        "label": "Balance Inicial",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "reg_wdr",
+        "label": "Retiro Periódico",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "freqSelect",
+        "id": "freq"
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "wdrWhenRadio",
+        "id": "wdr_when"
+      }
+    ],
+    "Tarjeta Pago Mínimo": [
+      {
+        "type": "textField",
+        "id": "cc_debt",
+        "label": "Saldo",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "min_p_perc",
+        "label": "Pago Mínimo (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "min_p",
+        "label": "Pago Mínimo ($)",
+        "placeholder": "",
+        "value": ""
+      }
+    ],
+    "Tarjeta Pago Fijo": [
+      {
+        "type": "textField",
+        "id": "cc_debt",
+        "label": "Saldo",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "min_p_perc",
+        "label": "Pago Mínimo (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "min_p",
+        "label": "Pago Mínimo ($)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "fix_p",
+        "label": "Pago Fijo ($)",
+        "placeholder": "",
+        "value": ""
+      }
+    ],
+    "Tasa de Interés Real de Tarjeta": [
+      {
+        "type": "textField",
+        "id": "cc_debt",
+        "label": "Saldo",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "min_p_perc",
+        "label": "Pago Mínimo (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "min_p",
+        "label": "Pago Mínimo ($)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
+        "id": "add_c",
+        "label": "Cargo Fijo ($)",
+        "placeholder": "",
+        "value": ""
+      }
     ]
   },
   "results": {
@@ -689,9 +948,23 @@
     ],
     "Calculadora de Préstamos": [
       {
+        "type": "label",
+        "id": "label-1",
+        "text": "Resultados del préstamo SIN pagos extras:"
+      },
+      {
         "type": "textField",
         "id": "reg_pmt",
         "label": "Letra",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "nper",
+        "label": "Número de pagos",
         "placeholder": "",
         "value": "",
         "attr": "readonly",
@@ -719,6 +992,293 @@
         "type": "textField",
         "id": "total_pmt",
         "label": "Total Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "label",
+        "id": "label-2",
+        "text": "Resultados del préstamo CON pagos extras:"
+      },
+      {
+        "type": "textField",
+        "id": "nper_t",
+        "label": "Número de pagos",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_int_t",
+        "label": "Intereses Pagados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_prin_t",
+        "label": "Capital Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_pmt_t",
+        "label": "Total Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "label",
+        "id": "label-3",
+        "text": "Los pagos extras producen los siguientes ahorros:"
+      },
+      {
+        "type": "textField",
+        "id": "years_saved",
+        "label": "Años Ahorrados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "cash_saved",
+        "label": "Dinero Ahorrado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tasa de Interés Real de Préstamo": [
+      {
+        "type": "textField",
+        "id": "rate",
+        "label": "Tasa de Interés Real",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tiempo para Cancelar Préstamo": [
+      {
+        "type": "textField",
+        "id": "nper",
+        "label": "Número de Pagos",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Tiempo (en años)",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Pagados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_prin",
+        "label": "Capital Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_pmt",
+        "label": "Total Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Fondo para Retiros": [
+      {
+        "type": "textField",
+        "id": "ret_fund",
+        "label": "Balance Requerido",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Retiros para Agotar Fondos": [
+      {
+        "type": "textField",
+        "id": "reg_wdr",
+        "label": "Retiro Periódico",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Duración de Fondos": [
+      {
+        "type": "textField",
+        "id": "nper",
+        "label": "Número de Retiros",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Duración (en años)",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_wdr",
+        "label": "Total Retirado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tarjeta Pago Mínimo": [
+      {
+        "type": "textField",
+        "id": "first_p",
+        "label": "Pago Mínimo Inicial",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Pagados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_prin",
+        "label": "Capital Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_pmt",
+        "label": "Total Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "nper",
+        "label": "Número de Pagos",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Años para Cancelar",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tarjeta Pago Fijo": [
+      {
+        "type": "textField",
+        "id": "total_int",
+        "label": "Intereses Pagados",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_prin",
+        "label": "Capital Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "total_pmt",
+        "label": "Total Pagado",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "nper",
+        "label": "Número de Pagos",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      },
+      {
+        "type": "textField",
+        "id": "num_of_years",
+        "label": "Años para Cancelar",
+        "placeholder": "",
+        "value": "",
+        "attr": "readonly",
+        "cleave": "money"
+      }
+    ],
+    "Tasa de Interés Real de Tarjeta": [
+      {
+        "type": "textField",
+        "id": "r_rate",
+        "label": "Tasa de Interés Real",
         "placeholder": "",
         "value": "",
         "attr": "readonly",
@@ -846,7 +1406,7 @@
           {
             "x": "periods",
             "y": "a_payments",
-            "name": "Capital Pagado",
+            "name": "Total Pagado",
             "showlegend": "false",
             "hoverinfo": "name+y"
           },
@@ -861,6 +1421,216 @@
             "x": "periods",
             "y": "balances",
             "name": "Saldo",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Tiempo para Cancelar Préstamo": [
+      {
+        "type": "pie",
+        "title": "Capital vs Intereses",
+        "labels": ["Capital", "Intereses"],
+        "values": ["total_prin", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento de Préstamo",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_payments",
+            "name": "Total Pagado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Pagados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Saldo",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Fondo para Retiros": [
+      {
+        "type": "pie",
+        "title": "Fondos Propios vs Intereses Ganados",
+        "labels": ["Fondos", "Intereses"],
+        "values": ["ret_fund", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento del Fondo",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_withdrawals",
+            "name": "Total Retirado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Ganados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Balance del Fondo",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Retiros para Agotar Fondos": [
+      {
+        "type": "pie",
+        "title": "Fondos Propios vs Intereses Ganados",
+        "labels": ["Fondos", "Intereses"],
+        "values": ["ret_fund", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento del Fondo",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_withdrawals",
+            "name": "Total Retirado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Ganados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Balance del Fondo",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Duración de Fondos": [
+      {
+        "type": "pie",
+        "title": "Fondos Propios vs Intereses Ganados",
+        "labels": ["Fondos", "Intereses"],
+        "values": ["ret_fund", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento del Fondo",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_withdrawals",
+            "name": "Total Retirado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Ganados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Balance del Fondo",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Tarjeta Pago Mínimo": [
+      {
+        "type": "pie",
+        "title": "Capital Pagado vs Intereses Pagados",
+        "labels": ["Capital", "Intereses"],
+        "values": ["total_prin", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento de la Deuda",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_payments",
+            "name": "Total Pagado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Pagados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Saldo de Tarjeta",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          }
+        ]
+      }
+    ],
+    "Tarjeta Pago Fijo": [
+      {
+        "type": "pie",
+        "title": "Capital Pagado vs Intereses Pagados",
+        "labels": ["Capital", "Intereses"],
+        "values": ["total_prin", "total_int"]
+      },
+      {
+        "type": "line",
+        "title": "Comportamiento de la Deuda",
+        "traces": [
+          {
+            "x": "periods",
+            "y": "a_payments",
+            "name": "Total Pagado",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "a_interests",
+            "name": "Intereses Pagados",
+            "showlegend": "false",
+            "hoverinfo": "name+y"
+          },
+          {
+            "x": "periods",
+            "y": "balances",
+            "name": "Saldo de Tarjeta",
             "showlegend": "false",
             "hoverinfo": "name+y"
           }
@@ -882,8 +1652,32 @@
       "values": ["p", "d", "i", "b"]
     },
     "Calculadora de Préstamos": {
-      "columns": ["", "P. Extra", "P. Regular", "Interés", "P. Capital","Saldo"],
-      "values": ["p", "pe", "pr","pi", "pc" ,"b"]
+      "columns": ["", "P. Extra", "P. Regular", "Interés", "P. Capital", "Saldo"],
+      "values": ["p", "pe", "pr", "pi", "pc" ,"b"]
+    },
+    "Tiempo para Cancelar Préstamo": {
+      "columns": ["", "P. Regular", "Interés", "P. Capital", "Saldo"],
+      "values": ["p", "pr", "pi", "pc" ,"b"]
+    },
+    "Fondo para Retiros": {
+      "columns": ["", "Retiro", "Interés", "Balance"],
+      "values": ["p", "w", "i", "b"]
+    },
+    "Retiros para Agotar Fondos": {
+      "columns": ["", "Retiro", "Interés", "Balance"],
+      "values": ["p", "w", "i", "b"]
+    },
+    "Duración de Fondos": {
+      "columns": ["", "Retiro", "Interés", "Balance"],
+      "values": ["p", "w", "i", "b"]
+    },
+    "Tarjeta Pago Mínimo": {
+      "columns": ["", "P. Mínimo", "A. Capital", "A. Interés", "Saldo"],
+      "values": ["p", "pt", "pp", "pi", "b"]
+    },
+    "Tarjeta Pago Fijo": {
+      "columns": ["", "P. Mínimo", "A. Capital", "A. Interés", "Saldo"],
+      "values": ["p", "pt", "pp", "pi", "b"]
     }
   }
 }

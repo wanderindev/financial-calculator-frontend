@@ -18,6 +18,8 @@
                 }
             }
         });
+        console.log(calculator, data['extra_pmt']);
+        app.showExtraPmtInfo = calculator === 'Calculadora de Préstamos' && data['extra_pmt'] > 0;
 
         return data;
     };
@@ -39,6 +41,11 @@
             $('#' + item.id).val(app.results[item.id]);
         });
         app.formatResults();
+
+        if (!app.showExtraPmtInfo) {
+            $('#label-1, #label-2, #label-3, .nper_t, .total_int_t, .total_prin_t, ' +
+                '.total_pmt_t, .years_saved, .cash_saved').addClass('hide');
+        }
     };
 
     app.selectTab = function(tab) {

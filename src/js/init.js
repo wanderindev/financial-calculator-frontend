@@ -20,6 +20,8 @@
                 extraDepF$.addClass('hide');
                 extraDepStart$.addClass('hide');
                 extraDep$.addClass('hide');
+                $('#extra_pmt, #extra_pmt_start, #extra_dep, #extra_dep_start').val('');
+                app.showExtraPmtInfo = false;
             }
         };
 

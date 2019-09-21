@@ -173,6 +173,28 @@
     </div>
 {% endmacro %}
 
+{% macro wdrWhenRadio() %}
+    <div class="field">
+        <div class="field-label is-small">
+            <label class="label cf-field-label cf-rb">Todos los retiros se hacen:</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" value="1" name="wdr_when" checked>
+                        <span class="radio-text">Al inicio del período</span>
+                    </label>
+                    <label class="radio">
+                        <input type="radio" value="0" name="wdr_when">
+                        <span class="radio-text">Al final del período</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro calculateButton(calculator) %}
                         <a class="button calculate-btn" onclick="app.calculate('{{calculator}}')">Calcular</a>
 {% endmacro %}

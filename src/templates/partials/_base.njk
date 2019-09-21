@@ -68,20 +68,22 @@
                             {% for field in forms[page] %}
                                 {% if field.type == 'textField' %}
                                     {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
-                                    {% elif field.type == 'freqSelect' %}
+                                {% elif field.type == 'freqSelect' %}
                                     {{ formFields['freqSelect']() }}
-                                    {% elif field.type == 'extraDepFreqSelect' %}
+                                {% elif field.type == 'extraDepFreqSelect' %}
                                     {{ formFields['extraDepFreqSelect']() }}
-                                    {% elif field.type == 'extraPmtFreqSelect' %}
+                                {% elif field.type == 'extraPmtFreqSelect' %}
                                     {{ formFields['extraPmtFreqSelect']() }}
-                                    {% elif field.type == 'extraDepRadio' %}
+                                {% elif field.type == 'extraDepRadio' %}
                                     {{ formFields['extraDepRadio']() }}
-                                    {% elif field.type == 'extraPmtRadio' %}
+                                {% elif field.type == 'extraPmtRadio' %}
                                     {{ formFields['extraPmtRadio']() }}
-                                    {% elif field.type == 'depWhenRadio' %}
+                                {% elif field.type == 'depWhenRadio' %}
                                     {{ formFields['depWhenRadio']() }}
-                                    {% elif field.type == 'pmtWhenRadio' %}
+                                {% elif field.type == 'pmtWhenRadio' %}
                                     {{ formFields['pmtWhenRadio']() }}
+                                {% elif field.type == 'wdrWhenRadio' %}
+                                    {{ formFields['wdrWhenRadio']() }}
                                 {% endif %}
                             {% endfor %}
                             {{ formFields['calculateButton'](page) }}

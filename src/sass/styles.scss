@@ -56,13 +56,26 @@ body {
 }
 
 .cf-field-label {
-  width: 100px;
+  width: 105px;
   text-align: left;
+}
+
+.result-field-label {
+  width: 311px;
+  margin-bottom: 16px;
+  margin-top: 24px;
+  text-align: left;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+#label-1 {
+  margin-top: 8px;
 }
 
 .calc-form-wrapper {
   background-color: #eee;
-  padding: 20px 20px 10px;
+  padding: 20px 18px 10px 17px;
   border: 1px solid #dbdbdb;
 }
 

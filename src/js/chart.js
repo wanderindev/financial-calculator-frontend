@@ -20,8 +20,6 @@
                 data.labels = item.labels;
                 layout.title = item.title;
 
-                console.log(data);
-
                 Plotly.newPlot('pie-chart', [data], layout, {displayModeBar: false});
             } else if (item.type === 'line') {
                 let data = [];
@@ -39,7 +37,7 @@
                         hoverinfo: trace.hoverinfo
                     });
                 });
-                console.log(data);
+
                 Plotly.newPlot('line-chart', data, layout, {displayModeBar: false});
             }
         });
