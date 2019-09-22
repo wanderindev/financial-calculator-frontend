@@ -7,6 +7,7 @@
     <title>{{page}}</title>
     <!-- inject:css -->
     <!-- endinject -->
+    <link rel="stylesheet" href="css/formValidation.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
     <!--<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>-->
 </head>
@@ -64,7 +65,7 @@
                     <!-- Form starts -->
                     <div class="column is-narrow">
                         <div class=" calc-form-wrapper">
-                            <div class="calculator-form">
+                            <form id="{{form}}" class="calculator-form">
                             {% for field in forms[page] %}
                                 {% if field.type == 'textField' %}
                                     {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
@@ -87,7 +88,7 @@
                                 {% endif %}
                             {% endfor %}
                             {{ formFields['calculateButton'](page) }}
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <!-- Form ends -->
@@ -145,8 +146,15 @@
 <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
 <!-- Cleave JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.5.0/cleave.min.js"></script>
+<!-- Form Validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+<script src="js/FormValidation.min.js"></script>
+<script src="js/locales/es_ES.min.js"></script>
+<script src="js/plugins/Bulma.min.js"></script>
 
 <!-- inject:js -->
 <!-- endinject -->
+
+{%  block validation %} {% endblock %}
 </body>
 </html>

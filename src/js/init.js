@@ -16,11 +16,14 @@
                 extraDepF$.removeClass('hide');
                 extraDepStart$.removeClass('hide');
                 extraDep$.removeClass('hide');
+                $('#extra_pmt, #extra_dep').val('');
+                $('#extra_pmt_start, #extra_dep_start').val('');
             } else {
                 extraDepF$.addClass('hide');
                 extraDepStart$.addClass('hide');
                 extraDep$.addClass('hide');
-                $('#extra_pmt, #extra_pmt_start, #extra_dep, #extra_dep_start').val('');
+                $('#extra_pmt, #extra_dep').val('0');
+                $('#extra_pmt_start, #extra_dep_start').val('1');
                 app.showExtraPmtInfo = false;
             }
         };
@@ -55,5 +58,10 @@
         $.getJSON('data.json', function(data) {
             app.calcInfo = data;
         });
+
+        app.getNper = function() {
+            nper = $('#num_of_years').val() * $('#freq').val();
+            return nper;
+        };
     });
 })(window.app = window.app || {}, jQuery);

@@ -1,2 +1,87 @@
 {% set page = 'Tasa de Interés Real de Tarjeta' %}
+{% set form = 'tasa-de-interes-real-de-tarjeta-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form13 = document.getElementById('tasa-de-interes-real-de-tarjeta-form');
+            const fv13 = FormValidation
+                .formValidation(form13 , {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        cc_debt: {
+                            validators: {
+                                notEmpty:{},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        min_p_perc: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        min_p: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                    max: 0.01,
+                                }
+                            }
+                        },
+                        add_c: {
+                            validators: {
+                                notEmpty:{},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function() {
+                    app.calculate($('h1.title').text());
+                });
+
+            $('#cc_debt, #rate').change(function () {
+                let cc_debt = form13.querySelector('#cc_debt').value;
+                let rate = form13.querySelector('#rate').value;
+
+                fv13.updateValidatorOption('min_p', 'between', 'max', cc_debt);
+                fv13.updateValidatorOption('min_p', 'between', 'min', Math.round(cc_debt * rate / 12) / 100 + 0.01);
+                fv13.revalidateField('min_p');
+            });
+        });
+    </script>
+{% endblock %}

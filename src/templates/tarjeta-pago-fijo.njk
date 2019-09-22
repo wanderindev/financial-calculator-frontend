@@ -1,2 +1,92 @@
 {% set page = 'Tarjeta Pago Fijo' %}
+{% set form = 'tarjeta-pago-fijo-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form12 = document.getElementById('tarjeta-pago-fijo-form');
+            const fv12 = FormValidation
+                .formValidation(form12 , {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        cc_debt: {
+                            validators: {
+                                notEmpty:{},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        min_p_perc: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        min_p: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                    max: 0.01,
+                                }
+                            }
+                        },
+                        fix_p: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                    max: 0.01,
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function() {
+                    app.calculate($('h1.title').text());
+                });
+
+            $('#cc_debt, #rate').change(function () {
+                let cc_debt = form12.querySelector('#cc_debt').value;
+                let rate = form12.querySelector('#rate').value;
+
+                fv12.updateValidatorOption('min_p', 'between', 'max', cc_debt);
+                fv12.updateValidatorOption('min_p', 'between', 'min', Math.round(cc_debt * rate / 12) / 100 + 0.01);
+                fv12.revalidateField('min_p');
+
+                fv12.updateValidatorOption('fix_p', 'between', 'max', cc_debt);
+                fv12.updateValidatorOption('fix_p', 'between', 'min', Math.round(cc_debt * rate / 12) / 100 + 0.01);
+                fv12.revalidateField('fix_p');
+            });
+        });
+    </script>
+{% endblock %}

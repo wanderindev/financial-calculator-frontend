@@ -1,2 +1,58 @@
 {% set page = 'Retiros para Agotar Fondos' %}
+{% set form = 'retiros-para-agotar-fondos-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form9 = document.getElementById('retiros-para-agotar-fondos-form');
+            const fv9 = FormValidation
+                .formValidation(form9 , {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        ret_fund: {
+                            validators: {
+                                notEmpty:{},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        num_of_years: {
+                            validators: {
+                                notEmpty:{},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0.001,
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function() {
+                    app.calculate($('h1.title').text());
+                });
+        });
+    </script>
+{% endblock %}

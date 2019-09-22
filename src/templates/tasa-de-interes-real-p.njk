@@ -1,2 +1,66 @@
 {% set page = 'Tasa de Interés Real de Préstamo' %}
+{% set form = 'tasa-de-interes-real-de-prestamo-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form6 = document.getElementById('tasa-de-interes-real-de-prestamo-form');
+            const fv6 = FormValidation
+                .formValidation(form6, {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        loan: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        reg_pmt: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        num_of_years: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0.001,
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function () {
+                    app.calculate($('h1.title').text());
+                });
+
+            form6.querySelector('#reg_pmt', 'num_of_years', '#freq').addEventListener('change', function () {
+                let num_of_years = form6.querySelector('#num_of_years').value;
+                let freq = form6.querySelector('#freq').value;
+                let reg_pmt = form6.querySelector('#reg_pmt').value;
+
+                fv6.updateValidatorOption('loan', 'greaterThan', 'min', reg_pmt * freq * num_of_years);
+                fv6.revalidateField('loan');
+            });
+        });
+    </script>
+{% endblock %}

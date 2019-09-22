@@ -1,2 +1,69 @@
 {% set page = 'Tiempo para Cancelar Préstamo' %}
+{% set form = 'tiempo-para-cancelar-prestamo-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form7 = document.getElementById('tiempo-para-cancelar-prestamo-form');
+            const fv7 = FormValidation
+                .formValidation(form7, {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        loan: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        reg_pmt: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                    max: 0,
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function () {
+                    app.calculate($('h1.title').text());
+                });
+
+            $('#loan, #rate, #freq').change(function () {
+                let loan = form7.querySelector('#loan').value;
+                let rate = form7.querySelector('#rate').value;
+                let freq = form7.querySelector('#freq').value;
+
+                fv7.updateValidatorOption('reg_pmt', 'between', 'min', Math.round(loan * rate / freq) / 100 + 0.01);
+                fv7.updateValidatorOption('reg_pmt', 'between', 'max', loan);
+                fv7.revalidateField('reg_pmt');
+            });
+        });
+    </script>
+{% endblock %}

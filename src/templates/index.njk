@@ -1,2 +1,95 @@
 {% set page = 'Calculadora de Ahorros' %}
+{% set form = 'calculadora-de-ahorros-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form1 = document.getElementById('calculadora-de-ahorros-form');
+            const fv1 = FormValidation
+                .formValidation(form1, {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        ini_dep: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        reg_dep: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        num_of_years: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: false,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                        extra_dep: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        extra_dep_start: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 1,
+                                    max: 12,
+                                }
+                            }
+                        },
+
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function () {
+                    app.calculate($('h1.title').text());
+                });
+
+            form1.querySelector('#num_of_years, #freq').addEventListener('change', function () {
+                let num_of_years = form1.querySelector('#num_of_years').value;
+                let freq = form1.querySelector('#freq').value;
+
+                fv1.updateValidatorOption('extra_dep_start', 'between', 'max', num_of_years * freq);
+                fv1.revalidateField('extra_dep_start');
+            });
+        });
+    </script>
+{% endblock %}

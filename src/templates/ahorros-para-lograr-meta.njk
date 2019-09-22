@@ -1,2 +1,75 @@
 {% set page = 'Ahorros para Lograr Meta' %}
+{% set form = 'ahorros-para-lograr-meta-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form2 = document.getElementById('ahorros-para-lograr-meta-form');
+            const fv2 = FormValidation
+                .formValidation(form2, {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        fin_bal: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        ini_dep: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 0,
+                                }
+                            }
+                        },
+                        num_of_years: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: false,
+                                    min: 0.001,
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function () {
+                    app.calculate($('h1.title').text());
+                });
+
+            $('#fin_bal').change(function () {
+                let fin_bal = form2.querySelector('#fin_bal').value;
+
+                fv2.updateValidatorOption('ini_dep', 'between', 'max', fin_bal);
+                fv2.revalidateField('ini_dep');
+            });
+        });
+    </script>
+{% endblock %}

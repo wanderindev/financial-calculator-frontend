@@ -6,7 +6,7 @@
                                 <div class="field-body">
                                     <div class="field">
                                         <p class="control">
-                                            <input id="{{id}}" class="input is-small {{cleave}}" type="text" placeholder="{{placeholder}}" {{attr}}>
+                                            <input id="{{id}}" name="{{id}}" class="input is-small {{cleave}}" type="text" placeholder="{{placeholder}}" {{attr}}>
                                         </p>
                                     </div>
                                 </div>
@@ -196,5 +196,5 @@
 {% endmacro %}
 
 {% macro calculateButton(calculator) %}
-                        <a class="button calculate-btn" onclick="app.calculate('{{calculator}}')">Calcular</a>
+                        <a class="button calculate-btn" type="submit">Calcular</a>
 {% endmacro %}

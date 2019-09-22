@@ -341,14 +341,14 @@
         "id": "extra_dep",
         "label": "Cantidad",
         "placeholder": "",
-        "value": ""
+        "value": "0"
       },
       {
         "type": "textField",
         "id": "extra_dep_start",
         "label": "En el Período",
         "placeholder": "",
-        "value": ""
+        "value": "1"
       },
       {
         "type": "extraDepFreqSelect",

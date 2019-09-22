@@ -1,2 +1,69 @@
 {% set page = 'Duración de Fondos' %}
+{% set form = 'duracion-de-fondos-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form10 = document.getElementById('duracion-de-fondos-form');
+            const fv10 = FormValidation
+                .formValidation(form10 , {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        ret_fund: {
+                            validators: {
+                                notEmpty:{},
+                                greaterThan: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                }
+                            }
+                        },
+                        reg_wdr: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0.01,
+                                    max: 0.01
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty:{},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function() {
+                    app.calculate($('h1.title').text());
+                });
+
+            $('#ret_fund, #freq, #rate').change(function () {
+                let ret_fund = form10.querySelector('#ret_fund').value;
+                let freq = form10.querySelector('#freq').value;
+                let rate = form10.querySelector('#rate').value;
+
+                fv10.updateValidatorOption('reg_wdr', 'between', 'max', ret_fund);
+                fv10.updateValidatorOption('reg_wdr', 'between', 'min', Math.round(ret_fund * rate / freq) / 100 + 0.01);
+                fv10.revalidateField('reg_wdr');
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,2 +1,80 @@
 {% set page = 'Tiempo para Lograr Meta' %}
+{% set form = 'tiempo-para-lograr-meta-form' %}
 {% extends "_base.njk" %}
+{%  block validation %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form3 = document.getElementById('tiempo-para-lograr-meta-form');
+            const fv3 = FormValidation
+                .formValidation(form3, {
+                    locale: 'es_ES',
+                    localization: FormValidation.locales.es_ES,
+                    fields: {
+                        fin_bal: {
+                            validators: {
+                                notEmpty: {},
+                                greaterThan: {
+                                    inclusive: false,
+                                    min: 0,
+                                }
+                            }
+                        },
+                        ini_dep: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 0
+                                }
+                            }
+                        },
+                        reg_dep: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 0
+                                }
+                            }
+                        },
+                        rate: {
+                            validators: {
+                                notEmpty: {},
+                                between: {
+                                    inclusive: true,
+                                    min: 0,
+                                    max: 100,
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bulma: new FormValidation.plugins.Bulma(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                })
+                .on('core.form.valid', function () {
+                    app.calculate($('h1.title').text());
+                });
+
+            $('#fin_bal, #ini_dep').change(function () {
+                let fin_bal = form3.querySelector('#fin_bal').value;
+                let ini_dep = form3.querySelector('#ini_dep').value;
+
+                fv3.updateValidatorOption('ini_dep', 'between', 'max', fin_bal);
+                fv3.revalidateField('ini_dep');
+
+                fv3.updateValidatorOption('reg_dep', 'between', 'max', (fin_bal - ini_dep));
+                fv3.revalidateField('reg_dep');
+            });
+        });
+    </script>
+{% endblock %}
