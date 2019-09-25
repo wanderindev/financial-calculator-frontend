@@ -85,7 +85,7 @@
 
     // Gets the results from the backend.
     app.calculate = function(calculator) {
-        let baseUrl = 'http://localhost:5001/';
+        let baseUrl = 'https://fc-backend.wanderin.dev/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 

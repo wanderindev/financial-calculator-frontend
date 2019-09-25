@@ -1,9 +1,10 @@
 @media screen and (max-width: 768px) {
+
     .section {
-        margin-right: 0.5rem;
-        margin-left: 0.5rem;
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
+        margin-right: 0.1rem;
+        margin-left: 0.1rem;
+        padding-right: 0.1rem;
+        padding-left: 0.1rem;
     }
 
     .title.is-4 {
@@ -12,7 +13,7 @@
     }
 
     .calculator-form {
-        width: 300px;
+        width: 276px;
         margin: auto;
     }
 
@@ -25,12 +26,8 @@
         padding-top: 0.325rem;
     }
 
-    .label.cf-rb {
-        width: 300px;
-    }
-
     .field-body {
-        width: 300px;
+        width: 276px;
     }
 
     .radio+.radio {
@@ -41,12 +38,36 @@
     .radio.extra_dep_r {
         margin-right: 0.5em;
     }
-
+/*
     .results,
     .pie-chart,
     .line-chart {
         width: 300px;
         margin: auto;
+    }
+*/
+    .radio.time-scale-r {
+        display: inline-block;
+        margin-left: 8px;
+        font-size: .85rem;
+    }
+
+    .level-right .control {
+        max-width: 170px;
+        width: 200px;
+    }
+
+    .level-right .field-label.is-small {
+        padding-top: 0;
+        margin-right: 4px!important;
+    }
+
+    .cf-field-label.cf-rb {
+        width: 230px;
+    }
+
+    .level-right .cf-field-label.cf-rb {
+        width: 85px;
     }
 
     .pagination {
@@ -63,5 +84,9 @@
 
     .pagination.is-centered .pagination-next {
         order: 3;
+    }
+
+    .results-wrapper {
+        margin-top: 0!important;
     }
 }
