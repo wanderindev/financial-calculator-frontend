@@ -15,7 +15,7 @@
   </a>
 </p>
 
-> Website for anafeliu.com
+> Website for financial calculator
 
 ### 🏠 [Homepage](https://fc-frontend.wanderin.dev)
 
@@ -63,7 +63,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/wanderindev/anafeliu-web/blob/master/LICENSE.md) licensed.
+This project is [MIT](https://github.com/wanderindev/financial-calculator-frontend/blob/master/LICENSE.md) licensed.
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
