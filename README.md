@@ -47,6 +47,9 @@ kubectl apply -f ./sites/fc-frontend.yml
 For more information on deploying to a Kubernetes cluster, visit 
 my [do-managed-kubernetes](https://github.com/wanderindev/do-managed-kubernetes) repository.
 
+For information on the financial calculator backend, visit 
+my [financial-calculator-backend](https://github.com/wanderindev/financial-calculator-backend) repository.
+
 ## Author
 
 👤 **Javier Feliu**
