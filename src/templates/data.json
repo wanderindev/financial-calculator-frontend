@@ -1652,11 +1652,11 @@
       "values": ["p", "d", "i", "b"]
     },
     "Calculadora de Préstamos": {
-      "columns": ["", "P. Extra", "P. Regular", "Interés", "P. Capital", "Saldo"],
+      "columns": ["", "Pago Extra", "Pago Regular", "Abono Interés", "Abono Capital", "Saldo"],
       "values": ["p", "pe", "pr", "pi", "pc" ,"b"]
     },
     "Tiempo para Cancelar Préstamo": {
-      "columns": ["", "P. Regular", "Interés", "P. Capital", "Saldo"],
+      "columns": ["", "Pago Regular", "Abono Interés", "Abono Capital", "Saldo"],
       "values": ["p", "pr", "pi", "pc" ,"b"]
     },
     "Fondo para Retiros": {
@@ -1672,11 +1672,11 @@
       "values": ["p", "w", "i", "b"]
     },
     "Tarjeta Pago Mínimo": {
-      "columns": ["", "P. Mínimo", "A. Capital", "A. Interés", "Saldo"],
+      "columns": ["", "Pago Mínimo", "Abono Capital", "Abono Interés", "Saldo"],
       "values": ["p", "pt", "pp", "pi", "b"]
     },
     "Tarjeta Pago Fijo": {
-      "columns": ["", "P. Mínimo", "A. Capital", "A. Interés", "Saldo"],
+      "columns": ["", "Pago Mínimo", "Abono Capital", "Abono Interés", "Saldo"],
       "values": ["p", "pt", "pp", "pi", "b"]
     }
   }

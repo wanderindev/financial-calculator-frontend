@@ -60,7 +60,7 @@ body {
 }
 
 .result-field-label {
-  width: 311px;
+  width: 287px;
   margin-bottom: 16px;
   margin-top: 24px;
   text-align: left;
@@ -129,6 +129,7 @@ body {
 
 .results {
   margin-bottom: 1.25rem;
+  max-width: 287px;
 }
 
 .results-card,
@@ -166,6 +167,10 @@ body {
   border: 1px solid #dbdbdb;
   border-top: none;
   background-color: #edf2fc;
+}
+
+.table-container {
+  max-width: 287px;
 }
 
 .table-card {

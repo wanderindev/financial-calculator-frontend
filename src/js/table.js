@@ -100,7 +100,7 @@
 
     // Returns the number to table pages.
     app.getNumOfPages = function() {
-        return Math.ceil((app.getTotalRows(app.table.table) - 1) / app.table.numOfRows);
+        return Math.ceil((app.getTotalRows(app.table.table) - 0.99) / app.table.numOfRows);
     };
 
     // Returns the number of pagination elements to display.
