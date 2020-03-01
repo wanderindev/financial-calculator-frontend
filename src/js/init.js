@@ -6,9 +6,22 @@
         let navbarBurger$ = $('.navbar-burger');
         let extraDepRadio$ = $('.extra_dep_r, .extra_pmt_r');
         let extraDepF$ = $('.extra_dep_f, .extra_pmt_f');
+        let extraDepFSelect$ = $('#extra_dep_f, #extra_pmt_f');
         let extraDepStart$ = $('.extra_dep_start, .extra_pmt_start');
         let extraDep$ = $('.extra_dep, .extra_pmt');
         let timeScaleRadio$ = $('.time-scale-r');
+        let freqSelect$ = $('#freq');
+
+        freqSelect$.change(function() {
+            let value = $(this).children("option:selected").val();
+            let text = $(this).children("option:selected").text();
+            extraDepFSelect$.children().remove()
+            extraDepFSelect$.append($('<option />').val(0).text("Solo una vez"));
+            if (text !== "Anual") {
+                extraDepFSelect$.append($('<option />').val(1).text("Anual"));
+            }
+            extraDepFSelect$.append($('<option />').val(value).text(text));
+        });
 
         // Shows / hides the extra deposit fields.
         let toggleExtraDep = function(show) {

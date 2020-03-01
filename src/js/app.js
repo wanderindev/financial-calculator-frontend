@@ -29,6 +29,7 @@
         $('.money').toArray().forEach(function(el) {
             new Cleave(el, {
                 numeral: true,
+                numeralThousandsGroupStyle: 'thousand',
                 //prefix: '$ ',
                 numeralDecimalScale: 2
             });
@@ -38,7 +39,7 @@
     // Builds and shows results.
     app.showResults = function() {
         app.calcInfo.results[app.calculator].forEach(function(item) {
-            $('#' + item.id).val(app.results[item.id]);
+            $('#' + item.id).val(app.results[item.id].toFixed(2));
         });
         app.formatResults();
 
@@ -85,7 +86,7 @@
 
     // Gets the results from the backend.
     app.calculate = function(calculator) {
-        let baseUrl = 'https://fc-backend.wanderin.dev/';
+        let baseUrl = 'https://fc-backend.feliu.io/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 

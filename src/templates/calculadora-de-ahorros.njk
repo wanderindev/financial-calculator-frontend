@@ -12,7 +12,7 @@
                 fields: {
                     ini_dep: {
                         validators: {
-                            notEmpty: {},
+                            //notEmpty: {},
                             greaterThan: {
                                 inclusive: true,
                                 min: 0,
@@ -25,7 +25,7 @@
                     },
                     reg_dep: {
                         validators: {
-                            notEmpty: {},
+                            //notEmpty: {},
                             greaterThan: {
                                 inclusive: true,
                                 min: 0,
@@ -104,7 +104,6 @@
             });
 
         $('#num_of_years, #freq').change(function () {
-            console.log('listener');
             let num_of_years = form1.querySelector('#num_of_years').value;
             let freq = form1.querySelector('#freq').value;
 

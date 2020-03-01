@@ -152,6 +152,9 @@
     // Updates html for table menu.
     app.updateTableMenu = function() {
         let timeScales = app.getTimeScales();
+        $('#tsr-0').addClass('is-hidden');
+        $('#tsr-1').addClass('is-hidden');
+        $('#tsr-2').addClass('is-hidden');
 
         timeScales.forEach(function(item, index) {
             $('#tsr-' + index).removeClass('is-hidden');
@@ -164,7 +167,10 @@
     // Returns a list of tables to display depending on chosen time scale.
     app.getTimeScales = function() {
         // noinspection JSUnresolvedVariable
-        return app.calcInfo.settings.tables[app.results.time_scale].display;
+        let timeScale = app.calcInfo.settings.tables[app.results.time_scale].display;
+        timeScale[timeScale.length -1]["numOfRows"] = app.results['table'].length;
+
+        return timeScale;
     };
 
     // Sets table metadata.
@@ -177,7 +183,11 @@
         let first = (page - 1) * timeScale.numOfRows;
         let last = page * timeScale.numOfRows;
 
-        columns[0] = timeScale.label;
+        if (timeScale.label === "Todo") {
+            columns[0] = app.getTimeScales()[index - 1].label;
+        } else {
+            columns[0] = timeScale.label;
+        }
 
         app.table = {
             label: timeScale.label,
