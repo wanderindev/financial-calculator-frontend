@@ -246,23 +246,23 @@
       "title": "Ahorros",
       "calculators": [
         {
-          "url": "/calculadora-de-ahorros.html",
+          "url": "/es/calculadora-de-ahorros.html",
           "name": "Calculadora de Ahorros"
         },
         {
-          "url": "/ahorros-para-lograr-meta.html",
+          "url": "/es/ahorros-para-lograr-meta.html",
           "name": "Ahorros para Lograr Meta"
         },
         {
-          "url": "/tiempo-para-lograr-meta.html",
+          "url": "/es/tiempo-para-lograr-meta.html",
           "name": "Tiempo para Lograr Meta"
         },
         {
-          "url": "/tasa-de-interes-requerida.html",
+          "url": "/es/tasa-de-interes-requerida.html",
           "name": "Tasa de Interés Requerida"
         },
         {
-          "url": "/valor-actual.html",
+          "url": "/es/valor-actual.html",
           "name": "Valor Actual"
         }
       ]
@@ -271,15 +271,15 @@
       "title": "Préstamos",
       "calculators": [
         {
-          "url": "/calculadora-de-prestamos.html",
+          "url": "/es/calculadora-de-prestamos.html",
           "name": "Calculadora de Préstamos"
         },
         {
-          "url": "/tasa-de-interes-real-p.html",
+          "url": "/es/tasa-de-interes-real-p.html",
           "name": "Tasa de Interés Real"
         },
         {
-          "url": "/tiempo-para-cancelar-prestamo.html",
+          "url": "/es/tiempo-para-cancelar-prestamo.html",
           "name": "Tiempo para Cancelar Préstamo"
         }
       ]
@@ -288,15 +288,15 @@
       "title": "Retiros",
       "calculators": [
         {
-          "url": "/fondo-para-retiros.html",
+          "url": "/es/fondo-para-retiros.html",
           "name": "Fondo para Retiros"
         },
         {
-          "url": "/retiros-para-agotar-fondos.html",
+          "url": "/es/retiros-para-agotar-fondos.html",
           "name": "Retiros para Agotar Fondos"
         },
         {
-          "url": "/duracion-de-fondos.html",
+          "url": "/es/duracion-de-fondos.html",
           "name": "Duración de Fondos"
         }
       ]
@@ -305,15 +305,15 @@
       "title": "Tarjetas de Crédito",
       "calculators": [
         {
-          "url": "/tarjeta-pago-minimo.html",
+          "url": "/es/tarjeta-pago-minimo.html",
           "name": "Pago Mínimo"
         },
         {
-          "url": "/tarjeta-pago-fijo.html",
+          "url": "/es/tarjeta-pago-fijo.html",
           "name": "Pago Fijo"
         },
         {
-          "url": "/tasa-de-interes-real-tc.html",
+          "url": "/es/tasa-de-interes-real-tc.html",
           "name": "Tasa de Interés Real"
         }
       ]
@@ -331,11 +331,11 @@
       "title": "Legal",
       "calculators": [
         {
-          "url": "/terminos.html",
+          "url": "/es/terminos.html",
           "name": "Términos de Servicio"
         },
         {
-          "url": "/privacidad.html",
+          "url": "/es/privacidad.html",
           "name": "Política de Privacidad"
         }
       ]

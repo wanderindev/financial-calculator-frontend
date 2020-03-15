@@ -44,8 +44,11 @@ let paths = {
         output: 'dist/es/svg/',
     },
     copy: {
-        input: ['src/templates/data.json', 'src/copy/**/*'],
+        input: ['src/templates/data.json', 'src/copy/**/*', '!src/copy/index.html'],
         output: 'dist/es/',
+    },
+    clean: {
+        input: 'dist/'
     },
     reload: './dist/es/',
 };
@@ -129,7 +132,7 @@ let cleanDist = function (done) {
 
     // Clean the dist folder
     del.sync([
-        paths.output
+        paths.clean.input
     ]);
 
     // Clear all cache files
@@ -325,6 +328,10 @@ let copyFiles = function (done) {
     // Copy static files
     src(paths.copy.input)
         .pipe(dest(paths.copy.output));
+
+    // Copy index.html redirect file
+    src('src/copy/index.html')
+        .pipe(dest('dist/'));
 
     // Signal completion
     done();

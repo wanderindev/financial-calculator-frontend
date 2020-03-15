@@ -88,8 +88,8 @@
 
     // Gets the results from the backend.
     app.calculate = function(calculator) {
-        //let baseUrl = 'https://fc-backend.feliu.io/';
-        let baseUrl = 'http://localhost:5001/';
+        let baseUrl = 'https://api.calcfina.com/';
+        //let baseUrl = 'http://localhost:5001/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 
