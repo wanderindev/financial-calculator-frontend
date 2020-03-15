@@ -17,10 +17,10 @@ let settings = {
 
 let paths = {
     input: 'src/',
-    output: 'dist/',
+    output: 'dist/es/',
     render: {
         input: 'src/templates/*.njk',
-        output: 'dist/',
+        output: 'dist/es/',
         data: './src/templates/data.json',
         partials: 'src/templates/partials',
         cssSrc: 'src/sass/*.{sass,scss}',
@@ -29,25 +29,25 @@ let paths = {
     scripts: {
         input: 'src/js/*',
         polyfills: '.polyfill.js',
-        output: 'dist/js/',
+        output: 'dist/es/js/',
     },
     styles: {
         input: 'src/sass/*.{scss,sass}',
-        output: 'dist/css/',
+        output: 'dist/es/css/',
     },
     imgs: {
         input: 'src/img/*.{gif,jpg,png}',
-        output: 'dist/img/',
+        output: 'dist/es/img/',
     },
     svgs: {
         input: 'src/svg/*.svg',
-        output: 'dist/svg/',
+        output: 'dist/es/svg/',
     },
     copy: {
         input: ['src/templates/data.json', 'src/copy/**/*'],
-        output: 'dist/',
+        output: 'dist/es/',
     },
-    reload: './dist/',
+    reload: './dist/es/',
 };
 
 
@@ -148,7 +148,7 @@ let renderTempls = function(done) {
 
     // Define css and js sources to inject into html files.
     let cssSources = src(paths.render.cssSrc).pipe(rename({dirname: 'css', extname: '.min.css'}));
-    let jsSources = src(paths.render.jsSrc, {read: false}).pipe(rename({extname: '.min.js'}));
+    let jsSources = src(paths.render.jsSrc, {read: false}).pipe(rename({dirname: 'js', extname: '.min.js'}));
 
     // Render the templates
     src(paths.render.input)
@@ -159,9 +159,9 @@ let renderTempls = function(done) {
             path: [paths.render.partials]
         }))
         .pipe(dest(paths.render.output))
-        .pipe(inject(cssSources, {relative: true, ignorePath: '../src/sass/'}))
+        .pipe(inject(cssSources, {relative: true, ignorePath: '../../src/sass/'}))
         .pipe(dest(paths.render.output))
-        .pipe(inject(jsSources, {relative: true, ignorePath: '../src/'}))
+        .pipe(inject(jsSources, {relative: true, ignorePath: '../../src/js/'}))
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(dest(paths.render.output));
 
