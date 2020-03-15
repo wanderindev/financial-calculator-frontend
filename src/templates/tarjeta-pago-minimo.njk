@@ -86,7 +86,7 @@
                 let rate = form11.querySelector('#rate').value;
 
                 fv11.updateValidatorOption('min_p', 'between', 'max', cc_debt);
-                fv11.updateValidatorOption('min_p', 'between', 'min', Math.round(cc_debt * rate / 12) / 100 + 0.01);
+                fv11.updateValidatorOption('min_p', 'between', 'min', 0.01);
                 fv11.revalidateField('min_p');
             });
         });

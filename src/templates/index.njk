@@ -12,7 +12,7 @@
                     fields: {
                         ini_dep: {
                             validators: {
-                                notEmpty: {},
+                                //notEmpty: {},
                                 greaterThan: {
                                     inclusive: true,
                                     min: 0,
@@ -25,7 +25,7 @@
                         },
                         reg_dep: {
                             validators: {
-                                notEmpty: {},
+                                //notEmpty: {},
                                 greaterThan: {
                                     inclusive: true,
                                     min: 0,
@@ -40,8 +40,8 @@
                             validators: {
                                 notEmpty: {},
                                 greaterThan: {
-                                    inclusive: false,
-                                    min: 0,
+                                    inclusive: true,
+                                    min: 0.001,
                                 },
                                 numeric: {
                                     thousandsSeparator: '',
@@ -69,10 +69,6 @@
                                 greaterThan: {
                                     inclusive: true,
                                     min: 0,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
                                 }
                             }
                         },
@@ -107,7 +103,7 @@
                     app.calculate($('h1.title').text());
                 });
 
-            form1.querySelector('#num_of_years, #freq').addEventListener('change', function () {
+            $('#num_of_years, #freq').change(function () {
                 let num_of_years = form1.querySelector('#num_of_years').value;
                 let freq = form1.querySelector('#freq').value;
 

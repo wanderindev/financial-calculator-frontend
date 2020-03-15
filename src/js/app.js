@@ -19,7 +19,7 @@
             }
         });
 
-        app.showExtraPmtInfo = calculator === 'Calculadora de Préstamos' && data['extra_pmt'] > 0;
+        app.showExtraPmtInfo = calculator === 'Calculadora de Préstamos' && data.extra_pmt > 0;
 
         return data;
     };
@@ -39,7 +39,9 @@
     // Builds and shows results.
     app.showResults = function() {
         app.calcInfo.results[app.calculator].forEach(function(item) {
-            $('#' + item.id).val(app.results[item.id].toFixed(2));
+            if (item.type !== 'label') {
+                $('#' + item.id).val(app.results[item.id].toFixed(2));
+            }
         });
         app.formatResults();
 
@@ -86,7 +88,8 @@
 
     // Gets the results from the backend.
     app.calculate = function(calculator) {
-        let baseUrl = 'https://fc-backend.feliu.io/';
+        //let baseUrl = 'https://fc-backend.feliu.io/';
+        let baseUrl = 'http://localhost:5001/';
         let endpoint = app.getEndpoint(calculator);
         let data = app.getData(calculator);
 

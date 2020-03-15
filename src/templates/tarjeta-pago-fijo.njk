@@ -100,11 +100,11 @@
                 let rate = form12.querySelector('#rate').value;
 
                 fv12.updateValidatorOption('min_p', 'between', 'max', cc_debt);
-                fv12.updateValidatorOption('min_p', 'between', 'min', Math.round(cc_debt * rate / 12) / 100 + 0.01);
+                fv12.updateValidatorOption('min_p', 'between', 'min', 0.01);
                 fv12.revalidateField('min_p');
 
                 fv12.updateValidatorOption('fix_p', 'between', 'max', cc_debt);
-                fv12.updateValidatorOption('fix_p', 'between', 'min', Math.round(cc_debt * rate / 12) / 100 + 0.01);
+                fv12.updateValidatorOption('fix_p', 'between', 'min', 0.01);
                 fv12.revalidateField('fix_p');
             });
         });

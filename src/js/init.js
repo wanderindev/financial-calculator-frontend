@@ -15,7 +15,7 @@
         freqSelect$.change(function() {
             let value = $(this).children("option:selected").val();
             let text = $(this).children("option:selected").text();
-            extraDepFSelect$.children().remove()
+            extraDepFSelect$.children().remove();
             extraDepFSelect$.append($('<option />').val(0).text("Solo una vez"));
             if (text !== "Anual") {
                 extraDepFSelect$.append($('<option />').val(1).text("Anual"));

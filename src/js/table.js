@@ -168,7 +168,7 @@
     app.getTimeScales = function() {
         // noinspection JSUnresolvedVariable
         let timeScale = app.calcInfo.settings.tables[app.results.time_scale].display;
-        timeScale[timeScale.length -1]["numOfRows"] = app.results['table'].length;
+        timeScale[timeScale.length -1].numOfRows = app.results.table.length;
 
         return timeScale;
     };

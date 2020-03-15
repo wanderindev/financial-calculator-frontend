@@ -498,7 +498,7 @@
       {
         "type": "textField",
         "id": "fin_bal",
-        "label": "Cantidad Meta",
+        "label": "Valor Futuro",
         "placeholder": "",
         "value": ""
       },
@@ -806,13 +806,6 @@
       },
       {
         "type": "textField",
-        "id": "rate",
-        "label": "Interés (%)",
-        "placeholder": "",
-        "value": ""
-      },
-      {
-        "type": "textField",
         "id": "min_p_perc",
         "label": "Pago Mínimo (%)",
         "placeholder": "",
@@ -828,7 +821,7 @@
       {
         "type": "textField",
         "id": "add_c",
-        "label": "Cargo Fijo ($)",
+        "label": "Cargos ($)",
         "placeholder": "",
         "value": ""
       }
