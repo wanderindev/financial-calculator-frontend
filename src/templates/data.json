@@ -317,6 +317,28 @@
           "name": "Tasa de Interés Real"
         }
       ]
+    },
+    {
+      "title": "Contáctenos",
+      "calculators": [
+        {
+          "url": "mailto:admin@calcfina.com",
+          "name": "admin@calcfina.com"
+        }
+      ]
+    },
+    {
+      "title": "Legal",
+      "calculators": [
+        {
+          "url": "/terminos.html",
+          "name": "Términos de Servicio"
+        },
+        {
+          "url": "/privacidad.html",
+          "name": "Política de Privacidad"
+        }
+      ]
     }
   ],
   "forms": {

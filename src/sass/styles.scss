@@ -259,3 +259,9 @@ a.pagination-link {
 .pagination-link.is-current:hover {
   cursor: default;
 }
+
+.brand-logo img {
+  max-height: none;
+  margin: -10px auto 24px 0;
+  display: block;
+}
