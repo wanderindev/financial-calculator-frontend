@@ -265,3 +265,38 @@ a.pagination-link {
   margin: -10px auto 24px 0;
   display: block;
 }
+
+.fixed-footer {
+  width: 100%;
+  position: fixed;
+  background: #edf2fc;
+  padding: 25px 0;
+  color: #4a4a4a;
+  bottom: 0;
+  font-size: 0.85rem;
+}
+
+.legal {
+  margin-bottom: 96px;
+}
+
+.legal p {
+  margin-bottom: 16px;
+}
+
+.legal h4 {
+  margin-bottom: 16px;
+  margin-top: 32px;
+  font-size: 110%;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.legal ol {
+  margin: 16px 0;
+  padding: 0 0 0 16px;
+}
+
+.legal ol li {
+  margin-bottom: 16px;
+}

@@ -317,28 +317,6 @@
           "name": "Tasa de Interés Real"
         }
       ]
-    },
-    {
-      "title": "Contáctenos",
-      "calculators": [
-        {
-          "url": "mailto:admin@calcfina.com",
-          "name": "admin@calcfina.com"
-        }
-      ]
-    },
-    {
-      "title": "Legal",
-      "calculators": [
-        {
-          "url": "/es/terminos.html",
-          "name": "Términos de Servicio"
-        },
-        {
-          "url": "/es/privacidad.html",
-          "name": "Política de Privacidad"
-        }
-      ]
     }
   ],
   "forms": {
@@ -770,14 +748,14 @@
         "type": "textField",
         "id": "min_p_perc",
         "label": "Pago Mínimo (%)",
-        "placeholder": "",
+        "placeholder": "ejemp. 3",
         "value": ""
       },
       {
         "type": "textField",
         "id": "min_p",
         "label": "Pago Mínimo ($)",
-        "placeholder": "",
+        "placeholder": "ejemp. 25",
         "value": ""
       }
     ],
@@ -800,14 +778,14 @@
         "type": "textField",
         "id": "min_p_perc",
         "label": "Pago Mínimo (%)",
-        "placeholder": "",
+        "placeholder": "ejemp. 3",
         "value": ""
       },
       {
         "type": "textField",
         "id": "min_p",
         "label": "Pago Mínimo ($)",
-        "placeholder": "",
+        "placeholder": "ejemp. 25",
         "value": ""
       },
       {
@@ -828,16 +806,23 @@
       },
       {
         "type": "textField",
+        "id": "rate",
+        "label": "Interés (%)",
+        "placeholder": "",
+        "value": ""
+      },
+      {
+        "type": "textField",
         "id": "min_p_perc",
         "label": "Pago Mínimo (%)",
-        "placeholder": "",
+        "placeholder": "ejemp. 3",
         "value": ""
       },
       {
         "type": "textField",
         "id": "min_p",
         "label": "Pago Mínimo ($)",
-        "placeholder": "",
+        "placeholder": "ejemp. 25",
         "value": ""
       },
       {

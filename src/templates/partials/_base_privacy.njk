@@ -1,0 +1,215 @@
+{% import "_form-fields.njk" as formFields %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{page}}</title>
+    <!-- inject:css -->
+    <!-- endinject -->
+    <link rel="stylesheet" href="css/formValidation.min.css">
+    <script src="https://kit.fontawesome.com/4d4c6829dd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <!-- Navbar start -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#" title="Inicio">
+                <h1 class="header-logo"></h1>
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="mobile-menu" class="navbar-menu is-hidden-desktop">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="brand-logo" href="/">
+                        <img src="img/logo.jpg" width="214" height="108">
+                    </a>
+                    {% include '_menu.njk' %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar ends -->
+</div>
+<section class="section cf-section">
+
+    <!-- Container start -->
+    <div class="container">
+
+        <!-- Content start -->
+        <div class="columns is-centered is-mobile">
+
+            <!-- Side menu starts -->
+            <aside class="menu is-hidden-touch column is-narrow">
+                <a class="brand-logo" href="/">
+                    <img src="img/logo.jpg" width="180" height="91">
+                </a>
+                {% include '_menu.njk' %}
+            </aside>
+            <!-- Side menu ends -->
+
+            <!-- Calculator starts -->
+            <div class="column">
+
+                <div class="columns">
+                    <!-- Title starts -->
+                    <div class="column page-title">
+                        <h1 class="title is-4">{{page}}</h1>
+                    </div>
+                    <!-- Title ends -->
+                </div>
+
+                <div class="columns">
+
+                    <div class="column legal">
+                        <p>Pedro Moreno (calcfina.com) se compromete a salvaguardar su privacidad. Póngase en contacto con nosotros en <a href="mailto:admin@calcfina.com">admin@calcfina.com</a> si tiene alguna pregunta o problema con respecto al uso de sus Datos personales y con gusto lo atenderemos.</p>
+                        <p>Al usar este sitio y / o nuestros servicios, usted acepta el procesamiento de sus datos personales como se describe en esta Política de privacidad.</p>
+                        <h4>Tabla de Contenido</h4>
+                        <ol>
+                            <li><a href="#gdpr-definitions" class="_mPS2id-h">Definiciones utilizadas en esta Política</a></li>
+                            <li><a href="#gdpr-principles">Principios de protección de datos que seguimos</a></li>
+                            <li><a href="#gdpr-rights" class="_mPS2id-h">¿Qué derechos tiene con respecto a sus datos personales?</a></li>
+                            <li><a href="#gdpr-information" class="_mPS2id-h">Qué datos personales recopilamos sobre usted</a></li>
+                            <li><a href="#gdpr-processing" class="_mPS2id-h">Cómo usamos sus datos personales</a></li>
+                            <li><a href="#gdpr-sharing" class="_mPS2id-h">¿Quién más tiene acceso a sus datos personales?</a></li>
+                            <li><a href="#gdpr-security" class="_mPS2id-h">Cómo protegemos sus datos</a></li>
+                            <li><a href="#gdpr-cookies" class="_mPS2id-h">Información sobre cookies</a></li>
+                            <li><a href="#gdpr-contact" class="_mPS2id-h mPS2id-highlight mPS2id-highlight-first">Información del contacto</a></li>
+                        </ol>
+                        <h4 id="gdpr-definitions" class="_mPS2id-t">Definiciones</h4>
+                        <p><strong>Datos personales</strong> – cualquier información relacionada con una persona física identificada o identificable.</p>
+                        <p><strong>Procesamiento</strong> – cualquier operación o conjunto de operaciones que se realiza en datos personales o en conjuntos de datos personales.</p>
+                        <p><strong>Sujeto de datos</strong> – una persona física cuyos datos personales se están procesando.</p>
+                        <p><strong>Niño</strong> –  una persona física menor de 16 años.</p>
+                        <p><strong>Nosotros / nosotros</strong> (en mayúscula o no)  – Pedro Moreno.</p>
+                        <p><strong>El propósito:</strong> los datos se recopilan cuando un sujeto de datos publica comentarios o se registra en nuestra lista de correo.</p>
+                        <h4>Principios de protección de datos</h4>
+                        <p>Prometemos seguir los siguientes principios de protección de datos:</p>
+                        <ol>
+                            <li>El procesamiento es legal, justo, transparente. Nuestras actividades de procesamiento tienen fundamentos legales. Siempre consideramos sus derechos antes de procesar datos personales. Le proporcionaremos información sobre el procesamiento a pedido.</li>
+                            <li>El procesamiento se limita al propósito. Nuestras actividades de procesamiento se ajustan al propósito para el que se recopilaron los datos personales.</li>
+                            <li>El procesamiento se realiza con datos mínimos. Solo recopilamos y procesamos la cantidad mínima de datos personales necesarios para al propósito.</li>
+                            <li>El procesamiento está limitado a un período de tiempo. No almacenaremos sus datos personales durante más tiempo del necesario.</li>
+                            <li>Haremos todo lo posible para garantizar la precisión de los datos personales.</li>
+                            <li>Haremos todo lo posible para garantizar la integridad y confidencialidad de los datos personales.</li>
+                        </ol>
+                        <h4 id="gdpr-rights" class="_mPS2id-t">Derechos del sujeto de datos</h4>
+                        <p>El interesado tiene los siguientes derechos:</p>
+                        <ol>
+                            <li><strong>Derecho a la información</strong> – lo que significa que tiene derecho a saber si sus datos personales se están procesando; qué datos se recopilan, de dónde se obtienen y por qué y por quién se procesan.</li>
+                            <li><strong>Derecho de acceso</strong> – lo que significa que tiene derecho a acceder a los datos recopilados de usted. Esto incluye su derecho a solicitar y obtener una copia de sus Datos personales recopilados.</li>
+                            <li><strong>Derecho a rectificación</strong> – lo que significa que tiene derecho a solicitar la rectificación o el borrado de sus Datos personales que sean inexactos o incompletos.</li>
+                            <li><strong>Derecho de borrado</strong> –  es decir, en determinadas circunstancias, puede solicitar que sus datos personales se borren de nuestros registros.</li>
+                            <li><strong>Derecho a restringir el procesamiento</strong> –  es decir,  donde se aplican ciertas condiciones, tiene derecho a restringir el procesamiento de sus datos personales.</li>
+                            <li><strong>Derecho a oponerse al procesamiento</strong> – lo que significa que en ciertos casos tiene derecho a oponerse al procesamiento de sus datos personales, por ejemplo, en el caso del marketing directo.</li>
+                            <li><strong>Derecho a oponerse al procesamiento automatizado</strong> – lo que significa que tiene derecho a oponerse al procesamiento automatizado, incluida la creación de perfiles; y no estar sujeto a una decisión basada únicamente en el procesamiento automatizado. Este derecho puede ejercerlo siempre que haya un resultado de la elaboración de perfiles que produzca efectos legales que lo afecten o lo afecten significativamente.</li>
+                            <li><strong>Derecho a la portabilidad de datos</strong> – tiene derecho a obtener sus Datos personales en un formato legible por máquina o si es factible, como una transferencia directa de un Procesador a otro.</li>
+                            <li><strong>Derecho a presentar una queja</strong> – en caso de que rechacemos su solicitud bajo los Derechos de acceso, le proporcionaremos una razón de por qué. Si no está satisfecho con la forma en que se manejó su solicitud, contáctenos.</li>
+                            <li><strong>Derecho a la ayuda de <a href="#gdpr-contact" class="_mPS2id-h mPS2id-highlight">autoridad supervisora</a></strong> – lo que significa que tiene derecho a la ayuda de una autoridad de supervisión y el derecho a otros recursos legales como reclamar daños.</li>
+                            <li><strong>Derecho a retirar el consentimiento</strong> – usted tiene derecho a retirar cualquier consentimiento dado para el procesamiento de sus datos personales.</li>
+                        </ol>
+                        <h4 id="gdpr-information" class="_mPS2id-t">Datos que recolectamos</h4>
+                        <p><strong>Información que nos ha proporcionado</strong><br>Esta podría ser su dirección de correo electrónico y su nombre, principalmente información necesaria para mejorar su experiencia de cliente con nosotros. Guardamos la información que nos proporciona para que pueda comentar o realizar otras actividades en el sitio web. Esta información incluye, por ejemplo, su nombre y dirección de correo electrónico.</p>
+                        <p><strong>Información recopilada automáticamente sobre usted</strong><br>Esto incluye información que las cookies y otras herramientas de sesión almacenan automáticamente. Por ejemplo, su dirección IP. Cuando mira los contenidos de nuestro sitio web, sus actividades pueden registrarse.</p>
+                        <p><strong>Información disponible públicamente</strong><br>Podemos recopilar información sobre usted que esté disponible públicamente.</p>
+                        <h4 id="gdpr-processing" class="_mPS2id-t">Cómo usamos sus datos personales</h4>
+                        <p>Utilizamos sus datos personales para:</p>
+                        <ol>
+                            <li>Mejorar su experiencia de usuario.</li>
+                            <li>Para permitirle comentar en publicaciones de blog.</li>
+                            <li>Para permitirle suscribirse a nuestra lista de correo.</li>
+                        </ol>
+                        <p>Utilizamos sus datos personales por motivos legítimos y / o con su consentimiento.</p>
+                        <p>Con su consentimiento, procesamos sus datos personales para los siguientes propósitos:</p>
+                        <ol>
+                            <li>Para enviarle boletines y ofertas de campaña (de nosotros y / o nuestros socios cuidadosamente seleccionados).</li>
+                            <li>Para otros fines, le hemos pedido su consentimiento.</li>
+                            <li>Para identificar su comentario en las publicaciones de blog.</li>
+                            <li>Para otros fines, le hemos pedido su consentimiento.</li>
+                        </ol>
+                        <p>Procesamos sus datos personales para cumplir con la obligación derivada de la ley y / o utilizar sus datos personales para las opciones previstas por la ley. Nos reservamos el derecho de anonimizar los datos personales recopilados y de utilizar dichos datos. Utilizaremos datos fuera del alcance de esta Política solo cuando se anonimicen.</p>
+                        <p>Es posible que procesemos sus datos personales para fines adicionales que no se mencionan aquí pero que son compatibles con el propósito original para el que se recopilaron los datos. Para hacer esto, nos aseguraremos de que:</p>
+                        <ol>
+                            <li>El vínculo entre los propósitos, el contexto y la naturaleza de los datos personales es adecuado para su posterior procesamiento;</li>
+                            <li>el procesamiento posterior no dañaría sus intereses y</li>
+                            <li>habría salvaguardas apropiadas para el procesamiento.</li>
+                        </ol>
+                        <p>Le informaremos sobre cualquier otro procesamiento y propósito.</p>
+                        <h4 id="gdpr-sharing" class="_mPS2id-t">¿Quién más puede acceder a sus datos personales?</h4>
+                        <p>No compartimos sus datos personales con extraños.</p>
+                        <p>Divulgamos sus datos personales a terceros o funcionarios públicos cuando estamos legalmente obligados a hacerlo. Podríamos divulgar sus datos personales a terceros si usted lo ha consentido o si existen otros motivos legales para ello.</p>
+                        <h4 id="gdpr-security" class="_mPS2id-t">Cómo protegemos sus datos</h4>
+                        <p>Hacemos nuestro mejor esfuerzo para mantener sus datos personales seguros. Utilizamos protocolos seguros para la comunicación y la transferencia de datos (como HTTPS). Usamos anonimización y seudonimización cuando sea adecuado. Monitoreamos nuestros sistemas para detectar posibles vulnerabilidades y ataques.</p>
+                        <p>Aunque hacemos nuestro mejor esfuerzo, no podemos garantizar la seguridad de la información. Sin embargo, nos comprometemos a notificar a las autoridades adecuadas sobre violaciones de datos. También le notificaremos si existe una amenaza a sus derechos o intereses. Haremos todo lo razonablemente posible para evitar infracciones de seguridad y para ayudar a las autoridades en caso de que se produzcan infracciones.</p>
+                        <p>Si tiene una cuenta con nosotros, tenga en cuenta que debe mantener en secreto su nombre de usuario y contraseña.</p>
+                        <h4>Niños</h4>
+                        <p>No tenemos la intención de recopilar o recopilar información a sabiendas de niños. No apuntamos a niños con nuestros servicios.</p>
+                        <h4 id="gdpr-cookies" class="_mPS2id-t">Cookies y otras tecnologías que utilizamos.</h4>
+                        <p>Utilizamos cookies y / o tecnologías similares para analizar el comportamiento de los clientes, administrar el sitio web, rastrear los movimientos de los usuarios y recopilar información sobre los usuarios. Esto se hace para personalizar y mejorar su experiencia con nosotros.</p>
+                        <p>Una cookie es un pequeño archivo de texto almacenado en su computadora. Las cookies almacenan información que se utiliza para ayudar a que los sitios funcionen. Solo nosotros podemos acceder a las cookies creadas por nuestro sitio web. Puede controlar sus cookies en el nivel del navegador. Elegir deshabilitar las cookies puede dificultar el uso de ciertas funciones.</p>
+                        <p><strong>Utilizamos cookies para los siguientes propósitos:</strong></p>
+                        <ol>
+                            <li>Cookies necesarias: estas cookies son necesarias para que pueda utilizar algunas funciones importantes en nuestro sitio web, como iniciar sesión. Estas cookies no recopilan ninguna información personal.</li>
+                            <li>Cookies de funcionalidad: estas cookies proporcionan una funcionalidad que hace que el uso de nuestro servicio sea más conveniente y hace posible proporcionar funciones más personalizadas. Por ejemplo, es posible que recuerden su nombre y correo electrónico en los formularios de comentarios para que no tenga que volver a ingresar esta información la próxima vez que comente.</li>
+                            <li>Cookies de análisis: estas cookies se utilizan para rastrear el uso y el rendimiento de nuestro sitio web y servicios</li>
+                        </ol>
+                        <p>Puede eliminar las cookies almacenadas en su computadora a través de la configuración de su navegador. Alternativamente, puede controlar algunas cookies de terceros mediante el uso de una plataforma de mejora de privacidad como <a href="http://optout.aboutads.info/#!/" target="_blank" rel="noopener noreferrer">optout.aboutads.info</a> o <a href="http://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer">youronlinechoices.com</a> Para obtener más información sobre las cookies, visite <a href="http://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer">allaboutcookies.org</a>.</p>
+                        <p>Utilizamos Google Analytics para medir el tráfico en nuestro sitio web. Google tiene su propia Política de privacidad que puede revisar <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener noreferrer">aquí</a>. Si desea inhabilitar el seguimiento de Google Analytics, visite la página de inhabilitación de <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics</a>.</p>
+                        <h4 id="gdpr-contact" class="_mPS2id-t mPS2id-target mPS2id-target-first">Información del contacto</h4>
+                        <p><strong id="gdpr-dpa"><a href="https://www.dlapiperdataprotection.com/index.html?t=authority&amp;c=PA">Autoridad Supervisora</a></strong></p>
+                        <h4 id="gdpr-changes">Cambios a esta Política de Privacidad</h4>
+                        <p>Nos reservamos el derecho de hacer cambios a esta Política de Privacidad.<br>La última modificación se realizó el 28 de marzo de 2020.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Content ends -->
+
+    </div>
+    <!-- Container ends -->
+</section>
+
+<footer class="footer fixed-footer">
+
+    <div class="content has-text-centered">
+
+        <p>
+            © 2019-2020 Pedro Moreno.  Todos los derechos reservados. | <a href="/es/terminos.html">Términos de Servicio</a> | <a href="/es/privacidad.html">Política de Privacidad</a>
+        </p>
+        <p>
+            Escríbanos a: <a href="mailto:admin@calcfina.com">admin@calcfina.com</a>
+        </p>
+
+    </div>
+
+</footer>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Nunjucks JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nunjucks/3.0.1/nunjucks.min.js"></script>
+<!-- Plotly JS -->
+<script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+<!-- Cleave JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.5.0/cleave.min.js"></script>
+<!-- Form Validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+<script src="js/FormValidation.min.js"></script>
+<script src="js/locales/es_ES.min.js"></script>
+<script src="js/plugins/Bulma.min.js"></script>
+
+<!-- inject:js -->
+<!-- endinject -->
+
+{%  block validation %} {% endblock %}
+</body>
+</html>
