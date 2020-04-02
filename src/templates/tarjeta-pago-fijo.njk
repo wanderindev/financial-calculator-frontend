@@ -95,16 +95,21 @@
                     app.calculate($('h1.title').text());
                 });
 
-            $('#cc_debt, #rate').change(function () {
+            $('#cc_debt, #rate, #min_p, #min_p_perc').change(function () {
                 let cc_debt = form12.querySelector('#cc_debt').value;
                 let rate = form12.querySelector('#rate').value;
+                let min_p_perc = form12.querySelector('#min_p_perc').value;
+                let min_p = form12.querySelector('#min_p').value;
+                let fix_p_min =  Math.max(min_p_perc, min_p);
+
+                print(min_p_perc, min_p, fix_p_min);
 
                 fv12.updateValidatorOption('min_p', 'between', 'max', cc_debt);
                 fv12.updateValidatorOption('min_p', 'between', 'min', 0.01);
                 fv12.revalidateField('min_p');
 
                 fv12.updateValidatorOption('fix_p', 'between', 'max', cc_debt);
-                fv12.updateValidatorOption('fix_p', 'between', 'min', 0.01);
+                fv12.updateValidatorOption('fix_p', 'between', 'min', fix_p_min);
                 fv12.revalidateField('fix_p');
             });
         });
