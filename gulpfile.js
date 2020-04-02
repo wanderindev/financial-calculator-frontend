@@ -50,7 +50,7 @@ let paths = {
     clean: {
         input: 'dist/'
     },
-    reload: './dist/es/',
+    reload: './dist/',
 };
 
 
