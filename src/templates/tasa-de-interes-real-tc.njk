@@ -23,27 +23,12 @@
                                 }
                             }
                         },
-                        min_p_perc: {
+                        rate: {
                             validators: {
                                 notEmpty:{},
-                                between: {
+                                greaterThan: {
                                     inclusive: true,
                                     min: 0,
-                                    max: 100,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
-                                }
-                            }
-                        },
-                        min_p: {
-                            validators: {
-                                notEmpty:{},
-                                between: {
-                                    inclusive: true,
-                                    min: 0.01,
-                                    max: 0.01,
                                 },
                                 numeric: {
                                     thousandsSeparator: '',
@@ -82,10 +67,6 @@
 
             $('#cc_debt, #rate').change(function () {
                 let cc_debt = form13.querySelector('#cc_debt').value;
-
-                fv13.updateValidatorOption('min_p', 'between', 'max', cc_debt);
-                fv13.updateValidatorOption('min_p', 'between', 'min', 0.01);
-                fv13.revalidateField('min_p');
             });
         });
     </script>

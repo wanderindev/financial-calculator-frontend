@@ -813,20 +813,6 @@
       },
       {
         "type": "textField",
-        "id": "min_p_perc",
-        "label": "Pago Mínimo (%)",
-        "placeholder": "ejemp. 3",
-        "value": ""
-      },
-      {
-        "type": "textField",
-        "id": "min_p",
-        "label": "Pago Mínimo ($)",
-        "placeholder": "ejemp. 25",
-        "value": ""
-      },
-      {
-        "type": "textField",
         "id": "add_c",
         "label": "Cargos ($)",
         "placeholder": "",
