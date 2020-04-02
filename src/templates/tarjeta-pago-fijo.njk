@@ -102,8 +102,6 @@
                 let min_p = form12.querySelector('#min_p').value;
                 let fix_p_min =  Math.max(min_p_perc, min_p);
 
-                print(min_p_perc, min_p, fix_p_min);
-
                 fv12.updateValidatorOption('min_p', 'between', 'max', cc_debt);
                 fv12.updateValidatorOption('min_p', 'between', 'min', 0.01);
                 fv12.revalidateField('min_p');
