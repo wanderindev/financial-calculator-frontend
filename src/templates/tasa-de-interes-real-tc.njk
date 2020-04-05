@@ -1,5 +1,6 @@
 {% set page = 'Tasa de Interés Real de Tarjeta' %}
 {% set form = 'tasa-de-interes-real-de-tarjeta-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra la tasa de interés real que cobra una tarjeta de crédito cuya tasa de interés nominal es de 20.0%, con un saldo de $3,000 y cargos adicionales o extras de $18.00 ese mes.<br><br><span class="example">Respuesta:</span>27.2%.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -62,7 +63,7 @@
                     },
                 })
                 .on('core.form.valid', function() {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#cc_debt, #rate').change(function () {

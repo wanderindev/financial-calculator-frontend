@@ -1,5 +1,6 @@
 {% set page = 'Tarjeta Pago Mínimo' %}
 {% set form = 'tarjeta-pago-minimo-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra el total pagado y los meses que toma cancelar el saldo de una tarjeta de crédito, con un balance inicial de $3,000.00, haciendo únicamente los pagos mínimos requeridos cada mes, sin incurrir en nuevos gastos, con una tasa de interés 18% y un pago mínimo de 3% del saldo ó $25.<br><br><span class="example">Respuesta:</span>132 meses (11 años), total pagado $5,497.23.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -78,7 +79,7 @@
                     },
                 })
                 .on('core.form.valid', function() {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#cc_debt, #rate').change(function () {

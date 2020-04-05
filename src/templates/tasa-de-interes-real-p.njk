@@ -1,5 +1,6 @@
 {% set page = 'Tasa de Interés Real de Préstamo' %}
 {% set form = 'tasa-de-interes-real-de-prestamo-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra la tasa de interés real cobrada por un préstamo de $10,000.00, a 5 años y con un letra mensual de $250.00 pagada al inicio de cada período.<br><br><span class="example">Respuesta:</span>17.96%.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -62,7 +63,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             form6.querySelector('#reg_pmt', 'num_of_years', '#freq').addEventListener('change', function () {

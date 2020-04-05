@@ -1,5 +1,6 @@
 {% set page = 'Ahorros para Lograr Meta' %}
 {% set form = 'ahorros-para-lograr-meta-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra la cantidad a ahorrar al inicio de cada mes, durante 12 años, para alcanzar la cantidad meta de $50,000.00, a partir de una cantidad inicial de $3,000.00 y ganando un interés de 5.3%.<br><br><span class="example">Respuesta:</span>$220.00 mensual.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -77,7 +78,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#fin_bal').change(function () {

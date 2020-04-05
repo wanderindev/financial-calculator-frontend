@@ -1,5 +1,6 @@
 {% set page = 'Fondo para Retiros' %}
 {% set form = 'fondo-para-retiros-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra el balance inicial requerido para poder retirar $1,000.00 al inicio de cada mes, durante 20 años, si la tasa de interés sobre el saldo del fondo es de 5.0%.<br><br><span class="example">Respuesta:</span>$152,156.67.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -63,7 +64,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
         });
     </script>

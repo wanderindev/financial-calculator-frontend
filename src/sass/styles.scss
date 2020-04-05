@@ -117,6 +117,31 @@ body {
 .page-title {
   padding-top: 0;
   padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.page-title .card {
+  box-shadow: none;
+}
+
+.example {
+  text-decoration: underline;
+  margin-right: 12px;
+}
+
+.page-title .card-header {
+  box-shadow: none;
+}
+
+.page-title .card-header-title {
+  font-size: 1.5rem;
+  line-height: 2;
+  padding-left: 0;
+  flex-grow: 0;
+}
+
+.page-title .card-content {
+  padding: 0 1.5rem 0 0;
 }
 
 .calculator-form {

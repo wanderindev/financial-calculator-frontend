@@ -1,5 +1,6 @@
 {% set page = 'Duración de Fondos' %}
 {% set form = 'duracion-de-fondos-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra tiempo que durará un fondo de $100,000.00, que gana una tasa de interés de 3.5% sobre saldo, si se retiran $800.00 al inicio de cada mes.<br><br><span class="example">Respuesta:</span>156 meses (13 años).' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -64,7 +65,7 @@
                     },
                 })
                 .on('core.form.valid', function() {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#ret_fund, #freq, #rate').change(function () {

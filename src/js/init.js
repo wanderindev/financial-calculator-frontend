@@ -11,6 +11,9 @@
         let extraDep$ = $('.extra_dep, .extra_pmt');
         let timeScaleRadio$ = $('.time-scale-r');
         let freqSelect$ = $('#freq');
+        let cardToggle$ = $('.card-toggle');
+        let cardContent$ = $('.page-title .card-content');
+        let cardIcon$ = $('.card-toggle i');
 
         freqSelect$.change(function() {
             let value = $(this).children("option:selected").val();
@@ -21,6 +24,12 @@
                 extraDepFSelect$.append($('<option />').val(1).text("Anual"));
             }
             extraDepFSelect$.append($('<option />').val(value).text(text));
+        });
+
+        cardToggle$.click(function() {
+            cardContent$.toggleClass('is-hidden');
+            cardIcon$.toggleClass('fa-angle-down');
+            cardIcon$.toggleClass('fa-angle-right');
         });
 
         // Shows / hides the extra deposit fields.

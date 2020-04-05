@@ -12,6 +12,14 @@
         font-size: 1.25rem;
     }
 
+    .page-title {
+        max-width: 360px;
+    }
+
+    .page-title .card-header-title {
+        font-size: 1.1rem!important;
+    }
+
     .calculator-form {
         width: 276px;
         margin: auto;

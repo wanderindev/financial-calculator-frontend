@@ -1,5 +1,6 @@
 {% set page = 'Tiempo para Lograr Meta' %}
 {% set form = 'tiempo-para-lograr-meta-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra el tiempo en meses que toma alcanzar una cantidad meta de $50,000.00, a partir de una cantidad inicial de $6,000.00, con aportes regulares de $300.00 al inicio de cada mes y ganando 7.4% de interés.<br><br><span class="example">Respuesta:</span>96 meses (8años).' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -78,7 +79,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#fin_bal, #ini_dep').change(function () {

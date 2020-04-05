@@ -1,5 +1,6 @@
 {% set page = 'Tasa de Interés Requerida' %}
 {% set form = 'tasa-de-interes-requerida-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra la tasa de interés requerida para alcanzar, en 8 años, una cantidad meta de $60,000.00, a partir de una cantidad inicial de $5,000.00 y con aportes regulares de $300.00 al inicio de cada mes.<br><br><span class="example">Respuesta:</span>11.55%.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -75,7 +76,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#ini_dep, #reg_dep, #num_of_years, #freq').change(function () {

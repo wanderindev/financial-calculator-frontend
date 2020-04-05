@@ -1,5 +1,6 @@
 {% set page = 'Retiros para Agotar Fondos' %}
 {% set form = 'retiros-para-agotar-fondos-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra la cantidad que se puede retirar al inicio de cada mes, durante 23 años, para agotar un fondo de $200,000.00, que gana una tasa de interés de 4.0% sobre el saldo.<br><br><span class="example">Respuesta:</span>$1,105.81.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -63,7 +64,7 @@
                     },
                 })
                 .on('core.form.valid', function() {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
         });
     </script>

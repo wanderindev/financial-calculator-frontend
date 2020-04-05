@@ -1,5 +1,6 @@
 {% set page = 'Calculadora de Préstamos' %}
 {% set form = 'calculadora-de-prestamos-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra la letra mensual de un préstamo por un monto de $10,000.00, a pagar en 5 años, con un interés de 12.0% y realizando cada pago al final del período.<br><br><span class="example">Respuesta:</span>$222.44.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -90,7 +91,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#num_of_years, #freq').change(function () {

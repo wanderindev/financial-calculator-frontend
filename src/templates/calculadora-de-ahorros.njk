@@ -1,5 +1,6 @@
 {% set page = 'Calculadora de Ahorros' %}
 {% set form = 'calculadora-de-ahorros-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra el total de dinero ahorrado a partir de una cantidad inicial de $1,000 , realizando un aportes regulares de $200 al inicio de cada mes, durante 15 años, ganando un interés de 6.0%.<br><br><span class="example">Respuesta:</span>$60,908.69.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
 <script>
@@ -100,7 +101,7 @@
                 },
             })
             .on('core.form.valid', function () {
-                app.calculate($('h1.title').text());
+                app.calculate($('.page-title .card-header-title').text());
             });
 
         $('#num_of_years, #freq').change(function () {

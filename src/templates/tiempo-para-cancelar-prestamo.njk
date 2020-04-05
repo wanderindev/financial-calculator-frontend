@@ -1,5 +1,6 @@
 {% set page = 'Tiempo para Cancelar Préstamo' %}
 {% set form = 'tiempo-para-cancelar-prestamo-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra el tiempo en el que se cancelará un préstamo de $15,000.00, con un interés de 9.0% y haciendo pagos mensuales de $480.00 al inicio de cada período.<br><br><span class="example">Respuesta:</span>3 años (36 meses).' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -64,7 +65,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
 
             $('#loan, #rate, #freq').change(function () {

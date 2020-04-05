@@ -1,5 +1,6 @@
 {% set page = 'Valor Actual' %}
 {% set form = 'valor-actual-form' %}
+{% set help = '<span class="example">Ejemplo:</span>Encuentra el valor actual de lo que en 20 años, con una tasa de interés del 5.0% aplicada de forma anual, será $100.<br><br><span class="example">Respuesta:</span>$37.69.' %}
 {% extends "_base.njk" %}
 {%  block validation %}
     <script>
@@ -63,7 +64,7 @@
                     },
                 })
                 .on('core.form.valid', function () {
-                    app.calculate($('h1.title').text());
+                    app.calculate($('.page-title .card-header-title').text());
                 });
         });
     </script>
