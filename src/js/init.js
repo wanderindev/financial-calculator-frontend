@@ -28,8 +28,8 @@
 
         cardToggle$.click(function() {
             cardContent$.toggleClass('is-hidden');
-            cardIcon$.toggleClass('fa-angle-down');
-            cardIcon$.toggleClass('fa-angle-right');
+            // cardIcon$.toggleClass('fa-angle-down');
+            // cardIcon$.toggleClass('fa-angle-right');
         });
 
         // Shows / hides the extra deposit fields.
