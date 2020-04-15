@@ -1,5 +1,10 @@
 body {
   min-width: 337px;
+  height: 100%;
+}
+
+html {
+  height: 100%;
 }
 
 .section {
@@ -295,14 +300,22 @@ a.pagination-link {
   display: block;
 }
 
-.fixed-footer {
+.content-wrapper {
+  min-height: 100%;
+  margin-bottom: -104px;
+}
+
+.push {
+  height: 104px;
+}
+
+.sticky-footer {
   width: 100%;
-  position: fixed;
   background: #edf2fc;
   padding: 25px 0;
   color: #4a4a4a;
-  bottom: 0;
   font-size: 0.85rem;
+  height: 104px;
 }
 
 .legal {

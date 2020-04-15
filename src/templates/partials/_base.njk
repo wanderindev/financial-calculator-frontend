@@ -11,158 +11,161 @@
     <script src="https://kit.fontawesome.com/4d4c6829dd.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container">
-    <!-- Navbar start -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="#" title="Inicio">
-                <h1 class="header-logo"></h1>
-            </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+<div class="content-wrapper">
+    <div class="container">
+        <!-- Navbar start -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#" title="Inicio">
+                    <h1 class="header-logo"></h1>
+                </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
 
-        <div id="mobile-menu" class="navbar-menu is-hidden-desktop">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <a class="brand-logo" href="/">
-                        <img src="img/logo.jpg" width="214" height="108">
-                    </a>
-                    {% include '_menu.njk' %}
+            <div id="mobile-menu" class="navbar-menu is-hidden-desktop">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="brand-logo" href="/">
+                            <img src="img/logo.jpg" width="214" height="108">
+                        </a>
+                        {% include '_menu.njk' %}
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <!-- Navbar ends -->
-</div>
-<section class="section cf-section">
+        </nav>
+        <!-- Navbar ends -->
+    </div>
+    <section class="section cf-section">
 
-    <!-- Container start -->
-    <div class="container">
+        <!-- Container start -->
+        <div class="container">
 
-        <!-- Content start -->
-        <div class="columns is-centered is-mobile">
+            <!-- Content start -->
+            <div class="columns is-centered is-mobile">
 
-            <!-- Side menu starts -->
-            <aside class="menu is-hidden-touch column is-narrow">
-                <a class="brand-logo" href="/">
-                    <img src="img/logo.jpg" width="180" height="91">
-                </a>
-                {% include '_menu.njk' %}
-            </aside>
-            <!-- Side menu ends -->
+                <!-- Side menu starts -->
+                <aside class="menu is-hidden-touch column is-narrow">
+                    <a class="brand-logo" href="/">
+                        <img src="img/logo.jpg" width="180" height="91">
+                    </a>
+                    {% include '_menu.njk' %}
+                </aside>
+                <!-- Side menu ends -->
 
-            <!-- Calculator starts -->
-            <div class="column is-narrow ">
+                <!-- Calculator starts -->
+                <div class="column is-narrow ">
 
-                <div class="columns">
-                    <!-- Title starts -->
-                    <div class="column page-title">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    {{page}}
-                                </p>
+                    <div class="columns">
+                        <!-- Title starts -->
+                        <div class="column page-title">
+                            <div class="card">
+                                <header class="card-header">
+                                    <p class="card-header-title">
+                                        {{page}}
+                                    </p>
 
-                                <a href="#" class="card-header-icon card-toggle" aria-label="more options">
-                                  <span class="icon">
-                                    <i class="far fa-question-square fa-lg" aria-hidden="true"></i>
-                                  </span>
-                                </a>
+                                    <a href="#" class="card-header-icon card-toggle" aria-label="more options">
+                                      <span class="icon">
+                                        <i class="far fa-question-square fa-lg" aria-hidden="true"></i>
+                                      </span>
+                                    </a>
 
-                            </header>
-                            <div class="card-content is-hidden">
-                                <div class="content">
-                                    <p>{{help | safe}}</p>
+                                </header>
+                                <div class="card-content is-hidden">
+                                    <div class="content">
+                                        <p>{{help | safe}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Title ends -->
                     </div>
-                    <!-- Title ends -->
-                </div>
 
-                <div class="columns is-multiline">
-                    <!-- Form starts -->
-                    <div class="column is-narrow">
-                        <div class=" calc-form-wrapper">
-                            <form id="{{form}}" class="calculator-form">
-                            {% for field in forms[page] %}
-                                {% if field.type == 'textField' %}
-                                    {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
-                                {% elif field.type == 'freqSelect' %}
-                                    {{ formFields['freqSelect']() }}
-                                {% elif field.type == 'extraDepFreqSelect' %}
-                                    {{ formFields['extraDepFreqSelect']() }}
-                                {% elif field.type == 'extraPmtFreqSelect' %}
-                                    {{ formFields['extraPmtFreqSelect']() }}
-                                {% elif field.type == 'extraDepRadio' %}
-                                    {{ formFields['extraDepRadio']() }}
-                                {% elif field.type == 'extraPmtRadio' %}
-                                    {{ formFields['extraPmtRadio']() }}
-                                {% elif field.type == 'depWhenRadio' %}
-                                    {{ formFields['depWhenRadio']() }}
-                                {% elif field.type == 'pmtWhenRadio' %}
-                                    {{ formFields['pmtWhenRadio']() }}
-                                {% elif field.type == 'wdrWhenRadio' %}
-                                    {{ formFields['wdrWhenRadio']() }}
-                                {% endif %}
-                            {% endfor %}
-                            {{ formFields['calculateButton'](page) }}
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Form ends -->
-
-                    <!-- Results card starts -->
-                    <div class="column is-narrow results-wrapper is-invisible">
-                        <div class="tabs is-centered is-boxed results-tabs">
-                            <ul>
-                                <li id="results-tab" class="is-active">
-                                    <a onclick="app.selectTab('results-tab')">Resultados</a>
-                                </li>
-                                <li id="table-tab" class="is-invisible">
-                                    <a onclick="app.selectTab('table-tab')">Tabla</a>
-                                </li>
-                                <li id="charts-tab" class="is-invisible">
-                                    <a onclick="app.selectTab('charts-tab')">Gráficas</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card results-card">
-                            <div class="card-content">
-
-                                <!-- Results starts -->
-                                {% include '_results.njk' %}
-                                <!-- Results ends -->
-
-                                <!-- Charts starts -->
-                                {% include '_charts.njk' %}
-                                <!-- Charts ends -->
-
-                                <!-- Table starts -->
-                                {% include '_table.njk' %}
-                                <!-- Table ends -->
-
+                    <div class="columns is-multiline">
+                        <!-- Form starts -->
+                        <div class="column is-narrow">
+                            <div class=" calc-form-wrapper">
+                                <form id="{{form}}" class="calculator-form">
+                                {% for field in forms[page] %}
+                                    {% if field.type == 'textField' %}
+                                        {{ formFields['textField'](field.id, field.label, field.value, field.placeholder) }}
+                                    {% elif field.type == 'freqSelect' %}
+                                        {{ formFields['freqSelect']() }}
+                                    {% elif field.type == 'extraDepFreqSelect' %}
+                                        {{ formFields['extraDepFreqSelect']() }}
+                                    {% elif field.type == 'extraPmtFreqSelect' %}
+                                        {{ formFields['extraPmtFreqSelect']() }}
+                                    {% elif field.type == 'extraDepRadio' %}
+                                        {{ formFields['extraDepRadio']() }}
+                                    {% elif field.type == 'extraPmtRadio' %}
+                                        {{ formFields['extraPmtRadio']() }}
+                                    {% elif field.type == 'depWhenRadio' %}
+                                        {{ formFields['depWhenRadio']() }}
+                                    {% elif field.type == 'pmtWhenRadio' %}
+                                        {{ formFields['pmtWhenRadio']() }}
+                                    {% elif field.type == 'wdrWhenRadio' %}
+                                        {{ formFields['wdrWhenRadio']() }}
+                                    {% endif %}
+                                {% endfor %}
+                                {{ formFields['calculateButton'](page) }}
+                                </form>
                             </div>
                         </div>
+                        <!-- Form ends -->
+
+                        <!-- Results card starts -->
+                        <div class="column is-narrow results-wrapper is-invisible">
+                            <div class="tabs is-centered is-boxed results-tabs">
+                                <ul>
+                                    <li id="results-tab" class="is-active">
+                                        <a onclick="app.selectTab('results-tab')">Resultados</a>
+                                    </li>
+                                    <li id="table-tab" class="is-invisible">
+                                        <a onclick="app.selectTab('table-tab')">Tabla</a>
+                                    </li>
+                                    <li id="charts-tab" class="is-invisible">
+                                        <a onclick="app.selectTab('charts-tab')">Gráficas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card results-card">
+                                <div class="card-content">
+
+                                    <!-- Results starts -->
+                                    {% include '_results.njk' %}
+                                    <!-- Results ends -->
+
+                                    <!-- Charts starts -->
+                                    {% include '_charts.njk' %}
+                                    <!-- Charts ends -->
+
+                                    <!-- Table starts -->
+                                    {% include '_table.njk' %}
+                                    <!-- Table ends -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Results card ends -->
                     </div>
-                    <!-- Results card ends -->
+
                 </div>
+                <!-- Calculator ends -->
 
             </div>
-            <!-- Calculator ends -->
+            <!-- Content ends -->
 
         </div>
-        <!-- Content ends -->
+        <!-- Container ends -->
+    </section>
+    <div class="push"></div>
+</div>
 
-    </div>
-    <!-- Container ends -->
-</section>
-
-<footer class="footer fixed-footer">
+<footer class="footer sticky-footer">
 
     <div class="content has-text-centered">
 
