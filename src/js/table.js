@@ -1,26 +1,26 @@
-(function(app, $) {
+((app, $) => {
     // Moves back on page.
-    app.goBack = function() {
+    app.goBack = () => {
         app.selectPage(app.pagination.currentPage - 1);
     };
 
     // Moves forward on page.
-    app.goForward = function() {
+    app.goForward = () => {
         app.selectPage(app.pagination.currentPage + 1);
     };
 
     // Moves to first page.
-    app.goFirst = function() {
+    app.goFirst = () => {
         app.selectPage(1);
     };
 
     // Moves to last page.
-    app.goLast = function() {
+    app.goLast = ()=> {
         app.selectPage(app.pagination.totalPages);
     };
 
     // Selects a table page.
-    app.selectPage = function(page) {
+    app.selectPage = page => {
         if (page !== app.pagination.currentPage && page > 0 && page <= app.pagination.totalPages) {
             app.setTableInfo(page, app.table.index);
             app.updateTablePagination(page);
@@ -32,14 +32,7 @@
     app.getPaginationHtml = function() {
         let html = '';
 
-        /**
-        if (app.pagination.firstPage === 1) {
-            html = '<li><span class="pagination-ellipsis ellipsis-left has-text-white">&hellip;</span></li>';
-        } else {
-            html = '<li><span class="pagination-ellipsis ellipsis-left">&hellip;</span></li>';
-        }
-        **/
-        app.pagination.pageSelect.forEach(function(item) {
+        app.pagination.pageSelect.forEach(item => {
             html += '<li><a class="pagination-link ';
 
             if (item.isActive) {
@@ -48,18 +41,12 @@
 
             html += ' page-' + item.page + '" onclick="app.selectPage(' + item.page + ')">' + item.page + '</a></li>';
         });
-        /**
-        if (app.pagination.lastPage === app.pagination.totalPages) {
-            html += '<li><span class="pagination-ellipsis ellipsis-right has-text-white">&hellip;</span></li>';
-        } else {
-            html += '<li><span class="pagination-ellipsis ellipsis-right">&hellip;</span></li>';
-        }
-        **/
+
         return html;
     };
 
     // Toggles pagination disabled state.
-    app.togglePaginationDisabled = function() {
+    app.togglePaginationDisabled = () => {
         let prev$ = $('.pagination-previous');
         let next$ = $('.pagination-next');
 
@@ -78,7 +65,7 @@
     };
 
     // Returns the pages to be shown in the pagination.
-    app.getPageSelect = function(first, last, active) {
+    app.getPageSelect = (first, last, active) => {
         let pageSelect = [];
 
         for (let i = first; i <= last; i++) {
@@ -94,17 +81,17 @@
     };
 
     // Returns the total number of rows in the table.
-    app.getTotalRows = function() {
+    app.getTotalRows = () => {
         return app.results[app.table.table].length;
     };
 
     // Returns the number to table pages.
-    app.getNumOfPages = function() {
+    app.getNumOfPages = () => {
         return Math.ceil((app.getTotalRows(app.table.table) - 0.99) / app.table.numOfRows);
     };
 
     // Returns the number of pagination elements to display.
-    app.getNumOfPageElements = function() {
+    app.getNumOfPageElements = () => {
         if (app.getNumOfPages() >= 3) {
             return 3;
         }
@@ -113,7 +100,7 @@
     };
 
     // Sets table pagination metadata.
-    app.setPaginationInfo = function(page) {
+    app.setPaginationInfo = page => {
         let elements = app.getNumOfPageElements();
         let currentPage = page;
         let firstPage, lastPage;
@@ -142,7 +129,7 @@
     };
 
     // Updates the table pagination.
-    app.updateTablePagination = function(page = 1) {
+    app.updateTablePagination = (page = 1) => {
         app.setPaginationInfo(page);
         app.togglePaginationDisabled();
 
@@ -150,13 +137,13 @@
     };
 
     // Updates html for table menu.
-    app.updateTableMenu = function() {
+    app.updateTableMenu = () => {
         let timeScales = app.getTimeScales();
         $('#tsr-0').addClass('is-hidden');
         $('#tsr-1').addClass('is-hidden');
         $('#tsr-2').addClass('is-hidden');
 
-        timeScales.forEach(function(item, index) {
+        timeScales.forEach((item, index) => {
             $('#tsr-' + index).removeClass('is-hidden');
             $('#tsr-' + index + ' span.radio-text').html(item.label);
         });
@@ -165,7 +152,7 @@
     };
 
     // Returns a list of tables to display depending on chosen time scale.
-    app.getTimeScales = function() {
+    app.getTimeScales = () => {
         // noinspection JSUnresolvedVariable
         let timeScale = app.calcInfo.settings.tables[app.results.time_scale].display;
         timeScale[timeScale.length -1].numOfRows = app.results.table.length;
@@ -174,7 +161,7 @@
     };
 
     // Sets table metadata.
-    app.setTableInfo = function(page = 1, index = 0) {
+    app.setTableInfo = (page = 1, index = 0) => {
         let timeScale = app.getTimeScales()[index];
         // noinspection JSUnresolvedVariable
         let columns = app.calcInfo.tables[app.calculator].columns;
@@ -202,23 +189,23 @@
     };
 
     // Returns the table rows.
-    app.getTableRows = function(first, last) {
+    app.getTableRows = (first, last) => {
         return app.results[app.table.table].slice(first, last);
     };
 
     // Returns the html for the results table.
-    app.getTableHtml = function() {
+    app.getTableHtml = () => {
         let rows = app.getTableRows(app.table.first, app.table.last);
         let tableHead = '';
         let tableBody = '';
 
-        app.table.columns.forEach(function(column) {
+        app.table.columns.forEach(column => {
             tableHead += '<th class="has-text-centered">' + column + '</th>';
         });
 
-        rows.forEach(function(row) {
+        rows.forEach(row => {
             tableBody += '<tr>';
-            app.table.values.forEach(function(value) {
+            app.table.values.forEach(value => {
                 if (value === 'p') {
                     tableBody += '<td class="has-text-centered">' + row[value] + '</td>';
                 } else {
@@ -232,7 +219,7 @@
     };
 
     // Updates the table upon menu or pagination events.
-    app.updateTable = function() {
+    app.updateTable = () => {
         let tableHead, tableBody;
 
         [tableHead, tableBody] = app.getTableHtml();
@@ -242,7 +229,7 @@
     };
 
     // Sets table components and displays it.
-    app.showTable = function() {
+    app.showTable = () => {
         app.setTableInfo();
         app.updateTableMenu();
         app.updateTablePagination();

@@ -1,16 +1,16 @@
-(function(app, $, Plotly) {
+((app, $, Plotly) => {
     // Builds and shows result charts.
-    app.showCharts = function() {
+    app.showCharts = () => {
         let getVal = function(val) {
             return app.results[val];
         };
 
-        let getText = function(val) {
+        let getText = val => {
             return app.results[val].toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         };
 
         // noinspection JSUnresolvedVariable
-        app.calcInfo.charts[app.calculator].forEach(function(item) {
+        app.calcInfo.charts[app.calculator].forEach(item => {
             if (item.type === 'pie') {
                 let data = app.calcInfo.settings.plotly.pie.data;
                 let layout = app.calcInfo.settings.plotly.pie.layout;
@@ -27,7 +27,7 @@
 
                 layout.title = item.title;
 
-                item.traces.forEach(function(trace) {
+                item.traces.forEach(trace => {
                     data.push({
                         type: item.type,
                         x: app.results[trace.x],

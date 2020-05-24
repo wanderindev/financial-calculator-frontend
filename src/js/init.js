@@ -1,5 +1,5 @@
-(function(app, $) {
-    $(document).ready(function() {
+((app, $) => {
+    $(document).ready(() => {
         let headerLogo$ = $('.header-logo');
         let navbarMenu$ = $('.navbar-menu');
         let navbarItem$ = $('.navbar-end a.navbar-item');
@@ -13,7 +13,6 @@
         let freqSelect$ = $('#freq');
         let cardToggle$ = $('.card-toggle');
         let cardContent$ = $('.page-title .card-content');
-        let cardIcon$ = $('.card-toggle i');
 
         freqSelect$.change(function() {
             let value = $(this).children("option:selected").val();
@@ -26,14 +25,12 @@
             extraDepFSelect$.append($('<option />').val(value).text(text));
         });
 
-        cardToggle$.click(function() {
+        cardToggle$.click(() => {
             cardContent$.toggleClass('is-hidden');
-            // cardIcon$.toggleClass('fa-angle-down');
-            // cardIcon$.toggleClass('fa-angle-right');
         });
 
-        // Shows / hides the extra deposit fields.
-        let toggleExtraDep = function(show) {
+        // Shows/hides the extra deposit fields.
+        let toggleExtraDep = show => {
             if (show) {
                 extraDepF$.removeClass('hide');
                 extraDepStart$.removeClass('hide');
@@ -59,7 +56,7 @@
         });
 
         // Toggles the "is-active" class on both the "navbar-burger" and the "navbar-menu".
-        navbarBurger$.click(function() {
+        navbarBurger$.click(() => {
             // Toggles the "is-active" class on both the "navbar-burger" and the "navbar-menu".
             navbarBurger$.toggleClass('is-active');
             navbarMenu$.toggleClass('is-active');
@@ -77,11 +74,11 @@
         });
 
         // Parses calculator data.
-        $.getJSON('data.json', function(data) {
+        $.getJSON('data.json', data => {
             app.calcInfo = data;
         });
 
-        app.getNper = function() {
+        app.getNper = () => {
             nper = $('#num_of_years').val() * $('#freq').val();
             return nper;
         };

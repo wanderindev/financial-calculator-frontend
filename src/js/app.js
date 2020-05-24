@@ -1,14 +1,14 @@
-(function(app, $, Cleave) {
+((app, $, Cleave) => {
     // Builds the endpoint from the calculator's name.
-    app.getEndpoint = function(calculator) {
+    app.getEndpoint = calculator => {
         return calculator.replace(/ /g, '-').normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "").toLowerCase();
     };
 
     // Gets the form data.
-    app.getData = function(calculator) {
+    app.getData = calculator => {
         let data = {};
-        app.calcInfo.forms[calculator].forEach(function(item) {
+        app.calcInfo.forms[calculator].forEach(item => {
             if (item.type.endsWith('Radio')) {
                 data[item.id] = $('input:radio[name="' + item.id + '"]:checked').val();
             } else {
@@ -25,8 +25,8 @@
     };
 
     // Applies Cleave formatting to results.
-    app.formatResults = function() {
-        $('.money').toArray().forEach(function(el) {
+    app.formatResults = () => {
+        $('.money').toArray().forEach(el => {
             new Cleave(el, {
                 numeral: true,
                 numeralThousandsGroupStyle: 'thousand',
@@ -37,8 +37,8 @@
     };
 
     // Builds and shows results.
-    app.showResults = function() {
-        app.calcInfo.results[app.calculator].forEach(function(item) {
+    app.showResults = () => {
+        app.calcInfo.results[app.calculator].forEach(item => {
             if (item.type !== 'label') {
                 $('#' + item.id).val(app.results[item.id].toFixed(2));
             }
@@ -54,7 +54,8 @@
         }
     };
 
-    app.selectTab = function(tab) {
+    // Shows/hides result panel tabs
+    app.selectTab = tab => {
         if (tab === 'results-tab') {
             $('#charts-tab').removeClass('is-active');
             $('#table-tab').removeClass('is-active');
@@ -63,9 +64,7 @@
             $('#charts').addClass('hide');
             $('#table').addClass('hide');
             $('#results').removeClass('hide');
-        }
-
-        if (tab === 'charts-tab') {
+        } else if (tab === 'charts-tab') {
             $('#results-tab').removeClass('is-active');
             $('#table-tab').removeClass('is-active');
             $('#charts-tab').addClass('is-active');
@@ -73,9 +72,7 @@
             $('#results').addClass('hide');
             $('#table').addClass('hide');
             $('#charts').removeClass('hide');
-        }
-
-        if (tab === 'table-tab') {
+        } else if (tab === 'table-tab') {
             $('#charts-tab').removeClass('is-active');
             $('#results-tab').removeClass('is-active');
             $('#table-tab').addClass('is-active');
@@ -87,7 +84,7 @@
     };
 
     // Gets the results from the backend.
-    app.calculate = function(calculator) {
+    app.calculate = calculator => {
         let baseUrl = 'https://api.calcfina.com/';
         //let baseUrl = 'http://localhost:5001/';
         let endpoint = app.getEndpoint(calculator);
@@ -102,7 +99,7 @@
             contentType: 'application/json',
             url: baseUrl + endpoint,
             data: JSON.stringify(data),
-            success: function(results) {
+            success: results => {
                 app.results = results;
                 app.calculator = calculator;
                 $('.results-wrapper').removeClass('is-invisible');
@@ -118,7 +115,7 @@
                 }
             },
             dataType: 'json',
-            error: function(e) {
+            error: e => {
                 console.log(e);
             }
         });
