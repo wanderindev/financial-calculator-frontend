@@ -1,116 +1,54 @@
-{% set page = 'Calculadora de Ahorros' %}
-{% set form = 'calculadora-de-ahorros-form' %}
-{% set help = '<span class="example">Ejemplo:</span>Encuentra el total de dinero ahorrado a partir de una cantidad inicial de $1,000 , realizando un aportes regulares de $200 al inicio de cada mes, durante 15 años, ganando un interés de 6.0%.<br><br><span class="example">Respuesta:</span>$60,908.69.' %}
+{% set page = 'Mejore su $ituación' %}
+{% set form = '' %}
 {% extends "_base.njk" %}
-{%  block validation %}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form1 = document.getElementById('calculadora-de-ahorros-form');
-            const fv1 = FormValidation
-                .formValidation(form1, {
-                    locale: 'es_ES',
-                    localization: FormValidation.locales.es_ES,
-                    fields: {
-                        ini_dep: {
-                            validators: {
-                                //notEmpty: {},
-                                greaterThan: {
-                                    inclusive: true,
-                                    min: 0,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
-                                }
-                            }
-                        },
-                        reg_dep: {
-                            validators: {
-                                //notEmpty: {},
-                                greaterThan: {
-                                    inclusive: true,
-                                    min: 0,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
-                                }
-                            }
-                        },
-                        num_of_years: {
-                            validators: {
-                                notEmpty: {},
-                                greaterThan: {
-                                    inclusive: true,
-                                    min: 0.001,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
-                                }
-                            }
-                        },
-                        rate: {
-                            validators: {
-                                notEmpty: {},
-                                between: {
-                                    inclusive: true,
-                                    min: 0,
-                                    max: 100,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
-                                }
-                            }
-                        },
-                        extra_dep: {
-                            validators: {
-                                notEmpty: {},
-                                greaterThan: {
-                                    inclusive: true,
-                                    min: 0,
-                                }
-                            }
-                        },
-                        extra_dep_start: {
-                            validators: {
-                                notEmpty: {},
-                                between: {
-                                    inclusive: true,
-                                    min: 1,
-                                    max: 12,
-                                },
-                                numeric: {
-                                    thousandsSeparator: '',
-                                    decimalSeparator: '.'
-                                }
-                            }
-                        },
-
-                    },
-                    plugins: {
-                        trigger: new FormValidation.plugins.Trigger(),
-                        bulma: new FormValidation.plugins.Bulma(),
-                        submitButton: new FormValidation.plugins.SubmitButton(),
-                        icon: new FormValidation.plugins.Icon({
-                            valid: 'fa fa-check',
-                            invalid: 'fa fa-times',
-                            validating: 'fa fa-refresh'
-                        }),
-                    },
-                })
-                .on('core.form.valid', function () {
-                    app.calculate($('.page-title .card-header-title').text());
-                });
-
-            $('#num_of_years, #freq').change(function () {
-                let num_of_years = form1.querySelector('#num_of_years').value;
-                let freq = form1.querySelector('#freq').value;
-
-                fv1.updateValidatorOption('extra_dep_start', 'between', 'max', num_of_years * freq);
-                fv1.revalidateField('extra_dep_start');
-            });
-        });
-    </script>
+{%  block book %}
+<div class="columns is-multiline">
+    <div class="column is-narrow book-desc">
+        <a href="https://www.amazon.com/Pedro-Moreno/e/B00J1O3FOY/ref=ntt_dp_epwbk_0">
+            <img src="img/book.jpg" class="is-pulled-right book-cover">
+        </a>
+        <p>
+            Lo que debes saber sobre finanzas personales y como aplicarlo para tu beneficio.
+        </p>
+        <p>
+            Se explica sin complicaciones y con ejemplos prácticos diferentes conceptos financieros como endeudamiento, interés compuesto, inflación, tabla de amortización, retiros periódicos de ahorros y otros.
+        </p>
+        <p>
+            Incluye su propia calculadora financiera, calcfina.com, para responder preguntas prácticas y cotidianas como las siguientes:
+        </p>
+        <ul class="book-ul">
+            <li>
+                ¿cuánto es la letra mensual a pagar por un préstamo?, ¿me están cobrando de más?
+            </li>
+            <li>
+                ¿cuánto realmente pago en interés a la tarjeta de crédito?
+            </li>
+            <li>
+                ¿qué gano haciendo un abono extra a la hipoteca de mi casa?
+            </li>
+            <li>
+                ¿cuánto debo ahorrar o invertir para jubilarme?
+            </li>
+        </ul>
+        <p>
+            La intención de este libro es ayudarlo a usted a Mejorar su $ituación financiera, esta es su responsabilidad.
+        </p>
+        <p>
+            Si usted no lo hace, nadie lo hará por usted.
+        </p>
+    </div>
+</div>
+{% endblock %}
+{%  block author %}
+<div class="columns is-multiline">
+    <div class="column is-narrow book-desc">
+        <p class="author-title">Sobre el autor</p>
+    </div>
+</div>
+<div class="columns is-multiline">
+    <div class="column is-narrow book-desc">
+        <img src="img/pedro.jpg" class="is-pulled-left author-pic">
+        <p class="column is-narrow author-desc">Nacido en Panamá, 1967. Obtuvo su B.S. en Mass. Maritime Academy y ha navegado por el mundo como oficial de marina mercante en tanqueros químicos. En 1995 comienza a trabajar como práctico en el Canal de Panamá y forma una familia con su bella esposa Sonia y sus dos hijos.</p>
+    </div>
+</div>
 {% endblock %}

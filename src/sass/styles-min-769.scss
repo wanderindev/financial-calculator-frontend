@@ -21,4 +21,41 @@
   .page-title .card {
     max-width: 700px;
   }
+
+  .book-desc {
+    margin-top: -40px;
+  }
+
+  .book-desc p {
+    width: 650px;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+
+  .author-desc {
+    margin-top: 10px;
+    text-align: justify;
+    margin-left: -0.75rem;
+  }
+
+  .book-cover {
+    width: 300px;
+  }
+
+  .author-pic {
+    width: 150px;
+    margin-right: 40px;
+    margin-top: 24px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+  }
+
+  .book-ul li {
+    width: 650px;
+    list-style: square;
+    margin-left: 12px;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+  }
 }
