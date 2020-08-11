@@ -185,7 +185,7 @@
     }
 
     .book-desc p {
-        width: 390px;
+        width: 310px;
         margin-bottom: 20px;
         font-size: 1rem;
         text-align: justify;
@@ -193,7 +193,7 @@
 
     .book-cover {
         float: none;
-        width: 390px;
+        width: 310px;
     }
 
     .author-pic {
@@ -211,7 +211,7 @@
     }
 
     .book-ul li {
-        width: 390px;
+        width: 310px;
         list-style: square;
         margin-left: 12px;
         margin-bottom: 20px;
@@ -219,7 +219,7 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 337px) {
     .book-desc {
         margin-top: -40px;
     }
