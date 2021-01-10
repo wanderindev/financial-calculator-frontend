@@ -65,28 +65,31 @@ to compile the codebase and serve it to your browser.
 
 Edit the source files as needed. The ```watch``` task will refresh your browser everytime a change is detected in the source.
 
-For deployment:
+## Deployment
+To deploy, you need to build the Docker image for the project and push it to your Docker Hub account:
 ```sh
 gulp
 docker build -t wanderindev/fc-frontend .
 docker push wanderindev/fc-frontend
 ```
-Then, from the root of do-kubernetes project:
+Replace ```wanderindev``` above (my Docker Hub account id) with your Docker Hub id.
+
+Then, from the root of [do-kubernetes project](https://github.com/wanderindev/do-managed-kubernetes) project run:
 ```sh
 kubectl delete deployment fc-frontend
 kubectl apply -f ./sites/fc-frontend.yml
 ```
+to create two pods running the frontend and a service exposing them at port 80.
+
 For more information on deploying to a Kubernetes cluster, visit 
 my [do-managed-kubernetes](https://github.com/wanderindev/do-managed-kubernetes) repository.
-
-For information on the financial calculator backend, visit 
-my [financial-calculator-backend](https://github.com/wanderindev/financial-calculator-backend) repository.
 
 ## Author
 
 👤 **Javier Feliu**
 
 * Twitter: [@JavierFeliuA](https://twitter.com/JavierFeliuA)
+* Blog: [Wander In Dev](https://wanderin.dev)  
 * Github: [@wanderindev](https://github.com/wanderindev)
 
 ## Show your support
