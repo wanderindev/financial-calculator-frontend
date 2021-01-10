@@ -61,6 +61,9 @@ During develpment use:
 ```sh
 gulp watch
 ```
+to compile the codebase and serve it to your browser.  
+
+Edit the source files as needed. The ```watch``` task will refresh your browser everytime a change is detected in the source.
 
 For deployment:
 ```sh
