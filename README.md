@@ -51,7 +51,7 @@ npm install
 The ```src``` folder contains the codebase:
 * All JavaScript is in the ```js``` folder.
 * The Bulma library and custom styles are in the ```sass``` folder.
-* All Nunjucks templates are in the ```templates``` folder.  This folder also contains the file data.json which contain structure information on how to render the calculator forms, the results, the result tables, and the charts.
+* All Nunjucks templates are in the ```templates``` folder.  This folder also contains the file ```data.json``` with structured information on how to render the calculator forms, the results, the result tables, and the charts.
 * The project uses [Gulp](https://gulpjs.com/) for workflow automation.  You can find the Gulp tasks in ```gulpfile.js```.
 
 The source files are compiled to the ```dist``` folder and, from there, they are packaged into a Docker image and deployed to a Kubernetes cluster.
