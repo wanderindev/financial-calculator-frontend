@@ -15,8 +15,6 @@
   </a>
 </p>
 
-> Website for financial calculator
-
 ## About
 This project contains the frontend for a financial calculator.  I coded this project in JavaScript, using [jQuery](https://jquery.com/) (for DOM manipulation), [Nunjuck](https://mozilla.github.io/nunjucks/) (for templating), [Cleave](https://nosir.github.io/cleave.js/) (for form field formatting), and [FormValidation](https://formvalidation.io/) (for validating inputs). For styling, I used [Bulma](https://bulma.io/).
 
@@ -28,11 +26,11 @@ For this project, the book author presented me with a series of calculators buil
 Most of Excel's financial formulas have the calculation method obfuscated.  That is, you can't see how it arrives at the result.
 
 The Python library NumPy contains 1:1 equivalents to all of Excel's financial formulas.  For this reason, I decided to break up the problem into two:
-1. An API in Python would receive the calculation parameters from the frontend and return the results calculated with NumPy.
-2. A frontend would provide a user interface for receiving calculation parameters and presenting the results.
+1. **(This repository)** A frontend would provide a user interface for receiving calculation parameters and presenting the results.
+2. **([The backend repository](https://github.com/wanderindev/financial-calculator-backend))** An API in Python would receive the calculation parameters from the frontend and return the results calculated with NumPy.
 
 ### Important links
-1. You can take a look at the backend code in [this repository](https://github.com/wanderindev/financial-calculator-backend).
+1. You can take a look at the backend code [here](https://github.com/wanderindev/financial-calculator-backend).
 2. Find the live calculator [here](https://www.calcfina.com/es/calculadora-de-ahorros.html).
 3. This project runs in a Kubernetes cluster at DigitalOcean.  For information on how to create your cluster visit my [do-managed-kubernetes](https://github.com/wanderindev/do-managed-kubernetes) repository.
 
