@@ -76,7 +76,7 @@ Replace ```wanderindev``` above (my Docker Hub account id) with your Docker Hub 
 
 Then, from the root of [do-kubernetes project](https://github.com/wanderindev/do-managed-kubernetes) project run:
 ```sh
-kubectl delete deployment fc-frontend
+kubectl delete deployment calcfina-web
 kubectl apply -f ./sites/fc-frontend.yml
 ```
 to create two pods running the frontend and a service exposing them at port 80.
